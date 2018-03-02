@@ -1,0 +1,1592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+    <channel>
+        <atom:link rel="self" type="application/atom+xml" href="https://rss.simplecast.com/podcasts/2248/rss" title="MP3 Audio"/>
+        <title>It Depends</title>
+        <generator>https://simplecast.com</generator>
+        <description>A podcast by Clear Function.
+
+            Clear Function is a group of happy engineers based in Memphis, TN.  We partner with visionaries to bring their ideas to life.
+            For more information, &lt;a href="http://www.clearfunction.com"&gt;check out our website&lt;/a&gt;.</description>
+        <copyright>© 2016-2017 Clear Function</copyright>
+        <language>en</language>
+        <pubDate>Fri, 02 Feb 2018 07:00:00 -0600</pubDate>
+        <lastBuildDate>Fri, 16 Feb 2018 08:40:17 -0600</lastBuildDate>
+        <link>http://www.clearfunction.com/podcast</link>
+        <image>
+            <url>https://media.simplecast.com/podcast/image/2248/1473192128-artwork.jpg</url>
+            <title>It Depends</title>
+            <link>http://www.clearfunction.com/podcast</link>
+        </image>
+        <itunes:new-feed-url>https://rss.simplecast.com/podcasts/2248/rss</itunes:new-feed-url>
+        <itunes:author>Clear Function</itunes:author>
+        <itunes:image href="https://media.simplecast.com/podcast/image/2248/1473192128-artwork.jpg"/>
+        <itunes:summary>A podcast by Clear Function.
+
+            Clear Function is a group of happy engineers based in Memphis, TN.  We partner with visionaries to bring their ideas to life.
+            For more information, &lt;a href="http://www.clearfunction.com"&gt;check out our website&lt;/a&gt;.</itunes:summary>
+        <itunes:subtitle>A podcast by Clear Function.</itunes:subtitle>
+        <itunes:explicit>no</itunes:explicit>
+        <itunes:keywords>technology, agency, web, .NET, C#, developers, </itunes:keywords>
+        <itunes:type>episodic</itunes:type>
+        <itunes:owner>
+            <itunes:name>Colin Neller</itunes:name>
+            <itunes:email>podcast@clearfunction.com</itunes:email>
+        </itunes:owner>
+        <itunes:category text="Technology"/>
+        <itunes:category text="Business"/>
+        <itunes:category text="Technology">
+            <itunes:category text="Software How-To"/>
+        </itunes:category>
+        <item>
+            <title>36: Balancing Code and Meetings</title>
+            <guid isPermaLink="false">c593ee39-95e5-412f-85c0-c71bc66a0328</guid>
+            <link>http://podcast.clearfunction.com/95a25db2</link>
+            <description>On this episode, Ben, Mo, Daniel, and Jesse discuss the nature of doing development work that is not strictly writing code all the time. They try to find the appropriate balance between time spent coding and time spent in meetings. This topic includes some great tips on how to do meetings efficiently and effectively. There's even a rousing few minutes about what defines a meeting.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Mo, Daniel, and Jesse discuss the nature of doing development work that is not strictly writing code all the time. They try to find the appropriate balance between time spent coding and time spent in meetings. This topic includes some great tips on how to do meetings efficiently and effectively. There's even a rousing few minutes about what defines a meeting.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.hanselman.com/blog/ReplyToAllSnowballKnowWhenToEscalateCommunication.aspx">Know When to Escalate Communication</a>, Scott Hanselman</li>
+                    <li><a href="https://www.hanselman.com/blog/30TipsForSuccessfulCommunicationAsARemoteWorker.aspx">30 Tips for Successful Communication as a Remote Worker</a>, Scott Hanselman</li>
+                    <li><a href="https://hangouts.google.com">Google Hangouts</a></li>
+                    <li><a href="https://zoom.us/">Zoom</a></li>
+                    <li><a href="https://www.gotomeeting.com/">GoToMeeting</a></li>
+                    <li><a href="https://www.skype.com/en/">Skype</a></li>
+                    <li><a href="https://slack.com/">Slack</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 02 Feb 2018 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/d56b2225.mp3" length="36028566" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/110179/1517513952-artwork.jpg"/>
+            <itunes:duration>00:37:28</itunes:duration>
+            <itunes:summary>On this episode, Ben, Mo, Daniel, and Jesse discuss the nature of doing development work that is not strictly writing code all the time. They try to find the appropriate balance between time spent coding and time spent in meetings. This topic includes some great tips on how to do meetings efficiently and effectively. There's even a rousing few minutes about what defines a meeting.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Mo, Daniel, and Jesse discuss the nature of doing development work that is not strictly writing code all the time. They try to find the appropriate balance between time spent coding and time spent in meetings. This topic includes som</itunes:subtitle>
+            <itunes:keywords>development, code, coding, programming, application, web, developer, engineer, engineering, meeting, meetings, communication, discussion, purpose, meaning, value, business</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>36</itunes:episode>
+        </item>
+        <item>
+            <title>35: Alexa &amp; Voice Development</title>
+            <guid isPermaLink="false">73847fab-ca88-40fe-a0ed-4f25cc12244d</guid>
+            <link>http://podcast.clearfunction.com/01ff114b</link>
+            <description>On this episode, Daniel, Jesse, and Ben discuss all the recent hype around your favorite voice assistant speakers. They talk through the reasons for current spikes in popularity of voice speakers such as Amazon Echo and Google Home. Most importantly, the engineers discuss how to develop for and take advantage of these new and exciting platforms.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Jesse, and Ben discuss all the recent hype around your favorite voice assistant speakers. They talk through the reasons for current spikes in popularity of voice speakers such as Amazon Echo and Google Home. Most importantly, the engineers discuss how to develop for and take advantage of these new and exciting platforms.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://developer.amazon.com/alexa">Amazon Alexa</a></li>
+                    <li><a href="https://www.apple.com/ios/siri/">Apple Siri</a></li>
+                    <li><a href="https://assistant.google.com/intl/en_us/#?modal_active=none">Google Assistant</a></li>
+                    <li><a href="https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b?ie=UTF8&amp;node=9818047011">Amazon Echo</a></li>
+                    <li><a href="https://www.apple.com/homepod/">Apple HomePod</a></li>
+                    <li><a href="https://store.google.com/product/google_home">Google Home</a></li>
+                    <li><a href="https://www.sonos.com/en-us/home">Sonos</a></li>
+                    <li><a href="https://www.nuance.com/dragon.html">Dragon NaturalSpeaking</a></li>
+                    <li><a href="https://www.luis.ai/home">Microsoft LUIS</a></li>
+                    <li><a href="https://www.raspberrypi.org/">Raspberry Pi</a></li>
+                    <li>For early access to Clear Function Digital Experience, email us at <a href="http://mailto:digital@clearfunction.com">digital@clearfunction.com</a>.</li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 19 Jan 2018 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/43273814.mp3" length="28175530" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/105845/1516131573-artwork.jpg"/>
+            <itunes:duration>00:29:18</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Jesse, and Ben discuss all the recent hype around your favorite voice assistant speakers. They talk through the reasons for current spikes in popularity of voice speakers such as Amazon Echo and Google Home. Most importantly, the engineers discuss how to develop for and take advantage of these new and exciting platforms.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Jesse, and Ben discuss all the recent hype around your favorite voice assistant speakers. They talk through the reasons for current spikes in popularity of voice speakers such as Amazon Echo and Google Home. Most importantly, the </itunes:subtitle>
+            <itunes:keywords>programming, development, application, developer, alexa, google, assistant, voice, siri, apple, amazon, microsoft, cortana</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>35</itunes:episode>
+        </item>
+        <item>
+            <title>34: How to Present at Tech Conferences</title>
+            <guid isPermaLink="false">ddaacaea-7ced-42e5-abb1-4eb3fef632d3</guid>
+            <link>http://podcast.clearfunction.com/cd93f005</link>
+            <description>On this episode, Daniel, Mo, Brian, and Ben discuss the necessary steps toward becoming a presenter at a tech conference. This includes selecting a conference, choosing a topic, crafting an abstract, mastering the topic, preparing a slide deck, and giving the presentation. Listen in for specific presentation tips and tricks!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Mo, Brian, and Ben discuss the necessary steps toward becoming a presenter at a tech conference. This includes selecting a conference, choosing a topic, crafting an abstract, mastering the topic, preparing a slide deck, and giving the presentation. Listen in for specific presentation tips and tricks!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://southeastruby.com/">Southeast Ruby</a></li>
+                    <li><a href="http://codestock.org/">Codestock</a></li>
+                    <li><a href="http://david.heinemeierhansson.com/">David Heinemeier Hansson (DHH)</a></li>
+                    <li><a href="https://basecamp.com/">Basecamp</a></li>
+                    <li><a href="https://revealjs.com/">reveal.js</a></li>
+                    <li><a href="https://www.slideshare.net">SlideShare</a></li>
+                    <li><a href="https://build.microsoft.com/">Microsoft Build</a></li>
+                    <li><a href="http://www.kytrinyx.com/">Katrina Owen</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 05 Jan 2018 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/091708b1.mp3" length="39876298" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/103214/1514988951-artwork.jpg"/>
+            <itunes:duration>00:41:29</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Mo, Brian, and Ben discuss the necessary steps toward becoming a presenter at a tech conference. This includes selecting a conference, choosing a topic, crafting an abstract, mastering the topic, preparing a slide deck, and giving the presentation. Listen in for specific presentation tips and tricks!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Mo, Brian, and Ben discuss the necessary steps toward becoming a presenter at a tech conference. This includes selecting a conference, choosing a topic, crafting an abstract, mastering the topic, preparing a slide deck, and giving</itunes:subtitle>
+            <itunes:keywords>tech, technical, technology, conference, conferences, programming, coding, code, developer, development, application, web, ruby, dotnet, codestock, microsoft, build</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>34</itunes:episode>
+        </item>
+        <item>
+            <title>33: How and When to Invest in R&amp;D</title>
+            <guid isPermaLink="false">11cfae5c-aeb0-4764-a860-5539081d54d5</guid>
+            <link>http://podcast.clearfunction.com/ee38c39b</link>
+            <description>On this episode, Daniel, Jesse, and Brian talk about research and development and its place in an agency. In addition to defining R&amp;D, they discuss how to manage and spend research time well. This conversation also includes more on how to keep up with articles and technologies, which is expanded from a previous episode, namely "10: Should I Learn this New Technology?".
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Jesse, and Brian talk about research and development and its place in an agency. In addition to defining R&amp;D, they discuss how to manage and spend research time well. This conversation also includes more on how to keep up with articles and technologies, which is expanded from a previous episode, namely <a href="https://podcast.clearfunction.com/10">It Depends 10: Should I learn this new technology?</a>.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://dotnet.github.io/">.NET Core</a></li>
+                    <li><a href="https://facebook.github.io/react-native/">React Native</a></li>
+                    <li><a href="https://www.terraform.io/">Terraform</a></li>
+                    <li><a href="https://aws.amazon.com/">Amazon Web Services (AWS)</a></li>
+                    <li><a href="https://www.docker.com/">Docker</a></li>
+                    <li><a href="https://feedly.com/">Feedly</a></li>
+                    <li><a href="https://www.google.com/reader/about/">Google Reader</a></li>
+                    <li><a href="https://curated.co/">Curated</a></li>
+                    <li><a href="https://postgresweekly.com/">Postgres Weekly</a></li>
+                    <li><a href="http://net.litmus.com/">.NET News Weekly</a></li>
+                    <li>Javascript Frameworks: <a href="http://elixir-lang.github.io/">Elixir</a>, <a href="http://phoenixframework.org/">Phoenix</a>, <a href="https://angular.io/">Angular</a>, <a href="https://www.emberjs.com/">Ember</a></li>
+                    <li>Templating Languages: <a href="https://apidock.com/ruby/ERB">Ruby's ERB</a>, <a href="http://haml.info/">HAML</a></li>
+                    <li><a href="https://spreecommerce.org/">Spree</a></li>
+                    <li><a href="https://prettier.io/">Prettier</a></li>
+                    <li><a href="http://coffeescript.org/">CoffeeScript</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 22 Dec 2017 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/32b21775.mp3" length="29887491" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/100610/1513107231-artwork.jpg"/>
+            <itunes:duration>00:31:05</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Jesse, and Brian talk about research and development and its place in an agency. In addition to defining R&amp;D, they discuss how to manage and spend research time well. This conversation also includes more on how to keep up with articles and technologies, which is expanded from a previous episode, namely "10: Should I Learn this New Technology?".
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Jesse, and Brian talk about research and development and its place in an agency. In addition to defining R&amp;D, they discuss how to manage and spend research time well. This conversation also includes more on how to keep up with art</itunes:subtitle>
+            <itunes:keywords>web, application, software, development, developer, engineering, engineer, program, research, learning, continuous, improvement, knowledge, sharing</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>33</itunes:episode>
+        </item>
+        <item>
+            <title>32: DevOps: Scaling Out or Scaling Up?: </title>
+            <guid isPermaLink="false">64fa1978-d65a-4cfc-923c-f8ab19e2544b</guid>
+            <link>http://podcast.clearfunction.com/0889bf0c</link>
+            <description>On this episode, Daniel, Jesse, and Mo embark on the final episode in our DevOps series. Specifically, the topic is scaling to handle additional load for a site in production. Do you handle the traffic by buying more servers or by growing existing servers?
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Jesse, and Mo embark on the final episode in our DevOps series. Specifically, the topic is scaling to handle additional load for a site in production. Do you handle the traffic by buying more servers or by growing existing servers?</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://aws.amazon.com/s3/">Amazon S3</a></li>
+                    <li><a href="https://www.vmware.com/">VMware</a></li>
+                    <li><a href="https://www.mongodb.com/nosql-explained">NoSQL</a></li>
+                    <li><a href="https://www.heroku.com/">Heroku</a></li>
+                    <li><a href="https://f5.com/">F5 Servers</a></li>
+                    <li><a href="http://sifterapp.com/">Sifter</a></li>
+                    <li><a href="https://www.cloudflare.com/">Cloudflare</a></li>
+                    <li><a href="https://newrelic.com/">New Relic</a></li>
+                    <li><a href="https://www.bugsnag.com/">Bugsnag</a></li>
+                    <li><a href="https://www.apache.org/">Apache</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 08 Dec 2017 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/db108f1b.mp3" length="29388030" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/99039/1512485842-artwork.jpg"/>
+            <itunes:duration>00:30:33</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Jesse, and Mo embark on the final episode in our DevOps series. Specifically, the topic is scaling to handle additional load for a site in production. Do you handle the traffic by buying more servers or by growing existing servers?
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Jesse, and Mo embark on the final episode in our DevOps series. Specifically, the topic is scaling to handle additional load for a site in production. Do you handle the traffic by buying more servers or by growing existing servers</itunes:subtitle>
+            <itunes:keywords>programming, development, developer, coding, code, devops, operations, scaling, servers, networking, linux, amazon, cloud, google</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>32</itunes:episode>
+        </item>
+        <item>
+            <title>31: Chatbot Skills with Daniel Pritchett</title>
+            <guid isPermaLink="false">85ed3e5b-74a3-4114-b75a-528ff6363f74</guid>
+            <link>http://podcast.clearfunction.com/96df4cd6</link>
+            <description>On this episode, our very own chatbot expert, Daniel Pritchett, joins Mo and Ben to discuss chat as a service. While there is a lot of hype around chatbots recently, these engineers decode chat as a platform and engage in all kinds of fun along the way. Listen in to hear about the implicit increases in efficiency, knowledge sharing, and time savings that can come with chatbots. Also, look out for Daniel’s talk at Southeast Ruby in October and his upcoming book!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, our very own chatbot expert, Daniel Pritchett, joins Mo and Ben to discuss chat as a service. While there is a lot of hype around chatbots recently, these engineers decode chat as a platform and engage in all kinds of fun along the way. Listen in to hear about the implicit increases in efficiency, knowledge sharing, and time savings that can come with chatbots. Also, look out for Daniel’s talk at <a href="https://southeastruby.com/">Southeast Ruby</a> in October and his upcoming book!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://hubot.github.com/">Github’s hubot</a></li>
+                    <li><a href="https://www.helloastro.com/">Astro Mail</a></li>
+                    <li><a href="https://www.crowdfireapp.com/">Crowdfire</a></li>
+                    <li><a href="https://get.slack.help/hc/en-us/articles/202026038-Slackbot-personal-assistant-and-helpful-bot-">Slackbot</a></li>
+                    <li><a href="https://www.facebook.com/messenger/">Facebook Messenger</a></li>
+                    <li><a href="http://www.memphistechnology.org/">Memtech</a></li>
+                    <li><a href="https://github.com/memtech/memtech-elvis">Memtech's Elvis Bot</a></li>
+                    <li><a href="https://ifttt.com/">IFTTT</a> (If This Then That)</li>
+                    <li><a href="https://devcenter.heroku.com/articles/chatops">Heroku ChatOps</a></li>
+                    <li><a href="https://www.atlassian.com/software/jira">Jira</a></li>
+                    <li><a href="https://jenkins.io/">Jenkins</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/ELIZA">ELIZA</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Zork">Zork</a></li>
+                    <li><a href="https://dev.botframework.com/">Microsoft Bot Framework</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 15 Sep 2017 17:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/c5083672.mp3" length="31099991" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/86290/1505497201-artwork.jpg"/>
+            <itunes:duration>00:32:20</itunes:duration>
+            <itunes:summary>On this episode, our very own chatbot expert, Daniel Pritchett, joins Mo and Ben to discuss chat as a service. While there is a lot of hype around chatbots recently, these engineers decode chat as a platform and engage in all kinds of fun along the way. Listen in to hear about the implicit increases in efficiency, knowledge sharing, and time savings that can come with chatbots. Also, look out for Daniel’s talk at Southeast Ruby in October and his upcoming book!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, our very own chatbot expert, Daniel Pritchett, joins Mo and Ben to discuss chat as a service. While there is a lot of hype around chatbots recently, these engineers decode chat as a platform and engage in all kinds of fun along the way. L</itunes:subtitle>
+            <itunes:keywords>programming, development, developer, chat, chatbot, chatops, github, hubot, bot, bots, slackbot, heroku, siri, facebook, messenger, mobile, device, ifttt, memtech, elvis, amazon, alexa, skill, ai, artificial intelligence, eliza, turing test, micro</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>31</itunes:episode>
+        </item>
+        <item>
+            <title>30: Application Hosting with DevOps in "The Cloud"</title>
+            <guid isPermaLink="false">adc0278b-0d9a-411f-8804-b8271255bfd8</guid>
+            <link>http://podcast.clearfunction.com/ed71d195</link>
+            <description>On this episode, Ben, Daniel, Jesse, and Mo discuss the cloud and application hosting. The conversation includes services such as Heroku, Azure, and Amazon Web Services (AWS). Listen in to hear about how developers make the decision to use platform as a service or infrastructure as a service to manage and host their applications.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Daniel, Jesse, and Mo discuss the cloud and application hosting. The conversation includes services such as Heroku, Azure, and Amazon Web Services (AWS). Listen in to hear about how developers make the decision to use platform as a service or infrastructure as a service to manage and host their applications.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.heroku.com">Heroku</a></li>
+                    <li><a href="https://azure.microsoft.com/en-us/">Azure</a></li>
+                    <li><a href="https://aws.amazon.com/">Amazon Web Services (AWS)</a></li>
+                    <li><a href="https://elements.heroku.com/addons">Heroku Add-ons</a></li>
+                    <li><a href="https://kubernetes.io/">Kubernetes</a></li>
+                    <li><a href="https://www.terraform.io/">Terraform</a></li>
+                    <li><a href="http://podcast.clearfunction.com/episodes/dd9a8b28/29-using-docker-and-ansible-to-win-at-devops">It Depends on Containers</a></li>
+                    <li><a href="https://www.docker.com/">Docker</a></li>
+                    <li><a href="https://aws.amazon.com/lambda/">AWS Lambda</a></li>
+                    <li><a href="https://cloud.google.com/">Google Cloud</a></li>
+                    <li><a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-infrastructure">Red Hat Cloud Infrastructure</a></li>
+                    <li><a href="https://www.akamai.com/us/en/solutions/why-akamai/making-the-cloud-business-ready.jsp">Akamai Cloud Business</a></li>
+                    <li><a href="https://www.digitalocean.com/">Digital Ocean</a></li>
+                    <li><a href="https://www.rackspace.com/en-us/cloud">Rackspace Cloud</a></li>
+                    <li><a href="https://www.railstutorial.org/">Michael Hartl's Rails Book</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 08 Sep 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/ed71d195.mp3" length="25893055" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/85526/1504811934-artwork.jpg"/>
+            <itunes:duration>00:26:55</itunes:duration>
+            <itunes:summary>On this episode, Ben, Daniel, Jesse, and Mo discuss the cloud and application hosting. The conversation includes services such as Heroku, Azure, and Amazon Web Services (AWS). Listen in to hear about how developers make the decision to use platform as a service or infrastructure as a service to manage and host their applications.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Daniel, Jesse, and Mo discuss the cloud and application hosting. The conversation includes services such as Heroku, Azure, and Amazon Web Services (AWS). Listen in to hear about how developers make the decision to use platform as a s</itunes:subtitle>
+            <itunes:keywords>application, app, hosting, web, platform, infrastructure, service, development, operations, devops, heroku, azure, aws, amazon, kubernetes, terraform</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>30</itunes:episode>
+        </item>
+        <item>
+            <title>29: Using Docker and Ansible to Win at DevOps</title>
+            <guid isPermaLink="false">99b366dc-ea01-422c-8a1d-2f278fd386ea</guid>
+            <link>http://podcast.clearfunction.com/dd9a8b28</link>
+            <description>On this episode, Ben, Jesse, Keith, and Mo discuss configuration management and continuous deployment. Using technologies like Docker and Ansible can identify and provide dependencies for applications. Learn how to fight for consistency across development and production environments with containers.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Jesse, Keith, and Mo discuss configuration management and continuous deployment. Using technologies like Docker and Ansible can identify and provide dependencies for applications. Learn how to fight for consistency across development and production environments with containers.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.docker.com/">Docker</a></li>
+                    <li><a href="https://www.ansible.com/">Ansible</a></li>
+                    <li><a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a></li>
+                    <li><a href="https://www.chef.io/chef/">Chef</a></li>
+                    <li><a href="https://puppet.com/">Puppet</a></li>
+                    <li><a href="https://docs.microsoft.com/en-us/powershell/dsc/overview">Powershell DSC</a></li>
+                    <li><a href="https://kubernetes.io/">Kubernetes</a></li>
+                    <li><a href="https://www.openshift.com/">OpenShift</a></li>
+                    <li><a href="https://www.vmware.com/products/vsphere.html">vSphere</a></li>
+                    <li><a href="https://azure.microsoft.com/en-us/">Azure</a></li>
+                    <li><a href="http://www.tapgive.org/">TapGive</a></li>
+                    <li><a href="http://www.ilumis.com/ilumis/">ilumis</a></li>
+                    <li><a href="https://blog.codinghorror.com/the-works-on-my-machine-certification-program/">The "works on my machine" badge</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 25 Aug 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/dd9a8b28.mp3" length="27723717" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/84224/1503496844-artwork.jpg"/>
+            <itunes:duration>00:28:49</itunes:duration>
+            <itunes:summary>On this episode, Ben, Jesse, Keith, and Mo discuss configuration management and continuous deployment. Using technologies like Docker and Ansible can identify and provide dependencies for applications. Learn how to fight for consistency across development and production environments with containers.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Jesse, Keith, and Mo discuss configuration management and continuous deployment. Using technologies like Docker and Ansible can identify and provide dependencies for applications. Learn how to fight for consistency across development</itunes:subtitle>
+            <itunes:keywords>software, web, programming, development, developer, engineering, engineer, continuous, deployment, configuration, management, docker, ansible, server, servers, container, application</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>29</itunes:episode>
+        </item>
+        <item>
+            <title>28: The How, When, &amp; Why of DevOps</title>
+            <guid isPermaLink="false">53e964c7-e52d-4e67-802e-54e4b5305d18</guid>
+            <link>http://podcast.clearfunction.com/28</link>
+            <description>On this episode, Ben, Mo, Jesse, and Daniel cover continuous integration &amp; delivery, monitoring, logging, and more. Do today’s developers all need to learn some DevOps? What are the tradeoffs in targeting platform as a service, infrastructure as a service, or the traditional ‘bare metal’ deployment?
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Mo, Jesse, and Daniel cover continuous integration &amp; delivery, monitoring, logging, and more. Do today’s developers all need to learn some DevOps? What are the tradeoffs in targeting platform as a service, infrastructure as a service, or the traditional ‘bare metal’ deployment?</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://azure.microsoft.com/en-us/">Azure</a></li>
+                    <li><a href="https://www.autoitscript.com/site/autoit/">AutoIt</a></li>
+                    <li><a href="https://papertrailapp.com/">Papertrail</a></li>
+                    <li><a href="https://github.com/arnaudsj/monit">Monit</a></li>
+                    <li><a href="https://sifterapp.com/">Sifter</a></li>
+                    <li><a href="https://www.bugsnag.com/">Bugsnag</a></li>
+                    <li><a href="https://sentry.io/">Sentry</a></li>
+                    <li><a href="https://www.heroku.com/">Heroku</a></li>
+                    <li><a href="https://aws.amazon.com/">AWS</a></li>
+                    <li><a href="https://azure.microsoft.com/en-us/services/app-service/">Azure App Service</a></li>
+                    <li><a href="https://www.linode.com/">Linode</a></li>
+                    </ul>
+
+
+                    <a name="Other.Helpful..Introductory.Articles"></a>
+                    <h2>Other Helpful, Introductory Articles</h2>
+
+                    <ul>
+                    <li>What is DevOps?
+
+                    <ul>
+                    <li><a href="https://aws.amazon.com/devops/what-is-devops/">Amazon Web Services</a></li>
+                    <li><a href="https://theagileadmin.com/what-is-devops/">The Agile Admin</a></li>
+                    <li><a href="https://www.atlassian.com/devops">Atlassian</a></li>
+                    </ul>
+                    </li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 11 Aug 2017 05:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/afbbc4d7.mp3" length="28484402" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/79422/1501691261-artwork.jpg"/>
+            <itunes:duration>00:29:37</itunes:duration>
+            <itunes:summary>On this episode, Ben, Mo, Jesse, and Daniel cover continuous integration &amp; delivery, monitoring, logging, and more. Do today’s developers all need to learn some DevOps? What are the tradeoffs in targeting platform as a service, infrastructure as a service, or the traditional ‘bare metal’ deployment?
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Mo, Jesse, and Daniel cover continuous integration &amp; delivery, monitoring, logging, and more. Do today’s developers all need to learn some DevOps? What are the tradeoffs in targeting platform as a service, infrastructure as a service</itunes:subtitle>
+            <itunes:keywords>development, developer, operations, devops, programming, server, system, administration, sysadmin, azure, heroku, aws, cloud, continuous, delivery, integration, monitoring, logging</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>28</itunes:episode>
+        </item>
+        <item>
+            <title>27: When to Google, When to Ask for Help</title>
+            <guid isPermaLink="false">c54691b6-a879-429e-8197-e2f2c2debc78</guid>
+            <link>http://podcast.clearfunction.com/27</link>
+            <description>On this episode, Jesse, Mo, Keith, and Brian discuss the balance between using a search engine and asking co-workers for help. When you have a tricky problem to solve, either of these tactics will include some significant trade offs. The team explains when and how to Google to be effective in programming.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Jesse, Mo, Keith, and Brian discuss the balance between using a search engine and asking co-workers for help. When you have a tricky problem to solve, either of these tactics will include some significant trade offs. The team explains when and how to Google to be effective in programming.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.google.com/">Google</a></li>
+                    <li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+                    <li><a href="http://podcast.clearfunction.com/22">It Depends, The Art of Debugging</a></li>
+                    <li><a href="https://www.experts-exchange.com/">Experts Exchange</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 28 Jul 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/339ae0c6.mp3" length="28912393" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/78144/1500995104-artwork.jpg"/>
+            <itunes:duration>00:30:04</itunes:duration>
+            <itunes:summary>On this episode, Jesse, Mo, Keith, and Brian discuss the balance between using a search engine and asking co-workers for help. When you have a tricky problem to solve, either of these tactics will include some significant trade offs. The team explains when and how to Google to be effective in programming.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Jesse, Mo, Keith, and Brian discuss the balance between using a search engine and asking co-workers for help. When you have a tricky problem to solve, either of these tactics will include some significant trade offs. The team explains whe</itunes:subtitle>
+            <itunes:keywords>programming, development, knowledge, sharing, coding, google, bing, duck duck go, ask jeeves, search, search engine, reference, help</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>27</itunes:episode>
+        </item>
+        <item>
+            <title>26: Pair Programming</title>
+            <guid isPermaLink="false">4461aa36-78a7-49e1-815f-9042cb0eb543</guid>
+            <link>http://podcast.clearfunction.com/26</link>
+            <description>On this episode, Ben, Jesse, and Daniel discuss pair programming. With the strategy of pairing comes significant benefits to productivity, code quality, rubber ducking, and knowledge sharing. Listen in for helpful tips about tooling and managing differing team strengths and energy levels.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Jesse, and Daniel discuss pair programming. With the strategy of pairing comes significant benefits to productivity, code quality, rubber ducking, and knowledge sharing. Listen in for helpful tips about tooling and managing differing team strengths and energy levels.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://screenhero.com/">Screenhero</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 14 Jul 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/d5ebc518.mp3" length="27438250" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/76676/1499889508-artwork.jpg"/>
+            <itunes:duration>00:28:32</itunes:duration>
+            <itunes:summary>On this episode, Ben, Jesse, and Daniel discuss pair programming. With the strategy of pairing comes significant benefits to productivity, code quality, rubber ducking, and knowledge sharing. Listen in for helpful tips about tooling and managing differing team strengths and energy levels.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Jesse, and Daniel discuss pair programming. With the strategy of pairing comes significant benefits to productivity, code quality, rubber ducking, and knowledge sharing. Listen in for helpful tips about tooling and managing differing</itunes:subtitle>
+            <itunes:keywords>programming, development, software, web, application, pair, coding, code, pairing, program</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>26</itunes:episode>
+        </item>
+        <item>
+            <title>25: How to Win at Tech Conferences</title>
+            <guid isPermaLink="false">23f3e156-5b71-4e2a-b794-ad1801d5b47d</guid>
+            <link>http://podcast.clearfunction.com/25</link>
+            <description>On this episode, Jesse, Mo, Ben, and Daniel discuss the continuous improvement topic of tech conferences. They discuss how to choose a conference, the most helpful aspects of a conference, and how to attend conferences well. Perhaps most importantly, the group explains how to take full advantage of the conference by sharing knowledge with the whole team.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Jesse, Mo, Ben, and Daniel discuss the continuous improvement topic of tech conferences. They discuss how to choose a conference, the most helpful aspects of a conference, and how to attend conferences well. Perhaps most importantly, the group explains how to take full advantage of the conference by sharing knowledge with the whole team.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.pytennessee.org/">PyTennessee</a></li>
+                    <li><a href="https://railsconf.com/">RailsConf</a></li>
+                    <li><a href="https://build.microsoft.com/">Microsoft Build</a></li>
+                    <li><a href="https://developer.apple.com/wwdc/">Apple WWDC</a></li>
+                    <li><a href="https://events.google.com/io/">Google I/O</a></li>
+                    <li><a href="http://events.sap.com/teched-global/en/home">SAP TechEd</a></li>
+                    <li><a href="https://www.devspaceconf.com/">DevSpace</a></li>
+                    <li><a href="https://southeastruby.com/">Southeast Ruby</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 30 Jun 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/aa84a54c.mp3" length="30219713" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/73234/1497888102-artwork.jpg"/>
+            <itunes:duration>00:31:25</itunes:duration>
+            <itunes:summary>On this episode, Jesse, Mo, Ben, and Daniel discuss the continuous improvement topic of tech conferences. They discuss how to choose a conference, the most helpful aspects of a conference, and how to attend conferences well. Perhaps most importantly, the group explains how to take full advantage of the conference by sharing knowledge with the whole team.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Jesse, Mo, Ben, and Daniel discuss the continuous improvement topic of tech conferences. They discuss how to choose a conference, the most helpful aspects of a conference, and how to attend conferences well. Perhaps most importantly, the </itunes:subtitle>
+            <itunes:keywords>tech, technology, conference, conferences, programming, coding, developer, development, software, engineering</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>25</itunes:episode>
+        </item>
+        <item>
+            <title>24: Should You Change Code for Tests?</title>
+            <guid isPermaLink="false">639a6e44-3fb4-435a-bbaf-bb0e153110de</guid>
+            <link>http://podcast.clearfunction.com/24</link>
+            <description>On this episode, Ben, Mo, Daniel, and Jesse discuss three important questions regarding the priority of testing when writing code. Could you change your code for tests? Would you change your code for tests? Should you change your code for tests? Listen in to hear about how testing is a first-order concern in writing good code.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Mo, Daniel, and Jesse discuss three important questions regarding the priority of testing when writing code. Could you change your code for tests? Would you change your code for tests? Should you change your code for tests? Listen in to hear about how testing is a first-order concern in writing good code.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052">Working Effectively with Legacy Code, Michael Feathers</a></li>
+                    <li>The blog post that generated all of this: <a href="http://www.everydayunittesting.com/2017/04/over-exposure-and-privacy-issues.html">Over Exposure and Privacy Issues, Gil Zilberfeld</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 16 Jun 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/d8115491.mp3" length="27413953" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/72752/1497378453-artwork.jpg"/>
+            <itunes:duration>00:28:30</itunes:duration>
+            <itunes:summary>On this episode, Ben, Mo, Daniel, and Jesse discuss three important questions regarding the priority of testing when writing code. Could you change your code for tests? Would you change your code for tests? Should you change your code for tests? Listen in to hear about how testing is a first-order concern in writing good code.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Mo, Daniel, and Jesse discuss three important questions regarding the priority of testing when writing code. Could you change your code for tests? Would you change your code for tests? Should you change your code for tests? Listen in</itunes:subtitle>
+            <itunes:keywords>coding, programming, testing, test-driven, development, tests, writing, test</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>24</itunes:episode>
+        </item>
+        <item>
+            <title>23: Software Testing &amp; Test-Driven Development</title>
+            <guid isPermaLink="false">30fbf370-4f8a-41ed-8f1d-0a8f04356bd2</guid>
+            <link>http://podcast.clearfunction.com/23</link>
+            <description>On this episode, Ben, Daniel, Jesse, and Brian discuss software testing. From types of tests to tooling for testing, learn how tests can help you make better software in less time with reproducible, regression-preventing tests. And finally, the debate about test-driven development is rekindled again!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Daniel, Jesse, and Brian discuss software testing. From types of tests to tooling for testing, learn how tests can help you make better software in less time with reproducible, regression-preventing tests. And finally, the debate about test-driven development is rekindled again!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://sifterapp.com/">Sifter</a></li>
+                    <li><a href="https://stripe.com/">Stripe</a></li>
+                    <li><a href="http://rspec.info/">Rspec</a></li>
+                    <li><a href="http://ruby-doc.org/stdlib-2.0.0/libdoc/minitest/rdoc/MiniTest.html">MiniTest</a></li>
+                    <li><a href="http://teamcapybara.github.io/capybara/">Capybara</a></li>
+                    <li><a href="http://www.seleniumhq.org/">Selenium</a></li>
+                    <li><a href="http://docs.shouldly-lib.net/">Shouldly</a></li>
+                    <li><a href="https://www.nunit.org/">NUnit</a></li>
+                    <li><a href="https://xunit.github.io/">XUnit</a></li>
+                    <li><a href="http://nsubstitute.github.io/">NSubstitute</a></li>
+                    <li><a href="http://nmock.sourceforge.net/">NMock</a></li>
+                    <li><a href="https://storify.com/GeePawHill/five-underplayed-premises-of-tdd">5 Guiding Principles of Testing</a>, Michael D. Hill</li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 02 Jun 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/f73a3213.mp3" length="31551331" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/70830/1496151308-artwork.jpg"/>
+            <itunes:duration>00:32:49</itunes:duration>
+            <itunes:summary>On this episode, Ben, Daniel, Jesse, and Brian discuss software testing. From types of tests to tooling for testing, learn how tests can help you make better software in less time with reproducible, regression-preventing tests. And finally, the debate about test-driven development is rekindled again!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Daniel, Jesse, and Brian discuss software testing. From types of tests to tooling for testing, learn how tests can help you make better software in less time with reproducible, regression-preventing tests. And finally, the debate abo</itunes:subtitle>
+            <itunes:keywords>software, testing, development, programming, test, tests, .net, ruby, integration, unit, regression, ioc, inversion, of, control, tdd, test, driven, test-driven, development</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>23</itunes:episode>
+        </item>
+        <item>
+            <title>22: The Art of Debugging</title>
+            <guid isPermaLink="false">e3dcda38-91f8-4476-9371-e95d168a0ae3</guid>
+            <link>http://podcast.clearfunction.com/22</link>
+            <description>On this episode, Daniel, Mo, and Jesse debug all the problems. They address making and questioning assumptions as a programmer, how to debug different types of errors, and the best tooling in various operating systems. Listen in to hear about test journals, buddy debugging, rubber ducking, and much more!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Mo, and Jesse debug all the problems. They address making and questioning assumptions as a programmer, how to debug different types of errors, and the best tooling in various operating systems. Listen in to hear about test journals, buddy debugging, rubber ducking, and much more!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://landing.google.com/sre/book.html">Site Reliability Engineering</a> at Google</li>
+                    <li><a href="https://www.visualstudio.com/">Visual Studio</a></li>
+                    <li><a href="https://technet.microsoft.com/en-us/sysinternals/bb842062.aspx">Sysinternals</a></li>
+                    <li><a href="http://www.windbg.org/">WinDbg</a></li>
+                    <li><a href="https://www.wireshark.org/">Wire Shark</a></li>
+                    <li><a href="http://www.telerik.com/fiddler">Fiddler</a></li>
+                    <li><a href="http://www.vim.org/">Vim</a></li>
+                    <li><a href="https://github.com/pry/pry">Pry</a></li>
+                    <li><a href="https://www.jetbrains.com/ruby/">RubyMine</a></li>
+                    <li><a href="http://pages.cs.wisc.edu/~remzi/Naur.pdf">Programming as Theory Building</a></li>
+                    <li><a href="https://developer.chrome.com/devtools">Chrome DevTools</a></li>
+                    <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 19 May 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/7f60358e.mp3" length="45722655" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/69764/1495029052-artwork.jpg"/>
+            <itunes:duration>00:47:34</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Mo, and Jesse debug all the problems. They address making and questioning assumptions as a programmer, how to debug different types of errors, and the best tooling in various operating systems. Listen in to hear about test journals, buddy debugging, rubber ducking, and much more!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Mo, and Jesse debug all the problems. They address making and questioning assumptions as a programmer, how to debug different types of errors, and the best tooling in various operating systems. Listen in to hear about test journal</itunes:subtitle>
+            <itunes:keywords>software, programming, web, development, developer, debug, debugging, art, breakpoint, testing</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>22</itunes:episode>
+        </item>
+        <item>
+            <title>21: The Secret to Success in Team Projects</title>
+            <guid isPermaLink="false">e9f0215b-3bbf-4cec-a80c-d647e2692332</guid>
+            <link>http://podcast.clearfunction.com/21</link>
+            <description>On this episode, Daniel, Stephen, Ben, and Colin go beyond engineering practices to talk about another important part of the life of the developer. We call it leadership, but it involves all kinds of soft skills as well as individual ownership of practices, products, and projects. In large part, this episode reveals our "secret sauce" in team projects.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Stephen, Ben, and Colin go beyond engineering practices to talk about another important part of the life of the developer. We call it leadership, but it involves all kinds of soft skills as well as individual ownership of practices, products, and projects. In large part, this episode reveals our "secret sauce" in team projects.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li>Extreme Ownership [ <a href="https://www.amazon.com/Extreme-Ownership-U-S-Navy-SEALs-ebook/dp/B00VE4Y0Z2">Amazon</a> ]</li>
+                    <li>The Five Dysfunctions of a Team [ <a href="https://www.amazon.com/Five-Dysfunctions-Team-Leadership-Fable/dp/0787960756">Amazon</a> ]</li>
+                    <li>It Depends, <a href="http://podcast.clearfunction.com/15">015: The Trouble with Estimating</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 05 May 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/739a4b4a.mp3" length="39183683" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/68503/1493743813-artwork.jpg"/>
+            <itunes:duration>00:40:46</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Stephen, Ben, and Colin go beyond engineering practices to talk about another important part of the life of the developer. We call it leadership, but it involves all kinds of soft skills as well as individual ownership of practices, products, and projects. In large part, this episode reveals our "secret sauce" in team projects.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Stephen, Ben, and Colin go beyond engineering practices to talk about another important part of the life of the developer. We call it leadership, but it involves all kinds of soft skills as well as individual ownership of practice</itunes:subtitle>
+            <itunes:keywords>teams, projects, development, engineering, software, web, success, ownership, soft, skills, leadership</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>21</itunes:episode>
+        </item>
+        <item>
+            <title>20: Fostering a Positive Work Culture</title>
+            <guid isPermaLink="false">dcc30aa7-2723-4f4f-91ca-2c81dff7de07</guid>
+            <link>http://podcast.clearfunction.com/20</link>
+            <description>On this episode, Daniel, Brian, Stephen, and Ben discuss cultivating healthy work culture. Our work includes not only what we do, but also how we do it. For developers, this means work is not just writing code. How do we foster a positive work culture? Listen in to find out.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Brian, Stephen, and Ben discuss cultivating healthy work culture. Our work includes not only what we do, but also how we do it. For developers, this means work is not just writing code. How do we foster a positive work culture? Listen in to find out.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li>Code Review &amp; Technical luncheons</li>
+                    <li><a href="https://robots.thoughtbot.com/investment-time">Investment Time</a></li>
+                    <li><a href="https://exp.host/@benjaminjrobin/cf-soundboard">Clear Function Soundboard</a></li>
+                    <li><a href="https://expo.io/">Expo</a></li>
+                    <li><a href="https://facebook.github.io/react-native/">React Native</a></li>
+                    <li><a href="https://hubot.github.com/">Hubot Chatbot</a></li>
+                    <li><a href="https://slack.com/">Slack</a></li>
+                    <li>Team walk breaks</li>
+                    <li>Regular 1-on-1's with supervisor</li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 21 Apr 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/a36d1c42.mp3" length="37023252" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/67039/1492725009-artwork.jpg"/>
+            <itunes:duration>00:38:31</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Brian, Stephen, and Ben discuss cultivating healthy work culture. Our work includes not only what we do, but also how we do it. For developers, this means work is not just writing code. How do we foster a positive work culture? Listen in to find out.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Brian, Stephen, and Ben discuss cultivating healthy work culture. Our work includes not only what we do, but also how we do it. For developers, this means work is not just writing code. How do we foster a positive work culture? Li</itunes:subtitle>
+            <itunes:keywords>work, culture, development, programming, chat, bot, chatbot, code review, investment, personal development, growth</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>20</itunes:episode>
+        </item>
+        <item>
+            <title>19: Customer-First Service and Support for Product Teams</title>
+            <guid isPermaLink="false">bed0e9ed-2ba6-48e9-a182-439ed62669cb</guid>
+            <link>http://podcast.clearfunction.com/19</link>
+            <description>On this episode, Ben, Daniel, and Stephen discuss the important and often diverse tasks of supporting people using software products. The conversation includes getting feature requests, bug reports, and questions about how best to use the product. The team even dialogues over a specific, recent feature request from a customer via Twitter. Also, what role does empathy play in customer support? Listen in to learn how we manage priorities in a customer-first product business.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Daniel, and Stephen discuss the important and often diverse tasks of supporting people using software products. The conversation includes getting feature requests, bug reports, and questions about how best to use the product. The team even dialogues over a specific, recent feature request from a customer via Twitter. Also, what role does empathy play in customer support? Listen in to learn how we manage priorities in a customer-first product business.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://sifterapp.com/">Sifter</a></li>
+                    <li><a href="https://tapgive.org/">TapGive</a></li>
+                    <li><a href="http://www.ilumis.com/">ilumis</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 07 Apr 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/fc618978.mp3" length="38613169" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/65256/1491318276-artwork.jpg"/>
+            <itunes:duration>00:40:10</itunes:duration>
+            <itunes:summary>On this episode, Ben, Daniel, and Stephen discuss the important and often diverse tasks of supporting people using software products. The conversation includes getting feature requests, bug reports, and questions about how best to use the product. The team even dialogues over a specific, recent feature request from a customer via Twitter. Also, what role does empathy play in customer support? Listen in to learn how we manage priorities in a customer-first product business.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Daniel, and Stephen discuss the important and often diverse tasks of supporting people using software products. The conversation includes getting feature requests, bug reports, and questions about how best to use the product. The tea</itunes:subtitle>
+            <itunes:keywords>software, as a service, saas, development, product, project, application, web, ruby, rails, customer, empathy, service, support</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>19</itunes:episode>
+        </item>
+        <item>
+            <title>18: Why and How We Review Code as a Team</title>
+            <guid isPermaLink="false">c6d755c5-a3c6-47ea-b5ce-0d4438ae102a</guid>
+            <link>http://podcast.clearfunction.com/18</link>
+            <description>On this episode, Daniel, Jesse, Mo, and Brian discuss the importance of reviewing code. What are some good tools for the code review process? How early is too early to get feedback on your code? Listen in to here answers to these questions and more. And, we introduce the "It Depends" bell on this one!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Jesse, Mo, and Brian discuss the importance of reviewing code. What are some good tools for the code review process? How early is too early to get feedback on your code? Listen in to here answers to these questions and more. And, we introduce the "It Depends" bell on this one!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="http://podcast.clearfunction.com/6">Imposter Syndrome episode</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Bus_factor">The bus problem</a></li>
+                    <li><a href="https://github.com/">Github</a></li>
+                    <li><a href="https://www.atlassian.com/software/crucible">Atlassian Crucible</a></li>
+                    <li><a href="https://docs.gitlab.com/ee/user/project/description_templates.html#setting-a-default-template-for-issues-and-merge-requests">GitLab merge request templates</a></li>
+                    <li><a href="https://www.jetbrains.com/ruby/">Ruby Mine IDE</a></li>
+                    <li><a href="https://www.gerritcodereview.com/">Gerrit Code Review</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 24 Mar 2017 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/f89f147e.mp3" length="38993512" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/62301/1489070884-artwork.jpg"/>
+            <itunes:duration>00:40:34</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Jesse, Mo, and Brian discuss the importance of reviewing code. What are some good tools for the code review process? How early is too early to get feedback on your code? Listen in to here answers to these questions and more. And, we introduce the "It Depends" bell on this one!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Jesse, Mo, and Brian discuss the importance of reviewing code. What are some good tools for the code review process? How early is too early to get feedback on your code? Listen in to here answers to these questions and more. And, </itunes:subtitle>
+            <itunes:keywords>code review, code, review, coding, program, programming, review, testing, developer, developing, software, engineering, engineer, pull request</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>18</itunes:episode>
+        </item>
+        <item>
+            <title>17: Diving into Unfamiliar Code</title>
+            <guid isPermaLink="false">b0fe6399-45ef-47be-82ed-0220c7d0f4c1</guid>
+            <link>http://podcast.clearfunction.com/17</link>
+            <description>On this episode, Daniel, Jesse, Brian, and Mo give some pro tips on how to handle large, existing codebases which may be very unfamiliar to a new developer. These four engineers speak from personal experience on projects where ground must be covered quickly. This episode is largely a response to a listener's question via Twitter! Thanks to Jimmy Turner for listening and writing in.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Jesse, Brian, and Mo give some pro tips on how to handle large, existing codebases which may be very unfamiliar to a new developer. These four engineers speak from personal experience on projects where ground must be covered quickly. This episode is largely a response to a <a href="https://twitter.com/jimmyturnerpt/status/839133294176440326">listener's question via Twitter</a>! Thanks to Jimmy Turner for listening and writing in.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.jetbrains.com/resharper/">ReSharper</a></li>
+                    <li><a href="https://github.com/ggreer/the_silver_searcher">Silver Searcher</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Grep">Grep</a></li>
+                    <li><a href="https://github.com/monochromegane/the_platinum_searcher">Platinum Searcher</a></li>
+                    <li><a href="https://newrelic.com/">New Relic</a></li>
+                    <li><a href="https://www.statuspage.io/">Status Page</a></li>
+                    <li><a href="http://www.memphistechnology.org/">#memtech</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com/">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="https://twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 10 Mar 2017 09:30:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/949328b6.mp3" length="36770805" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/62299/1489070634-artwork.jpg"/>
+            <itunes:duration>00:38:15</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Jesse, Brian, and Mo give some pro tips on how to handle large, existing codebases which may be very unfamiliar to a new developer. These four engineers speak from personal experience on projects where ground must be covered quickly. This episode is largely a response to a listener's question via Twitter! Thanks to Jimmy Turner for listening and writing in.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Jesse, Brian, and Mo give some pro tips on how to handle large, existing codebases which may be very unfamiliar to a new developer. These four engineers speak from personal experience on projects where ground must be covered quick</itunes:subtitle>
+            <itunes:keywords>coding, programming, development, .NET, developer, large, unfamiliar, codebase, success, succeed, pro tips, how to</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>17</itunes:episode>
+        </item>
+        <item>
+            <title>16: How to Write Code that Doesn't Smell</title>
+            <guid isPermaLink="false">73d207b0-f4fb-49e0-9a9c-b44d892a40e8</guid>
+            <link>http://podcast.clearfunction.com/16</link>
+            <description>On this episode, Daniel, Jesse, Mo, and Ben discuss the importance of writing good code. Hear four engineers talk specifically and technically about this topic. The conversation includes the infamous "code smell" concept as well as many other things that go beyond the linter in writing code.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Jesse, Mo, and Ben discuss the importance of writing good code. Hear four engineers talk specifically and technically about this topic. The conversation includes the infamous "code smell" concept as well as many other things that go beyond the linter in writing code.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://blog.codinghorror.com/flattening-arrow-code/">Arrow Code, Jeff Atwood</a></li>
+                    <li><a href="https://www.confidentruby.com/">Confident Ruby, Avdi Grimm</a></li>
+                    <li><a href="http://www.poodr.com/">POODR, Sandi Metz</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Code_folding">Code folding</a></li>
+                    <li><a href="https://devchat.tv/ruby-rogues/087-rr-book-club-practical-object-oriented-design-in-ruby-with-sandi-metz">Sandi Metz on Ruby Rogues</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY (Don't Repeat Yourself)</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Rule_of_three_%28computer_programming%29">Code duplication &amp; rule of three</a></li>
+                    <li><a href="http://norvig.com/">Peter Norvig</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://www.clearfunction.com">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 24 Feb 2017 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/76b955bb.mp3" length="37852483" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/60593/1487266684-artwork.jpg"/>
+            <itunes:duration>00:39:22</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Jesse, Mo, and Ben discuss the importance of writing good code. Hear four engineers talk specifically and technically about this topic. The conversation includes the infamous "code smell" concept as well as many other things that go beyond the linter in writing code.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Jesse, Mo, and Ben discuss the importance of writing good code. Hear four engineers talk specifically and technically about this topic. The conversation includes the infamous "code smell" concept as well as many other things that </itunes:subtitle>
+            <itunes:keywords>software, engineering, development, ruby, rails, code, coding, programming, good, better, best, write</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>16</itunes:episode>
+        </item>
+        <item>
+            <title>15: The Trouble with Estimating</title>
+            <guid isPermaLink="false">4c803db9-bfd8-4861-aaa7-cb7e795c129c</guid>
+            <link>http://podcast.clearfunction.com/15</link>
+            <description>On this episode, Ben, Daniel, Jesse, and Mo discuss the tricky job of estimating work. Though the task can be difficult, it is absolutely essential to software engineering for the benefit of others. Listen to the group work through various elements of estimating from what is involved, how to do it, and what do to when you get it wrong.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Daniel, Jesse, and Mo discuss the tricky job of estimating work. Though the task can be difficult, it is absolutely essential to software engineering for the benefit of others. Listen to the group work through various elements of estimating from what is involved, how to do it, and what do to when you get it wrong.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://coding.abel.nu/2012/06/programmer-time-translation-table/">Programmer Time Translation Table</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Agile_software_development">Agile</a></li>
+                    <li><a href="https://www.atlassian.com/agile/kanban">Kanban</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Sat, 11 Feb 2017 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/fa9ed82b.mp3" length="38755693" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/59873/1486568852-artwork.jpg"/>
+            <itunes:duration>00:40:19</itunes:duration>
+            <itunes:summary>On this episode, Ben, Daniel, Jesse, and Mo discuss the tricky job of estimating work. Though the task can be difficult, it is absolutely essential to software engineering for the benefit of others. Listen to the group work through various elements of estimating from what is involved, how to do it, and what do to when you get it wrong.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Daniel, Jesse, and Mo discuss the tricky job of estimating work. Though the task can be difficult, it is absolutely essential to software engineering for the benefit of others. Listen to the group work through various elements of est</itunes:subtitle>
+            <itunes:keywords>software, engineering, development, developer, estimate, estimates, estimating, hours, time, work, agile, stories, fibonacci</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>15</itunes:episode>
+        </item>
+        <item>
+            <title>14: Mentoring Aspiring Coders</title>
+            <guid isPermaLink="false">3ceb74a8-aff8-4417-a30b-b0afdd9c95c6</guid>
+            <link>http://podcast.clearfunction.com/14</link>
+            <description>On this episode, Daniel, Brian, and Keith discuss the nuances of starting out as a new programmer, particularly as an adult. They talk through different resources and strategies which will be helpful given various backgrounds. How do you get started programming? Which language should you start with and at what kind of company will you thrive? Do you have friends who ask you these questions and more? Listen in and find out!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Brian, and Keith discuss the nuances of starting out as a new programmer, particularly as an adult. They talk through different resources and strategies which will be helpful given various backgrounds. How do you get started programming? Which language should you start with and at what kind of company will you thrive? Do you have friends who ask you these questions and more? Listen in and find out!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.heroku.com/">Heroku</a></li>
+                    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+                    <li><a href="https://git-scm.com/">Git</a></li>
+                    <li><a href="https://desktop.github.com/">Github Desktop</a></li>
+                    <li><a href="http://www.stemedcoalition.org/">STEM</a></li>
+                    <li><a href="https://www.codecademy.com/">CodeAcademy</a></li>
+                    <li><a href="https://www.twitch.tv/">Twitch.tv</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 27 Jan 2017 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/e2910f8c.mp3" length="39017336" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/58569/1485458656-artwork.jpg"/>
+            <itunes:duration>00:40:35</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Brian, and Keith discuss the nuances of starting out as a new programmer, particularly as an adult. They talk through different resources and strategies which will be helpful given various backgrounds. How do you get started programming? Which language should you start with and at what kind of company will you thrive? Do you have friends who ask you these questions and more? Listen in and find out!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Brian, and Keith discuss the nuances of starting out as a new programmer, particularly as an adult. They talk through different resources and strategies which will be helpful given various backgrounds. How do you get started progr</itunes:subtitle>
+            <itunes:keywords>technology, development, programming, software, engineering, rails, ruby, dotnet, .net, learning, coding</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>14</itunes:episode>
+        </item>
+        <item>
+            <title>13: Building Robust and Supportable Systems</title>
+            <guid isPermaLink="false">5296ad8d-0a84-4d40-8124-c231885755d7</guid>
+            <link>http://podcast.clearfunction.com/13</link>
+            <description>On this episode, Daniel, Brian, Mo, and Jesse talk about building robust and supportable production systems. It's a timely topic near the holidays because some new issues can arise during year change. Listen in for some helpful pro tips and work smarter for your future self and colleagues.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Brian, Mo, and Jesse talk about building robust and supportable production systems. It's a timely topic near the holidays because some new issues can arise during year change. Listen in for some helpful pro tips and work smarter for your future self and colleagues.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.cloudflare.com">Cloudflare</a></li>
+                    <li><a href="https://redis.io/">Redis</a></li>
+                    <li><a href="https://aws.amazon.com/">AWS</a></li>
+                    <li><a href="https://azure.microsoft.com/en-us/">Azure</a></li>
+                    <li><a href="https://papertrailapp.com/">Papertrail</a></li>
+                    <li><a href="https://www.atlassian.com/software/confluence">Confluence</a></li>
+                    <li><a href="https://www.heroku.com/">Heroku</a></li>
+                    <li><a href="https://www.docker.com/">Docker</a></li>
+                    <li><a href="https://devchat.tv/ruby-rogues/252-rr-feature-toggles-with-pete-hodgson">Ruby Rogues, Feature Flags episode</a></li>
+                    <li><a href="http://podcast.clearfunction.com/6">It Depends, Imposter Syndrome episode</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 13 Jan 2017 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/ed1ac215.mp3" length="37757189" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/57460/1484169332-artwork.jpg"/>
+            <itunes:duration>00:39:17</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Brian, Mo, and Jesse talk about building robust and supportable production systems. It's a timely topic near the holidays because some new issues can arise during year change. Listen in for some helpful pro tips and work smarter for your future self and colleagues.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Brian, Mo, and Jesse talk about building robust and supportable production systems. It's a timely topic near the holidays because some new issues can arise during year change. Listen in for some helpful pro tips and work smarter f</itunes:subtitle>
+            <itunes:keywords>software, engineering, programming, developer, systems, support, admin</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>13</itunes:episode>
+        </item>
+        <item>
+            <title>12: So You Think You Can Code</title>
+            <guid isPermaLink="false">dcb5f7d7-42e3-43a2-b33e-dc75f41de9f4</guid>
+            <link>http://podcast.clearfunction.com/12</link>
+            <description>On this episode, Ben, Mo, Daniel, and Jesse talk about what to expect when you're expecting to code. Listen in as they identify and discuss many of the essential, non-programming aspects of developer jobs. Topics include communication, source control, working with non-technical people, continual improvement, and more! If you are currently coding, wanting to code, or striving to be better at coding, this episode is for you.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Mo, Daniel, and Jesse talk about what to expect when you're expecting to code. Listen in as they identify and discuss many of the essential, non-programming aspects of developer jobs. Topics include communication, source control, working with non-technical people, continual improvement, and more! If you are currently coding, wanting to code, or striving to be better at coding, this episode is for you.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li>Source Control: <a href="https://www.visualstudio.com/tfs/">Team Foundation Server (TFS)</a>, <a href="https://www.perforce.com/">Perforce</a>, <a href="https://git-scm.com/">Git</a></li>
+                    <li><a href="https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X">The Pragmatic Programmer</a></li>
+                    <li><a href="http://gource.io/">Gource</a></li>
+                    <li><a href="http://ahkscript.org/">Autohotkey</a></li>
+                    <li><a href="http://www.poodr.com/">Practical Object-Oriented Design in Ruby</a></li>
+                    <li><a href="http://podcast.clearfunction.com/10">It Depends, 010: Should I Learn This New Technology?</a></li>
+                    <li><a href="http://podcast.clearfunction.com/6">It Depends, 006: Imposter Syndrome</a></li>
+                    <li><a href="https://www.python.org/">Python</a></li>
+                    <li><a href="http://www.apple.com/swift/playgrounds/">Swift Playgrounds</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Sun, 01 Jan 2017 21:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/3799bcba.mp3" length="39374273" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/56033/1483040371-artwork.jpg"/>
+            <itunes:duration>00:40:58</itunes:duration>
+            <itunes:summary>On this episode, Ben, Mo, Daniel, and Jesse talk about what to expect when you're expecting to code. Listen in as they identify and discuss many of the essential, non-programming aspects of developer jobs. Topics include communication, source control, working with non-technical people, continual improvement, and more! If you are currently coding, wanting to code, or striving to be better at coding, this episode is for you.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Mo, Daniel, and Jesse talk about what to expect when you're expecting to code. Listen in as they identify and discuss many of the essential, non-programming aspects of developer jobs. Topics include communication, source control, wor</itunes:subtitle>
+            <itunes:keywords>programming, coding, expect, expecting, developer, computers, communication, source control, continual improvement, documentation</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>12</itunes:episode>
+        </item>
+        <item>
+            <title>11: Empowering High Velocity Engineering Teams through Better Tooling</title>
+            <guid isPermaLink="false">454b5bcf-7239-4f21-bfdf-d0802a264fd3</guid>
+            <link>http://podcast.clearfunction.com/11</link>
+            <description>On this episode, Ben, Daniel, and Jesse discuss the tooling necessary to write better code. They dig in to engineering best practices regarding code quality and build tools. Join them to find out how to equip your team!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Daniel, and Jesse discuss the tooling necessary to write better code. They dig in to engineering best practices regarding code quality and build tools. Join them to find out how to equip your team!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Distributed_version_control">Distributed Source Control</a></li>
+                    <li><a href="https://www.heroku.com/">Heroku</a></li>
+                    <li><a href="https://www.sitepoint.com/typing-versus-dynamic-typing/">Static v. Dynamic Typing</a></li>
+                    <li><a href="https://github.com/activerecord-hackery/ransack">Ransack</a></li>
+                    <li><a href="https://qunitjs.com/">QUnit.js</a></li>
+                    <li><a href="https://raygun.com/">Raygun</a></li>
+                    <li><a href="https://sentry.io/welcome/">Sentry</a></li>
+                    <li><a href="https://blog.heroku.com/heroku_flow_pipelines_review_apps_and_github_sync">Heroku Pipelines</a></li>
+                    <li><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview">Azure Web Applications</a></li>
+                    <li><a href="https://octopus.com/">Octopus Deploy</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Makefile">Makefile</a></li>
+                    <li><a href="https://www.docker.com/">Docker</a></li>
+                    <li><a href="https://www.npmjs.com/">Npm</a></li>
+                    <li><a href="https://yarnpkg.com/">Yarn</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Extreme_programming">Extreme Programming</a></li>
+                    <li><a href="http://www.seleniumhq.org/">Selenium</a></li>
+                    <li><a href="http://teamcapybara.github.io/capybara/">Capybara</a></li>
+                    <li><a href="https://github.com/airbnb/javascript">Airbnb's Javascript Style Guide</a></li>
+                    <li><a href="https://github.com/facebook/react/wiki/Complementary-Tools">Facebook's Complementary Tools for React</a></li>
+                    <li><a href="https://codeclimate.com/">Code Climate</a></li>
+                    <li><a href="http://sidekiq.org/">Sidekiq</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 16 Dec 2016 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/624d4591.mp3" length="39088807" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/55161/1481731169-artwork.jpg"/>
+            <itunes:duration>00:40:40</itunes:duration>
+            <itunes:summary>On this episode, Ben, Daniel, and Jesse discuss the tooling necessary to write better code. They dig in to engineering best practices regarding code quality and build tools. Join them to find out how to equip your team!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Daniel, and Jesse discuss the tooling necessary to write better code. They dig in to engineering best practices regarding code quality and build tools. Join them to find out how to equip your team!
+            </itunes:subtitle>
+            <itunes:keywords>software, engineering, development, projects, teams, equipping, build, tools, tooling, code, quality, coding, programming, better, best, good</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>11</itunes:episode>
+        </item>
+        <item>
+            <title>10: Should I Learn this New Technology?</title>
+            <guid isPermaLink="false">a273b62e-4967-4ea0-99c5-8b4c07e8b94b</guid>
+            <link>http://podcast.clearfunction.com/10</link>
+            <description>On this episode, Daniel, Mo, and Brian discuss the when and how of learning new technologies. From programming languages to tooling, these engineers help you make the tough decisions about spending your precious time learning new things. Join them as they try to find the balance!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Mo, and Brian discuss the when and how of learning new technologies. From programming languages to tooling, these engineers help you make the tough decisions about spending your precious time learning new things. Join them as they try to find the balance!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Red_Queen%27s_race">Red Queen's race</a></li>
+                    <li><a href="http://www.hanselman.com/">Scott Hanselman</a></li>
+                    <li><a href="http://yehudakatz.com/">Yehuda Katz</a></li>
+                    <li><a href="http://blog.cwa.me.uk/">The Morning Brew</a></li>
+                    <li><a href="https://facebook.github.io/react/">React.js</a></li>
+                    <li><a href="https://news.ycombinator.com/">Hacker News</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Echo_chamber_%28media%29">Echo Chamber effect</a></li>
+                    <li><a href="http://backbonejs.org/">Backbone.js</a></li>
+                    <li><a href="https://angularjs.org/">Angular.js</a></li>
+                    <li><a href="http://emberjs.com/">Ember.js</a></li>
+                    <li><a href="http://electron.atom.io/">Electron.js</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a></li>
+                    <li><a href="https://getpocket.com/">Pocket</a></li>
+                    <li><a href="https://www.instapaper.com/">Instapaper</a></li>
+                    <li><a href="http://www.vim.org/">Vim</a></li>
+                    <li><a href="https://www.pgcasts.com/">Pgcasts</a></li>
+                    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+                    <li><a href="http://www.memphistechnology.org/">Memtech</a></li>
+                    <li><a href="https://www.pluralsight.com/">Pluralsight</a></li>
+                    <li><a href="https://www.amazon.com/Passionate-Programmer-Remarkable-Development-Pragmatic/dp/1934356344">The Passionate Programmer book</a></li>
+                    <li><a href="https://www.meteor.com/">Meteor.js</a></li>
+                    <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">http://clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 02 Dec 2016 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/39867e9b.mp3" length="39730792" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/54162/1480615986-artwork.jpg"/>
+            <itunes:duration>00:41:20</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Mo, and Brian discuss the when and how of learning new technologies. From programming languages to tooling, these engineers help you make the tough decisions about spending your precious time learning new things. Join them as they try to find the balance!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Mo, and Brian discuss the when and how of learning new technologies. From programming languages to tooling, these engineers help you make the tough decisions about spending your precious time learning new things. Join them as they</itunes:subtitle>
+            <itunes:keywords>software, engineering, development, technology, new, learning, programming, language, application, net, rails, ruby, microsoft</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>10</itunes:episode>
+        </item>
+        <item>
+            <title>9: Why We Manage Projects with Scrum</title>
+            <guid isPermaLink="false">c5248f77-2f82-42e2-8e72-dfe1cfcb6f6e</guid>
+            <link>http://podcast.clearfunction.com/9</link>
+            <description>On this episode, Ben, Stephen, and Brian discuss scrum and agile project management methodologies. How can you run projects to get work done correctly and quickly? Listen in to find out why you should use scrum to run your projects!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Stephen, and Brian discuss scrum and agile project management methodologies. How can you run projects to get work done correctly and quickly? Listen in to find out why you should use scrum to run your projects!</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://www.devspaceconf.com/">DevSpace</a></li>
+                    <li><a href="https://www.scrumalliance.org/why-scrum">Scrum</a></li>
+                    <li><a href="http://agilemethodology.org/">Agile</a></li>
+                    <li><a href="https://www.scrumalliance.org/why-scrum/core-scrum-values-roles">Agile Manifesto</a></li>
+                    <li><a href="https://help.rallydev.com/sizing-and-estimates-overview">Fibonacci scale voting</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">http://clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 18 Nov 2016 07:00:00 -0600</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/78aa1305.mp3" length="36687213" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/52975/1479163357-artwork.jpg"/>
+            <itunes:duration>00:38:10</itunes:duration>
+            <itunes:summary>On this episode, Ben, Stephen, and Brian discuss scrum and agile project management methodologies. How can you run projects to get work done correctly and quickly? Listen in to find out why you should use scrum to run your projects!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Stephen, and Brian discuss scrum and agile project management methodologies. How can you run projects to get work done correctly and quickly? Listen in to find out why you should use scrum to run your projects!
+            </itunes:subtitle>
+            <itunes:keywords>development, project, management, scrum, agile, continuous, software, people, process</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>9</itunes:episode>
+        </item>
+        <item>
+            <title>8: How to Be the Best Client</title>
+            <guid isPermaLink="false">57d18264-a170-4159-9bb2-811d417d25e1</guid>
+            <link>http://podcast.clearfunction.com/8</link>
+            <description>On this episode, Ben, Colin, Stephen, and Daniel discuss their clients. Although they did not actually name names, they did talk specifically and seriously about what makes a good client for an agency. Who do developers and project managers like to work with? Listen in and find out!
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Ben, Colin, Stephen, and Daniel discuss their clients. Although they did not actually name names, they did talk specifically and seriously about what makes a good client for an agency. Who do developers and project managers like to work with? Listen in and find out!</p>
+
+                    <p><br/>
+                    For more information, check out our website at <a href="http://www.clearfunction.com">www.clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 04 Nov 2016 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/2a1907b3.mp3" length="34856552" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/50218/1477061544-artwork.jpg"/>
+            <itunes:duration>00:36:15</itunes:duration>
+            <itunes:summary>On this episode, Ben, Colin, Stephen, and Daniel discuss their clients. Although they did not actually name names, they did talk specifically and seriously about what makes a good client for an agency. Who do developers and project managers like to work with? Listen in and find out!
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Ben, Colin, Stephen, and Daniel discuss their clients. Although they did not actually name names, they did talk specifically and seriously about what makes a good client for an agency. Who do developers and project managers like to work w</itunes:subtitle>
+            <itunes:keywords>software, engineering, developer, project, manager, recruiting, process</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>8</itunes:episode>
+        </item>
+        <item>
+            <title>7: Open Source</title>
+            <guid isPermaLink="false">2f7c5bd7-ce9e-457d-9c65-bbb9a7bd990c</guid>
+            <link>http://podcast.clearfunction.com/7</link>
+            <description>On this episode, Daniel, Jesse, and Mo discuss open source software. What is it? How does it empower developers and engineering organizations? What can your business gain from leveraging and participating in the open source community? Additionally, they discuss some personal and professional experiences with open source.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Jesse, and Mo discuss open source software. What is it? How does it empower developers and engineering organizations? What can your business gain from leveraging and participating in the open source community? Additionally, they discuss some personal and professional experiences with open source.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a></li>
+                    <li><a href="http://www.hanselman.com/">Scott Hanselman</a></li>
+                    <li><a href="https://azure.microsoft.com/en-us/">Azure</a></li>
+                    <li><a href="https://www.microsoft.com/net/core#macos">.NET Core</a></li>
+                    <li><a href="https://www.unrealengine.com/ue4-on-github">Unreal Engine</a></li>
+                    <li><a href="http://david.heinemeierhansson.com/">David Heinemeier Hansson</a></li>
+                    <li><a href="https://github.com/drmohundro/SWXMLHash">Mo's Swift-XML Library</a></li>
+                    <li><a href="https://developer.apple.com/swift/">Swift</a></li>
+                    <li><a href="http://semver.org/">Semantic Versioning</a></li>
+                    <li><a href="https://travis-ci.com/">Travic CI</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD</a></li>
+                    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+                    <li><a href="https://www.digitalocean.com/">Digital Ocean</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Copyleft">copyleft</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License">GPL</a></li>
+                    <li><a href="https://stallman.org/">Richard Stallman</a></li>
+                    <li><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">http://clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 21 Oct 2016 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/53c61b19.mp3" length="44771380" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/50170/1476993679-artwork.jpg"/>
+            <itunes:duration>00:46:35</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Jesse, and Mo discuss open source software. What is it? How does it empower developers and engineering organizations? What can your business gain from leveraging and participating in the open source community? Additionally, they discuss some personal and professional experiences with open source.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Jesse, and Mo discuss open source software. What is it? How does it empower developers and engineering organizations? What can your business gain from leveraging and participating in the open source community? Additionally, they d</itunes:subtitle>
+            <itunes:keywords>software, engineering, developer, .net, Microsoft, open, source, code</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>7</itunes:episode>
+        </item>
+        <item>
+            <title>6: Impostor Syndrome</title>
+            <guid isPermaLink="false">d6086cf6-6f69-42e8-abb0-7f28e77d721b</guid>
+            <link>http://podcast.clearfunction.com/6</link>
+            <description>On this episode, Daniel, Mo, Jesse, and Ben discuss impostor syndrome – the fear of not knowing enough and being discovered as a fraud in the field. We hope this episode will be an encouragement to technical folks everywhere who may have dealt with this at one time or another.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Mo, Jesse, and Ben discuss impostor syndrome – the fear of not knowing enough and being discovered as a fraud in the field. We hope this episode will be an encouragement to technical folks everywhere who may have dealt with this at one time or another.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Impostor_syndrome">Impostor Syndrome</a></li>
+                    <li><a href="https://blog.jessfraz.com/post/the-art-of-closing/">The Art of Closing, Jessie Frazelle</a></li>
+                    <li><a href="https://blog.golang.org/go-fmt-your-code">Go Programming Language format tool</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Pair_programming">Pair Programming</a></li>
+                    <li><a href="http://railsconf.com/">Rails Conf</a></li>
+                    <li><a href="http://www.jslint.com/">jslint</a></li>
+                    <li><a href="http://eslint.org/">eslint</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">http://clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 07 Oct 2016 07:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/5815802d.mp3" length="35260719" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/48973/1475518047-artwork.jpg"/>
+            <itunes:duration>00:36:40</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Mo, Jesse, and Ben discuss impostor syndrome – the fear of not knowing enough and being discovered as a fraud in the field. We hope this episode will be an encouragement to technical folks everywhere who may have dealt with this at one time or another.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Mo, Jesse, and Ben discuss impostor syndrome – the fear of not knowing enough and being discovered as a fraud in the field. We hope this episode will be an encouragement to technical folks everywhere who may have dealt with this a</itunes:subtitle>
+            <itunes:keywords>software, engineering, developer, imposter, impostor, syndrome</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>6</itunes:episode>
+        </item>
+        <item>
+            <title>5: Developer Health with Brad Montgomery</title>
+            <guid isPermaLink="false">4f6a377b-c219-43d0-96a9-06d7a8a6ea9e</guid>
+            <link>http://podcast.clearfunction.com/5</link>
+            <description>On this episode, Jesse and Daniel sit down with developer and athlete Brad Montgomery to discuss staying healthy to enable a rewarding career. They give specific examples of incorporating nutrition, exercise, and ergonomics into your routine.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>In this episode, Jesse and Daniel sit down with developer and athlete Brad Montgomery to discuss staying healthy to enable a rewarding career. They give specific examples of incorporating nutrition, exercise, and ergonomics into your routine.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="http://mempy.org">Memphis Python User Group</a></li>
+                    <li><a href="http://www.memphistechnology.org/">Memphis Technology Foundation</a></li>
+                    <li><a href="http://www.techcampmemphis.org/">Tech Camp</a>, November 5th, 2016</li>
+                    <li><a href="http://www.memphis.edu/fedex/index.php">FedEx Institute of Technology, University of Memphis</a></li>
+                    <li><a href="https://www.devspaceconf.com/">DevSpace</a>, October 14-15th, 2016</li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://clearfunction.com">http://clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Fri, 23 Sep 2016 09:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/8c5effdb.mp3" length="37305375" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/47844/1474317371-artwork.jpg"/>
+            <itunes:duration>00:38:48</itunes:duration>
+            <itunes:summary>On this episode, Jesse and Daniel sit down with developer and athlete Brad Montgomery to discuss staying healthy to enable a rewarding career. They give specific examples of incorporating nutrition, exercise, and ergonomics into your routine.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Jesse and Daniel sit down with developer and athlete Brad Montgomery to discuss staying healthy to enable a rewarding career. They give specific examples of incorporating nutrition, exercise, and ergonomics into your routine.
+            </itunes:subtitle>
+            <itunes:keywords>software, engineering, developer, health, nutrition, exercise, ergonomics</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>5</itunes:episode>
+        </item>
+        <item>
+            <title>4: Remote Work</title>
+            <guid isPermaLink="false">ec8b5ecc-aa97-456e-b5e1-26fe9e14ece4</guid>
+            <link>http://podcast.clearfunction.com/4</link>
+            <description>On this episode, Stephen, Daniel, and Ben, talk about remote projects.  Are there inherent pros and cons to doing remote work?  What is the best way to overcome the challenges and take full advantage of the benefits?
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Stephen, Daniel, and Ben, talk about remote projects.  Are there inherent pros and cons to doing remote work?  What is the best way to overcome the challenges and take full advantage of the benefits?</p>
+
+                    <p>For more information, check out our website at <a href="http://www.clearfunction.com">http://www.clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Tue, 06 Sep 2016 17:03:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/bfb83fc7.mp3" length="42988366" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/46327/1473192786-artwork.jpg"/>
+            <itunes:duration>00:44:43</itunes:duration>
+            <itunes:summary>On this episode, Stephen, Daniel, and Ben, talk about remote projects.  Are there inherent pros and cons to doing remote work?  What is the best way to overcome the challenges and take full advantage of the benefits?
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Stephen, Daniel, and Ben, talk about remote projects.  Are there inherent pros and cons to doing remote work?  What is the best way to overcome the challenges and take full advantage of the benefits?
+            </itunes:subtitle>
+            <itunes:keywords></itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>4</itunes:episode>
+        </item>
+        <item>
+            <title>3: Software Engineering Internships</title>
+            <guid isPermaLink="false">7713a816-ddd6-46ec-999d-b6c3a3ee9f0e</guid>
+            <link>http://podcast.clearfunction.com/3</link>
+            <description>On this episode, Colin sits down with our intern, Keith, to talk about technical internships and how to be successful as an intern.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Colin sits down with our intern, Keith, to talk about technical internships and how to be successful as an intern.</p>
+
+                    <p>For more information, check out our website at <a href="http://www.clearfunction.com">http://www.clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Wed, 31 Aug 2016 17:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/61277678.mp3" length="36041718" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/46325/1473192665-artwork.jpg"/>
+            <itunes:duration>00:37:24</itunes:duration>
+            <itunes:summary>On this episode, Colin sits down with our intern, Keith, to talk about technical internships and how to be successful as an intern.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Colin sits down with our intern, Keith, to talk about technical internships and how to be successful as an intern.
+            </itunes:subtitle>
+            <itunes:keywords></itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>3</itunes:episode>
+        </item>
+        <item>
+            <title>2: Productivity &amp; Communication</title>
+            <guid isPermaLink="false">1853d9bb-99ec-406b-a099-3bd6d4398876</guid>
+            <link>http://podcast.clearfunction.com/2</link>
+            <description>On this episode, Stephen, Colin, and Mo discuss how they balance multiple projects, including
+                several tools, strategies, and tips for getting things done.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Stephen, Colin, and Mo discuss how they balance multiple projects, including
+                    several tools, strategies, and tips for getting things done.</p>
+
+                    <a name="Things.Mentioned"></a>
+                    <h2>Things Mentioned</h2>
+
+                    <ul>
+                    <li><a href="http://www.hanselman.com/blog/ReplyToAllSnowballKnowWhenToEscalateCommunication.aspx">Hanselman: Know When To Escalate</a></li>
+                    <li><a href="https://blog.codinghorror.com/the-multi-tasking-myth/">Atwood: The Multitasking Myth</a></li>
+                    <li><a href="http://pomodorotechnique.com/">Pomodoro Approach</a></li>
+                    </ul>
+
+
+                    <p>For more information, check out our website at <a href="http://www.clearfunction.com">http://www.clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Wed, 24 Aug 2016 17:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/641d275b.mp3" length="37610749" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/46324/1473192564-artwork.jpg"/>
+            <itunes:duration>00:39:02</itunes:duration>
+            <itunes:summary>On this episode, Stephen, Colin, and Mo discuss how they balance multiple projects, including
+                several tools, strategies, and tips for getting things done.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Stephen, Colin, and Mo discuss how they balance multiple projects, including
+                several tools, strategies, and tips for getting things done.
+            </itunes:subtitle>
+            <itunes:keywords></itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>2</itunes:episode>
+        </item>
+        <item>
+            <title>1: .NET vs Rails</title>
+            <guid isPermaLink="false">26d8e815-7a03-437e-bf57-03d1971ea60a</guid>
+            <link>http://podcast.clearfunction.com/1</link>
+            <description>On this episode, Daniel, Jesse, and Mo compare the benefits and challenges of using .NET or Rails for their projects and products.
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On this episode, Daniel, Jesse, and Mo compare the benefits and challenges of using .NET or Rails for their projects and products.</p>
+
+                    <p>For more information, check out our website at <a href="http://www.clearfunction.com">http://www.clearfunction.com</a>.</p>
+
+                    <p>Follow us on Twitter at <a href="http://www.twitter.com/clearfunction">@clearfunction</a>.</p>
+                ]]>
+            </content:encoded>
+            <pubDate>Mon, 22 Aug 2016 17:00:00 -0500</pubDate>
+            <author>podcast@clearfunction.com (Clear Function)</author>
+            <enclosure url="https://audio.simplecast.com/d7028fd7.mp3" length="39017336" type="audio/mpeg"/>
+            <itunes:author>Clear Function</itunes:author>
+            <itunes:image href="https://media.simplecast.com/episode/image/46332/1473198742-artwork.jpg"/>
+            <itunes:duration>00:40:35</itunes:duration>
+            <itunes:summary>On this episode, Daniel, Jesse, and Mo compare the benefits and challenges of using .NET or Rails for their projects and products.
+            </itunes:summary>
+            <itunes:subtitle>On this episode, Daniel, Jesse, and Mo compare the benefits and challenges of using .NET or Rails for their projects and products.
+            </itunes:subtitle>
+            <itunes:keywords>programming, software, engineering, web development, agency, .net, rails, ruby, microsoft</itunes:keywords>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>1</itunes:episode>
+        </item>
+    </channel>
+</rss>
+

@@ -1,50 +1,10 @@
 import Foundation
 import Vapor
-import SWXMLHash
 
 import PostgreSQL
 
-struct Podcast {
-    let title: String
-    let podDescription: String?
-    let imageURLStr: String?
-    let pubDateStr: String?
-}
-
-extension Podcast {
-    init?(xml: XMLIndexer) {
-        let xmlChildren = xml.children
-        let titleText = xmlChildren.filter { $0.element?.name == "title" }.first?.element?.text
-        guard let title = titleText else { return nil }
-
-        self.title = title
-        self.pubDateStr = ""
-        self.podDescription = ""
-        self.imageURLStr = ""
-    }
-}
-
-func fetchAndParse(contents: String) -> Podcast? {
-    //    let url = URL(string: "http://exponent.fm/feed/")!
-
-    let xml = SWXMLHash.parse(contents)
-    //    let names = ["item", "title", "description"]
-    let podcastXML = xml.children.first!.children.first!
-    return Podcast(xml: podcastXML)
-    //        .filter { names.contains($0.element!.name) }
-    //    values.first
-    //
-    //    values[values.count - 2]
-}
-
-
 let drop = try? Droplet()
 drop?.get("/") { _ in
-    if let dir = drop?.config.workDir, let xmlStr = try? String(contentsOfFile: "\(dir)/Resources/podcast.xml", encoding: .utf8) {
-        if let podcast = fetchAndParse(contents: xmlStr) {
-            print(podcast)
-        }
-    }
     do {
         let dbName = "marcone"
         #if os(Linux)
@@ -66,4 +26,10 @@ drop?.get("/") { _ in
         return error.localizedDescription
     }
 }
+
+drop?.get("/add") { _ in
+//    let contents = String(contentsOf: URL("http://kadavy.net/podcast-rss")!, encoding: .utf8)
+    return ""
+}
+
 _ = try? drop?.run()
