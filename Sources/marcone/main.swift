@@ -2,6 +2,7 @@ import Foundation
 import Vapor
 
 import PostgreSQL
+import SWXMLHash
 
 let drop = try? Droplet()
 drop?.get("/") { _ in
@@ -22,14 +23,24 @@ drop?.get("/") { _ in
         }
         let result = "Result: \(resultFinal)"
         return result
-    } catch let error {
-        return error.localizedDescription
+    } catch {
+        throw Abort.serverError
     }
 }
 
-drop?.get("/add") { _ in
-//    let contents = String(contentsOf: URL("http://kadavy.net/podcast-rss")!, encoding: .utf8)
-    return ""
+drop?.post("/add") { req in
+    guard let podcastURLStr = req.data["podcast_url"]?.string, let podcastURL = URL(string: podcastURLStr) else {
+        throw Abort(.badRequest, reason: "Bad Podcast URL")
+    }
+    do {
+        let contents = try String(contentsOf: podcastURL, encoding: .utf8)
+        let xml = SWXMLHash.parse(contents)
+        let podcastXML = xml.children.first!.children.first!
+        return Podcast(xml: podcastXML)?.description ?? "Couldn't parse!"
+
+    } catch let error {
+        throw Abort(.badRequest, reason: error.localizedDescription)
+    }
 }
 
 _ = try? drop?.run()
