@@ -26,14 +26,14 @@ extension Podcast: CustomStringConvertible {
 }
 
 extension Podcast {
-    init?(xml: XMLIndexer) {
+    init?(xml: XMLIndexer, feedFetchURL: String) {
         let xmlChildren = xml.children
         let _title: String? = value("title", in: xmlChildren)
         let _urlAtom: String? = attr("atom:link", attr: "href", in: xmlChildren)
         let _urlAtom10: String? = attr("atom10:link", attr: "href", in: xmlChildren)
         let _urlNewFeed: String? = value("itunes:new-feed-url", in: xmlChildren)
         guard let title = _title else { return nil }
-        guard let url = (_urlAtom ?? _urlAtom10 ?? _urlNewFeed)  else { return nil }
+        let url = (_urlAtom ?? _urlAtom10 ?? _urlNewFeed ?? feedFetchURL)
         self.title = title
         self.url = url
         self.podcastDescription = value("description", in: xmlChildren)

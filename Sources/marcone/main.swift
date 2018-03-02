@@ -5,7 +5,7 @@ import PostgreSQL
 import SWXMLHash
 
 let drop = try? Droplet()
-drop?.get("/") { _ in
+drop?.get("/") { req in
     do {
         let dbName = "marcone"
         #if os(Linux)
@@ -29,17 +29,11 @@ drop?.get("/") { _ in
 }
 
 drop?.post("/add") { req in
-    guard let podcastURLStr = req.data["podcast_url"]?.string, let podcastURL = URL(string: podcastURLStr) else {
-        throw Abort(.badRequest, reason: "Bad Podcast URL")
-    }
     do {
-        let contents = try String(contentsOf: podcastURL, encoding: .utf8)
-        let xml = SWXMLHash.parse(contents)
-        let podcastXML = xml.children.first!.children.first!
-        return Podcast(xml: podcastXML)?.description ?? "Couldn't parse!"
-
+        let cast = try podcast(fromRequest: req)
+        return cast.description
     } catch let error {
-        throw Abort(.badRequest, reason: error.localizedDescription)
+        throw error
     }
 }
 

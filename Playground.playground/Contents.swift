@@ -71,6 +71,7 @@ struct Podcast {
 
     let episodes: [Episode]
 }
+
 extension Podcast: CustomStringConvertible {
     var description: String { return title + " \(episodes.count) episodes" }
 }
@@ -100,7 +101,8 @@ extension Podcast {
 
 func parseFeed(_ name: String) -> Podcast? {
     do {
-        let contents = try String(contentsOf: URL(string: "http://kadavy.net/podcast-rss")!, encoding: .utf8)
+        let contents = try String(contentsOfFile: name, encoding: .utf8)
+
         let xml = SWXMLHash.parse(contents)
         let podcastXML = xml.children.first!.children.first!
         return Podcast(xml: podcastXML)
@@ -110,5 +112,6 @@ func parseFeed(_ name: String) -> Podcast? {
     }
 }
 
+parseFeed("rocket")
 //[ "adam_carolla", "asymcar", "clear_function", "exponent", "reply_all"].map(fetchAndParse)
 
