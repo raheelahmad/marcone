@@ -8,6 +8,12 @@
 import Foundation
 import PostgreSQL
 
+private var df: DateFormatter = {
+    let df = DateFormatter()
+    df.dateFormat = "eee, dd MMM yyyy HH:mm:ss zzz"
+    return df
+}()
+
 private func db() throws -> PostgreSQL.Connection {
     let dbName = "marcone"
     #if os(Linux)
@@ -21,16 +27,30 @@ private func db() throws -> PostgreSQL.Connection {
 
 func insert(podcast: Podcast) throws {
     do {
-        let statement = "INSERT INTO podcasts VALUES "
-        [
+        let prequel = "INSERT INTO podcasts"
+        let valueDict = [
             "url": podcast.url,
             "title": podcast.title,
             "subtitle": podcast.subtitle,
             "description": podcast.podcastDescription,
-            "pub_date": podcast.subtitle,
-            "subtitle": podcast.subtitle,
+            "summary": podcast.summary,
+            "author_name": podcast.authorName,
+            "copyright": podcast.copyright,
+            "image_url": podcast.imageURLStr,
             ]
-        let res = try db().execute("SELECT * FROM podcasts")
+        let existingValues = valueDict.flatMap { $0.value == nil ? nil : ($0.key, "'\($0.value!)'") }
+        let columns = existingValues.map { $0.0 }.joined(separator: ", ")
+        let values = existingValues.map { $0.1 }.joined(separator: ", ")
+        let podcastStatement = [prequel, "(\(columns))", "VALUES", "(\(values))"].joined(separator: " ")
+        _ = try db().execute(podcastStatement)
+
+        for category in podcast.categories {
+            let categoryStatement = "INSERT INTO categories (name) VALUES ('\(category)') ON CONFLICT DO NOTHING"
+            _ = try db().execute(categoryStatement)
+            let joinStatement = "INSERT INTO podcast_categories (podcast_url, category_name) VALUES ('\(podcast.url)', '\(category)')"
+            _ = try db().execute(joinStatement)
+        }
+
     } catch let error {
         throw error
     }

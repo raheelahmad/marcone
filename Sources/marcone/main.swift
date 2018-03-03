@@ -12,7 +12,8 @@ drop?.get("/") { req in
 drop?.post("/add") { req in
     do {
         let cast = try podcast(fromRequest: req)
-        return cast.description
+        try insert(podcast: cast)
+        return "Inserted: " + cast.description
     } catch let error {
         throw error
     }

@@ -2,20 +2,19 @@ import Foundation
 //import SWXMLHash
 
 
-// "Fri, 02 Mar 2018 00:00:00 GMT"
-// "Fri, 02 Feb 2018 07:00:00 -0600"
-// "Fri, 23 Feb 2018 23:59:01 +0000"
-// "Thu, 01 Mar 2018 21:00:00 PST"
-// "Thu, 01 Mar 2018 10:41:25 -0800"
-// "Thu, 01 Mar 2018 21:00:00 PST"
-// "Tue, 27 Feb 2018 08:05:00 -0000"
-// "Thu, 01 Mar 2018 11:00:00 -0000"
-// "Thu, 18 Jan 2018 05:00:00 -0000"
+let dateStrs = [
+ "Fri, 02 Mar 2018 00:00:00 GMT",
+ "Fri, 02 Feb 2018 07:00:00 -0600",
+ "Fri, 02 Feb 2018 07:00:00 +0000",
+ "Fri, 23 Feb 2018 23:59:01 +0000",
+ "Thu, 01 Mar 2018 21:00:00 PST",
+ "Thu, 01 Mar 2018 10:41:25 -0800",
+ "Thu, 01 Mar 2018 21:00:00 PST",
+ "Tue, 27 Feb 2018 08:05:00 -0000",
+ "Thu, 01 Mar 2018 11:00:00 -0000",
+ "Thu, 18 Jan 2018 05:00:00 -0000",
+]
 
-let ds = "Fri, 02 Mar 2018 00:00:00 GMT"
-var df = DateFormatter()
-df.dateFormat = "eee, dd MMM yyyy hh:mm:ss ZZZ"
-df.date(from: ds)
 
 /*
 

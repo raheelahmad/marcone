@@ -17,7 +17,7 @@ struct Podcast {
     let authorName: String?
     let copyright: String?
     let imageURLStr: String?
-    let categories: [String]?
+    let categories: [String]
 
     let episodes: [Episode]
 }
