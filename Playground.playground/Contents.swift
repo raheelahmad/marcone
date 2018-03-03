@@ -1,6 +1,23 @@
 import Foundation
-import SWXMLHash
+//import SWXMLHash
 
+
+// "Fri, 02 Mar 2018 00:00:00 GMT"
+// "Fri, 02 Feb 2018 07:00:00 -0600"
+// "Fri, 23 Feb 2018 23:59:01 +0000"
+// "Thu, 01 Mar 2018 21:00:00 PST"
+// "Thu, 01 Mar 2018 10:41:25 -0800"
+// "Thu, 01 Mar 2018 21:00:00 PST"
+// "Tue, 27 Feb 2018 08:05:00 -0000"
+// "Thu, 01 Mar 2018 11:00:00 -0000"
+// "Thu, 18 Jan 2018 05:00:00 -0000"
+
+let ds = "Fri, 02 Mar 2018 00:00:00 GMT"
+var df = DateFormatter()
+df.dateFormat = "eee, dd MMM yyyy hh:mm:ss ZZZ"
+df.date(from: ds)
+
+/*
 
 func elements(_ name: String, `in` xml: [XMLIndexer]) -> [XMLIndexer] {
     return xml.filter { $0.element?.name == name }
@@ -46,6 +63,7 @@ extension Episode {
         self.summary = value("itunes:summary", in: xmlChildren)
         self.publicationDate = value("pubDate", in: xmlChildren)
         self.guid = value("guid", in: xmlChildren)
+
 
         let image = attr("itunes:image", attr: "href", in: xmlChildren)
         let thumbnail = attr("media:thumbnail", attr: "url", in: xmlChildren)
@@ -101,17 +119,22 @@ extension Podcast {
 
 func parseFeed(_ name: String) -> Podcast? {
     do {
-        let contents = try String(contentsOfFile: name, encoding: .utf8)
+        let filePath = Bundle.main.path(forResource:name, ofType: "xml")
+        let contentData = FileManager.default.contents(atPath: filePath!)
+        let content = String(data:contentData!, encoding:String.Encoding.utf8)!
 
-        let xml = SWXMLHash.parse(contents)
+        let xml = SWXMLHash.parse(content)
         let podcastXML = xml.children.first!.children.first!
-        return Podcast(xml: podcastXML)
+
+        let podcast = Podcast(xml: podcastXML)
+        podcast?.episodes.first?.publicationDate
+        return podcast
     } catch let error {
         print(error)
         return nil
     }
 }
 
-parseFeed("rocket")
-//[ "adam_carolla", "asymcar", "clear_function", "exponent", "reply_all"].map(fetchAndParse)
+//parseFeed("exponent")
 
+ */
