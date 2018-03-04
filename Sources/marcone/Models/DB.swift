@@ -25,10 +25,18 @@ private func db() throws -> PostgreSQL.Connection {
     return postgres
 }
 
+private func insertInto(table: String, valueDict: [String: String?]) throws {
+    let prequel = "INSERT INTO \(table)"
+    let existingValues = valueDict.flatMap { $0.value == nil ? nil : ($0.key, "$$\($0.value!)$$") }
+    let columns = existingValues.map { $0.0 }.joined(separator: ", ")
+    let values = existingValues.map { $0.1 }.joined(separator: ", ")
+    let podcastStatement = [prequel, "(\(columns))", "VALUES", "(\(values))"].joined(separator: " ")
+    _ = try db().execute(podcastStatement)
+}
+
 func insert(podcast: Podcast) throws {
     do {
-        let prequel = "INSERT INTO podcasts"
-        let valueDict = [
+        let podcastValues = [
             "url": podcast.url,
             "title": podcast.title,
             "subtitle": podcast.subtitle,
@@ -38,17 +46,18 @@ func insert(podcast: Podcast) throws {
             "copyright": podcast.copyright,
             "image_url": podcast.imageURLStr,
             ]
-        let existingValues = valueDict.flatMap { $0.value == nil ? nil : ($0.key, "$$\($0.value!)$$") }
-        let columns = existingValues.map { $0.0 }.joined(separator: ", ")
-        let values = existingValues.map { $0.1 }.joined(separator: ", ")
-        let podcastStatement = [prequel, "(\(columns))", "VALUES", "(\(values))"].joined(separator: " ")
-        _ = try db().execute(podcastStatement)
-
+        try insertInto(table: "podcasts", valueDict: podcastValues)
         for category in podcast.categories {
             let categoryStatement = "INSERT INTO categories (name) VALUES ($$\(category)$$) ON CONFLICT DO NOTHING"
             _ = try db().execute(categoryStatement)
             let joinStatement = "INSERT INTO podcast_categories (podcast_url, category_name) VALUES ($$\(podcast.url)$$, $$\(category)$$) ON CONFLICT DO NOTHING"
             _ = try db().execute(joinStatement)
+        }
+
+        for episode in podcast.episodes {
+            let episodeValues = [
+                
+            ]
         }
     } catch let error {
         throw error
