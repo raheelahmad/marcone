@@ -38,19 +38,18 @@ func insert(podcast: Podcast) throws {
             "copyright": podcast.copyright,
             "image_url": podcast.imageURLStr,
             ]
-        let existingValues = valueDict.flatMap { $0.value == nil ? nil : ($0.key, "'\($0.value!)'") }
+        let existingValues = valueDict.flatMap { $0.value == nil ? nil : ($0.key, "$$\($0.value!)$$") }
         let columns = existingValues.map { $0.0 }.joined(separator: ", ")
         let values = existingValues.map { $0.1 }.joined(separator: ", ")
         let podcastStatement = [prequel, "(\(columns))", "VALUES", "(\(values))"].joined(separator: " ")
         _ = try db().execute(podcastStatement)
 
         for category in podcast.categories {
-            let categoryStatement = "INSERT INTO categories (name) VALUES ('\(category)') ON CONFLICT DO NOTHING"
+            let categoryStatement = "INSERT INTO categories (name) VALUES ($$\(category)$$) ON CONFLICT DO NOTHING"
             _ = try db().execute(categoryStatement)
-            let joinStatement = "INSERT INTO podcast_categories (podcast_url, category_name) VALUES ('\(podcast.url)', '\(category)')"
+            let joinStatement = "INSERT INTO podcast_categories (podcast_url, category_name) VALUES ($$\(podcast.url)$$, $$\(category)$$) ON CONFLICT DO NOTHING"
             _ = try db().execute(joinStatement)
         }
-
     } catch let error {
         throw error
     }
