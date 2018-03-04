@@ -1,25 +1,13 @@
 CREATE DATABASE marcone;
 \c marcone;
 
-CREATE TABLE episodes (
-  episode_id text PRIMARY KEY,
-  title text,
-  description text,
-  pub_date date,
-  guid text,
-  image_url text,
-  duration integer,
-  enclosure_type text,
-  enclosure_length text,
-  enclosure_url text
-);
-
 CREATE TABLE categories (
   name text PRIMARY KEY
 );
 
 CREATE TABLE podcasts (
-  url text PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
+  url text UNIQUE,
   title text,
   subtitle text,
   description text,
@@ -28,18 +16,28 @@ CREATE TABLE podcasts (
   copyright text,
   image_url text,
   categories text,
-  type text,
-
-  episode_id text REFERENCES episodes
+  type text
 );
 
+
+CREATE TABLE episodes (
+  id SERIAL PRIMARY KEY,
+  title text,
+  description text,
+  pub_date date,
+  guid text,
+  image_url text,
+  duration text,
+  enclosure_type text,
+  enclosure_length text,
+  enclosure_url text,
+
+  podcast_id SERIAL REFERENCES podcasts (id)
+);
 
 CREATE TABLE podcast_categories (
   category_name text REFERENCES categories (name),
-  podcast_url text REFERENCES podcasts (url),
+  podcast_id SERIAL REFERENCES podcasts (id),
 
-  CONSTRAINT category_podcast_pkey PRIMARY KEY (category_name, podcast_url)
+  CONSTRAINT category_podcast_pkey PRIMARY KEY (category_name, podcast_id)
 );
-
--- INSERT INTO podcasts (title, author_name) VALUES ('This American Life', 'NPR');
--- INSERT INTO podcasts (title, author_name) VALUES ('Back to Work', '5by5');
