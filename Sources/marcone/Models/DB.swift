@@ -30,7 +30,7 @@ private func db() throws -> PostgreSQL.Connection {
 }
 
 @discardableResult
-private func insertInto(table: String, valueDict: [String: Any?], returning: [String] = []) throws -> [String: Node] {
+private func insertInto(table: String, valueDict: [String: Any?], db: PostgreSQL.Connection, returning: [String] = []) throws -> [String: Node] {
     let returns = returning.count > 0
     let prequel = "INSERT INTO \(table)"
     let existingValues: [(String, String)] = valueDict.flatMap {
@@ -52,7 +52,7 @@ private func insertInto(table: String, valueDict: [String: Any?], returning: [St
     let values = existingValues.map { $0.1 }.joined(separator: ", ")
     let epilogue = returns ? "RETURNING " + returning.joined(separator: ", ") : ""
     let podcastStatement = [prequel, "(\(columns))", "VALUES", "(\(values))", epilogue].joined(separator: " ")
-    let m = try db().execute(podcastStatement)
+    let m = try db.execute(podcastStatement)
     return m.array?.first?.object ?? [:]
 }
 
@@ -68,7 +68,15 @@ func insert(podcast: Podcast) throws {
             "copyright": podcast.copyright,
             "image_url": podcast.imageURLStr,
             ]
-        let podcastId = try insertInto(table: "podcasts", valueDict: podcastValues, returning: ["id"])["id"]?.int
+        let database = try db()
+        let podcastId: Int?
+        let res = try database.execute("SELECT id FROM podcasts WHERE url = $1", [podcast.url])[0]
+        let existingPodcastId: Int? = try res?.get("id")
+        if let existingId = existingPodcastId {
+            podcastId = existingId
+        } else {
+            podcastId = try insertInto(table: "podcasts", valueDict: podcastValues, db: database, returning: ["id"])["id"]?.int
+        }
         guard let id = podcastId else {
             throw DatabaseError.podcastInsertion
         }
@@ -93,7 +101,7 @@ func insert(podcast: Podcast) throws {
                 "enclosure_url": episode.enclosureURL,
                 "podcast_id": id,
             ]
-            try insertInto(table: "episodes", valueDict: episodeValues)
+            try insertInto(table: "episodes", valueDict: episodeValues, db: database)
         }
 
     } catch let error {
