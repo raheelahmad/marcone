@@ -29,11 +29,28 @@ private func db() throws -> PostgreSQL.Connection {
     return postgres
 }
 
+struct InsertRequest {
+    let db: PostgreSQL.Connection
+    let table: String
+    let valueDict: [String: Any?]
+    let returning: [String]
+}
+
+extension InsertRequest {
+//    init(db: PostgreSQL.Connection, table: String, valueDict: [String: Any?], returning: [String] = []) {
+//        self.db = db
+//        self.table = table
+//        self.valueDict = valueDict
+//        self.returning = returning
+//    }
+}
+
 @discardableResult
-private func insertInto(table: String, valueDict: [String: Any?], db: PostgreSQL.Connection, returning: [String] = []) throws -> [String: Node] {
-    let returns = returning.count > 0
-    let prequel = "INSERT INTO \(table)"
-    let existingValues: [(String, String)] = valueDict.flatMap {
+//private func insertInto(table: String, valueDict: [String: Any?], db: PostgreSQL.Connection, returning: [String] = []) throws -> [String: Node] {
+private func insertWith(request: InsertRequest) throws -> [String: Node] {
+    let returns = request.returning.count > 0
+    let prequel = "INSERT INTO \(request.table)"
+    let existingValues: [(String, String)] = request.valueDict.flatMap {
         if let _value = $0.value {
             let value: String
             if let string = _value as? String {
@@ -50,7 +67,7 @@ private func insertInto(table: String, valueDict: [String: Any?], db: PostgreSQL
     }
     let columns = existingValues.map { $0.0 }.joined(separator: ", ")
     let values = existingValues.map { $0.1 }.joined(separator: ", ")
-    let epilogue = returns ? "RETURNING " + returning.joined(separator: ", ") : ""
+    let epilogue = returns ? "RETURNING " + request.returning.joined(separator: ", ") : ""
     let podcastStatement = [prequel, "(\(columns))", "VALUES", "(\(values))", epilogue].joined(separator: " ")
     let m = try db.execute(podcastStatement)
     return m.array?.first?.object ?? [:]
@@ -75,7 +92,8 @@ func insert(podcast: Podcast) throws {
         if let existingId = existingPodcastId {
             podcastId = existingId
         } else {
-            podcastId = try insertInto(table: "podcasts", valueDict: podcastValues, db: database, returning: ["id"])["id"]?.int
+            let podcastInsert = InsertRequest(db: database, table: "podcasts", valueDict: podcastValues, returning: ["id"])
+            podcastId = try insertWith(request: podcastInsert)["id"]?.int
         }
         guard let id = podcastId else {
             throw DatabaseError.podcastInsertion
@@ -101,7 +119,8 @@ func insert(podcast: Podcast) throws {
                 "enclosure_url": episode.enclosureURL,
                 "podcast_id": id,
             ]
-            try insertInto(table: "episodes", valueDict: episodeValues, db: database)
+            let episodeInsert = InsertRequest(db: database, table: "episodes", valueDict: episodeValues, returning: [])
+            try insertWith(request: episodeInsert)
         }
 
     } catch let error {
