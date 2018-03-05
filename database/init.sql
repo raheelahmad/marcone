@@ -21,18 +21,18 @@ CREATE TABLE podcasts (
 
 
 CREATE TABLE episodes (
-  id SERIAL PRIMARY KEY,
   title text,
   description text,
   pub_date date,
-  guid text,
+  guid text UNIQUE,
   image_url text,
   duration text,
   enclosure_type text,
   enclosure_length text,
   enclosure_url text,
 
-  podcast_id SERIAL REFERENCES podcasts (id)
+  podcast_id SERIAL REFERENCES podcasts (id),
+  unique (podcast_id, guid)
 );
 
 CREATE TABLE podcast_categories (

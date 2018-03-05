@@ -1,5 +1,5 @@
 import Foundation
-//import SWXMLHash
+import SWXMLHash
 
 
 let dateStrs = [
@@ -15,8 +15,6 @@ let dateStrs = [
  "Thu, 18 Jan 2018 05:00:00 -0000",
 ]
 
-
-/*
 
 func elements(_ name: String, `in` xml: [XMLIndexer]) -> [XMLIndexer] {
     return xml.filter { $0.element?.name == name }
@@ -126,7 +124,8 @@ func parseFeed(_ name: String) -> Podcast? {
         let podcastXML = xml.children.first!.children.first!
 
         let podcast = Podcast(xml: podcastXML)
-        podcast?.episodes.first?.publicationDate
+        print(podcast!.episodes.count)
+print(podcast!.episodes.filter { $0.guid != nil }.count)
         return podcast
     } catch let error {
         print(error)
@@ -134,6 +133,5 @@ func parseFeed(_ name: String) -> Podcast? {
     }
 }
 
-//parseFeed("exponent")
+parseFeed("reply_all")
 
- */
