@@ -32,10 +32,10 @@ struct InsertRequest {
 
     let db: PostgreSQL.Connection
     let table: String
-    let valueDict: [String: Any?]
+    let valueDict: [String: Any]
     let returning: [String]
     let onConflict: OnConflict
-    init(db: PostgreSQL.Connection, table: String, valueDict: [String: Any?],
+    init(db: PostgreSQL.Connection, table: String, valueDict: [String: Any],
          onConflict: OnConflict = .none,
          returning: [String] = []
         ) {
@@ -52,19 +52,16 @@ func insertWith(request: InsertRequest) throws -> [String: Node] {
     let returns = request.returning.count > 0
     let prequel = "INSERT INTO \(request.table)"
     let existingValues: [(String, String)] = request.valueDict.flatMap {
-        if let _value = $0.value {
-            let value: String
-            if let string = _value as? String {
-                value = "$$\(string)$$"
-            } else if let date = _value as? Date {
-                value = "to_timestamp(\(Int(date.timeIntervalSince1970)))"
-            } else {
-                value = "\(_value)"
-            }
-            return ($0.key, value)
+        let _value = $0.value
+        let value: String
+        if let string = _value as? String {
+            value = "$$\(string)$$"
+        } else if let date = _value as? Date {
+            value = "to_timestamp(\(Int(date.timeIntervalSince1970)))"
         } else {
-            return nil
+            value = "\(_value)"
         }
+        return ($0.key, value)
     }
     let columns = existingValues.map { $0.0 }.joined(separator: ", ")
     let values = existingValues.map { $0.1 }.joined(separator: ", ")

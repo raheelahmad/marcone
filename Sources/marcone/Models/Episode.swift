@@ -8,6 +8,12 @@
 import Foundation
 import SWXMLHash
 
+private var df: DateFormatter = {
+    let df = DateFormatter()
+    df.dateFormat = "eee, dd MMM yyyy HH:mm:ss zzz"
+    return df
+}()
+
 struct Episode {
     let title: String
     let summary: String?
@@ -19,6 +25,23 @@ struct Episode {
     let enclosureType: String?
     let enclosureLength: String?
     let enclosureURL: String?
+
+    func jsonDict(podcastId: Int?) -> [String: Any] {
+        let pubDateInterval = publicationDate.flatMap(df.date)
+        let allDict: [String: Any?] = [
+            "title": title,
+            "description": episodeDescription,
+            "guid": guid,
+            "image_url": imageURL,
+            "pub_date": pubDateInterval,
+            "duration": duration,
+            "enclosure_type": enclosureType,
+            "enclosure_length": enclosureLength,
+            "enclosure_url": enclosureURL,
+            "podcast_id": podcastId,
+        ]
+        return allDict.filter { $0.value != nil }.mapValues { $0! }
+    }
 }
 
 extension Episode {

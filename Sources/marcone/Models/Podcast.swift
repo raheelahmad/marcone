@@ -21,6 +21,30 @@ struct Podcast {
 
     let episodes: [Episode]
 }
+
+extension Podcast {
+    func dictWithoutEpisodes(podcastId: Int?) -> [String: Any] {
+        let allDict: [String: Any?] = [
+            "url": url,
+            "title": title,
+            "subtitle": subtitle,
+            "description": podcastDescription,
+            "summary": summary,
+            "author_name": authorName,
+            "copyright": copyright,
+            "image_url": imageURLStr,
+            "id": podcastId
+            ]
+        return allDict.filter { $0.value != nil }.mapValues { $0! }
+    }
+
+    func dictWithEpisodes(podcastId: Int?) -> [String: Any] {
+        var allDict = dictWithoutEpisodes(podcastId: podcastId)
+        allDict["episodes"] = episodes.map { $0.jsonDict(podcastId: podcastId) }
+        return allDict
+    }
+}
+
 extension Podcast: CustomStringConvertible {
     var description: String { return title + " \(episodes.count) episodes" }
 }
