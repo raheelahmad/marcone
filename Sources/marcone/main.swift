@@ -16,6 +16,7 @@ drop?.post("/add") { req in
             throw Abort(.badRequest, reason: "Bad Podcast URL")
         }
 
+        // Reply with an id if podcast is in DB
         if let id = try PodcastDBController.id(forURL: podcastURL) {
             print("Found existing id \(id) for \(podcastURL)")
             var resp = JSON()
@@ -23,9 +24,11 @@ drop?.post("/add") { req in
             return resp
         }
 
+        // Fetch feed
         let cast = try PodcastFetchController.podcast(fromURL: podcastURL)
-
+        // Insert
         let id = try PodcastDBController.addOrUpdate(podcast: cast)
+        // Reply
         var resp = JSON()
         try resp.set("podcast_id", id)
         print("Fetched and inserted id \(id) for \(podcastURL)")
