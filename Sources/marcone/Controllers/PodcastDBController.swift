@@ -10,7 +10,7 @@ import Foundation
 final class PodcastDBController {
     static func id(forURL url: URL) throws -> Int? {
         let database = try db()
-        let res = try database.execute("SELECT id FROM podcasts WHERE url = $1", [url.absoluteString])[0]
+        let res = try database.execute("SELECT id FROM podcasts WHERE url = $1 OR $1 = ANY (all_urls)", [url.absoluteString])[0]
         let existingPodcastId: Int? = try res?.get("id")
         return existingPodcastId
     }

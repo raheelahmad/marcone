@@ -58,6 +58,9 @@ func insertWith(request: InsertRequest) throws -> [String: Node] {
             value = "$$\(string)$$"
         } else if let date = _value as? Date {
             value = "to_timestamp(\(Int(date.timeIntervalSince1970)))"
+        } else if let array = _value as? [String] {
+            // only supporting string arrays, o/w will need recursive call here for element
+            value = "$${\(array.joined(separator: ", "))}$$"
         } else {
             value = "\(_value)"
         }

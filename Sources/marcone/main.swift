@@ -30,7 +30,7 @@ drop?.post("/add") { req in
         let id = try PodcastDBController.addOrUpdate(podcast: cast)
         // Reply
         var resp = JSON()
-        try resp.set("podcast_id", id)
+        try resp.set("podcast", cast.dictWithoutEpisodes(podcastId: id))
         print("Fetched and inserted id \(id) for \(podcastURL)")
         return resp
     } catch let error {

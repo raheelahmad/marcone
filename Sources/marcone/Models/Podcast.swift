@@ -10,6 +10,7 @@ import SWXMLHash
 
 struct Podcast {
     let url: String
+    let allURLs: [String]
     let title: String
     let subtitle: String?
     let podcastDescription: String?
@@ -26,6 +27,7 @@ extension Podcast {
     func dictWithoutEpisodes(podcastId: Int?) -> [String: Any] {
         let allDict: [String: Any?] = [
             "url": url,
+            "all_urls": allURLs,
             "title": title,
             "subtitle": subtitle,
             "description": podcastDescription,
@@ -57,9 +59,12 @@ extension Podcast {
         let _urlAtom10: String? = attr("atom10:link", attr: "href", in: xmlChildren)
         let _urlNewFeed: String? = value("itunes:new-feed-url", in: xmlChildren)
         guard let title = _title else { return nil }
-        let url = (_urlAtom ?? _urlAtom10 ?? _urlNewFeed ?? feedFetchURL)
+        let url = feedFetchURL
+        let allURLs = [_urlAtom , _urlAtom10 , _urlNewFeed , feedFetchURL].flatMap { $0 }
+
         self.title = title
         self.url = url
+        self.allURLs = allURLs
         self.podcastDescription = value("description", in: xmlChildren)
         self.summary = value("itunes:summary", in: xmlChildren)
         self.imageURLStr = attr("itunes:image", attr: "href", in: xmlChildren)

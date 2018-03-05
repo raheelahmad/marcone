@@ -8,6 +8,7 @@ CREATE TABLE categories (
 CREATE TABLE podcasts (
   id SERIAL PRIMARY KEY,
   url text UNIQUE,
+  all_urls text[],
   title text,
   subtitle text,
   description text,
