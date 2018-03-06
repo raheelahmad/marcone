@@ -12,26 +12,28 @@ drop?.get("/") { req in
 
 drop?.post("/add") { req in
     do {
-        guard let podcastURLStr = req.data["podcast_url"]?.string, let podcastURL = URL(string: podcastURLStr) else {
+        guard let podcastURL = req.data["podcast_url"]?.string else {
             throw Abort(.badRequest, reason: "Bad Podcast URL")
         }
 
         // Reply with an id if podcast is in DB
-        if let id = try PodcastDBController.id(forURL: podcastURL) {
-            print("Found existing id \(id) for \(podcastURL)")
+        // We don't update (episodes etc.) in this case, since a background job
+        // must be doing that.
+        if let podcast = try PodcastDBController.dbPodcast(forURL: podcastURL) {
+            print("Found existing id \(podcast.id ?? "--------") for \(podcastURL)")
             var resp = JSON()
-            try resp.set("podcast_id", id)
+            try resp.set("podcast", podcast.dictWithEpisodes())
             return resp
         }
 
         // Fetch feed
         let cast = try PodcastFetchController.podcast(fromURL: podcastURL)
         // Insert
-        let id = try PodcastDBController.addOrUpdate(podcast: cast)
+        let insertedPodcast = try PodcastDBController.addOrUpdate(podcast: cast)
         // Reply
         var resp = JSON()
-        try resp.set("podcast", cast.dictWithoutEpisodes(podcastId: id))
-        print("Fetched and inserted id \(id) for \(podcastURL)")
+        try resp.set("podcast", insertedPodcast.dictWithEpisodes())
+        print("Fetched and inserted id \(insertedPodcast.id ?? "--------") for \(podcastURL)")
         return resp
     } catch let error {
         throw error

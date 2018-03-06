@@ -7,6 +7,7 @@
 
 import Foundation
 import SWXMLHash
+import PostgreSQL
 
 private var df: DateFormatter = {
     let df = DateFormatter()
@@ -25,9 +26,11 @@ struct Episode {
     let enclosureType: String?
     let enclosureLength: String?
     let enclosureURL: String?
+    let podcastId: Int?
 
-    func jsonDict(podcastId: Int?) -> [String: Any] {
+    func jsonDict(podcastId providedPodcastId: Int? = nil) -> [String: Any] {
         let pubDateInterval = publicationDate.flatMap(df.date)
+        let podcastId = providedPodcastId ?? self.podcastId
         let allDict: [String: Any?] = [
             "title": title,
             "description": episodeDescription,
@@ -41,6 +44,23 @@ struct Episode {
             "podcast_id": podcastId,
         ]
         return allDict.filter { $0.value != nil }.mapValues { $0! }
+    }
+}
+
+extension Episode {
+    init?(node: Node) {
+        guard let title: String = try? node.get("title") else { return nil }
+        self.title = title
+        self.summary = try? node.get("summary")
+        self.episodeDescription = try? node.get("description")
+        self.publicationDate = try? node.get("pub_date")
+        self.guid = try? node.get("guid")
+        self.imageURL = try? node.get("image_url")
+        self.duration = try? node.get("duration")
+        self.enclosureType = try? node.get("enclosure_type")
+        self.enclosureLength = try? node.get("enclosure_length")
+        self.enclosureURL = try? node.get("enclosure_url")
+        self.podcastId = try? node.get("podcast_id")
     }
 }
 
@@ -63,6 +83,7 @@ extension Episode {
         self.enclosureType = attr("enclosure", attr: "type", in: xmlChildren)
         self.enclosureLength = attr("enclosure", attr: "length", in: xmlChildren)
         self.enclosureURL = attr("enclosure", attr: "url", in: xmlChildren)
+        self.podcastId = nil
     }
 }
 

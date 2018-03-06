@@ -1,10 +1,6 @@
 CREATE DATABASE marcone;
 \c marcone;
 
-CREATE TABLE categories (
-  name text PRIMARY KEY
-);
-
 CREATE TABLE podcasts (
   id SERIAL PRIMARY KEY,
   url text UNIQUE,
@@ -24,7 +20,7 @@ CREATE TABLE podcasts (
 CREATE TABLE episodes (
   title text,
   description text,
-  pub_date date,
+  pub_date timestamp,
   guid text UNIQUE,
   image_url text,
   duration text,
@@ -37,7 +33,7 @@ CREATE TABLE episodes (
 );
 
 CREATE TABLE podcast_categories (
-  category_name text REFERENCES categories (name),
+  category_name text,
   podcast_id SERIAL REFERENCES podcasts (id),
 
   CONSTRAINT category_podcast_pkey PRIMARY KEY (category_name, podcast_id)

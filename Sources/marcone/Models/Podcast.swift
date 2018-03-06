@@ -7,8 +7,14 @@
 
 import Foundation
 import SWXMLHash
+import PostgreSQL
 
 struct Podcast {
+    // Optional so it can represent a non-DB cast.
+    // Could make this a DB-only model in which case fetches will go directly to
+    // DB, and there won't be an init?(xml:). Faster, but losing some type safety.
+    let id: String?
+
     let url: String
     let allURLs: [String]
     let title: String
@@ -24,7 +30,7 @@ struct Podcast {
 }
 
 extension Podcast {
-    func dictWithoutEpisodes(podcastId: Int?) -> [String: Any] {
+    func dictWithoutEpisodes() -> [String: Any] {
         let allDict: [String: Any?] = [
             "url": url,
             "all_urls": allURLs,
@@ -35,20 +41,42 @@ extension Podcast {
             "author_name": authorName,
             "copyright": copyright,
             "image_url": imageURLStr,
-            "id": podcastId
+            "id": id
             ]
         return allDict.filter { $0.value != nil }.mapValues { $0! }
     }
 
-    func dictWithEpisodes(podcastId: Int?) -> [String: Any] {
-        var allDict = dictWithoutEpisodes(podcastId: podcastId)
-        allDict["episodes"] = episodes.map { $0.jsonDict(podcastId: podcastId) }
+    func dictWithEpisodes() -> [String: Any] {
+        var allDict = dictWithoutEpisodes()
+        allDict["episodes"] = episodes.map { $0.jsonDict() }
         return allDict
     }
 }
 
 extension Podcast: CustomStringConvertible {
     var description: String { return title + " \(episodes.count) episodes" }
+}
+
+extension Podcast {
+    init?(node: Node, categoryNodes: [Node], episodeNodes: [Node]) {
+        let _title: String? = try? node.get("title")
+        let _url: String? = try? node.get("url")
+        guard let title = _title, let url = _url else { return nil }
+        self.title = title
+        self.url = url
+        self.id = try? node.get("id")
+        self.allURLs = (try? node.get("all_urls")) ?? []
+        self.subtitle = try? node.get("subtitle")
+        self.podcastDescription = try? node.get("description")
+        self.summary = try? node.get("summary")
+        self.authorName = try? node.get("author_name")
+        self.copyright = try? node.get("copyright")
+        self.imageURLStr = try? node.get("image_url")
+
+        self.categories = categoryNodes.flatMap { try? $0.get("category_name") }
+        let episodes = episodeNodes.flatMap { Episode.init(node: $0) }
+        self.episodes = episodes
+    }
 }
 
 extension Podcast {
@@ -62,6 +90,7 @@ extension Podcast {
         let url = feedFetchURL
         let allURLs = [_urlAtom , _urlAtom10 , _urlNewFeed , feedFetchURL].flatMap { $0 }
 
+        self.id = nil
         self.title = title
         self.url = url
         self.allURLs = allURLs
