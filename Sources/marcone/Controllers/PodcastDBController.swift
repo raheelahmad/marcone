@@ -8,6 +8,18 @@
 import Foundation
 
 final class PodcastDBController {
+    static func dbPodcast(forId podcastId: Int) throws -> Podcast? {
+        let database = try db()
+        let node = try database.execute("SELECT * FROM podcasts WHERE id = $1", [podcastId])[0]
+        guard let podcastNode = node, let podcastId: Int = try podcastNode.get("id") else {
+            return nil
+        }
+        let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1", [podcastId]).array ?? []
+        let categoryNodes = try database.execute("SELECT category_name FROM podcast_categories WHERE podcast_id = $1", [podcastId]).array ?? []
+        let podcast = Podcast(node: podcastNode, categoryNodes: categoryNodes, episodeNodes: episodeNodes)
+        return podcast
+    }
+
     static func dbPodcast(forURL url: String) throws -> Podcast? {
         let database = try db()
         let node = try database.execute("SELECT * FROM podcasts WHERE url = $1 OR $1 = ANY (all_urls)", [url])[0]

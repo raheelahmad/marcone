@@ -10,6 +10,18 @@ drop?.get("/") { req in
     return ""
 }
 
+drop?.get("/feed") { req in
+    let ids: [Int]? = req.query?["ids"]?.array?.flatMap { $0.int }
+    guard let podcastIds: [Int] = ids else {
+        throw Abort(.badRequest, reason: "No podcast ids provided")
+    }
+    let podcasts = try podcastIds
+        .flatMap { try PodcastDBController.dbPodcast(forId: $0) }.map { $0.dictWithEpisodes() }
+    var resp = JSON()
+    try resp.set("feed", podcasts)
+    return resp
+}
+
 drop?.post("/add") { req in
     do {
         guard let podcastURL = req.data["podcast_url"]?.string else {
