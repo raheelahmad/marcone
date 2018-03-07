@@ -8,6 +8,13 @@
 import Foundation
 
 final class PodcastDBController {
+    static func allPodcasts() throws -> [Podcast] {
+        let database = try db()
+        let nodes = try database.execute("SELECT podcasts.*, string_agg(category_name, ', ') AS categories FROM podcasts, podcast_categories WHERE id = podcast_id GROUP BY 1" ).array ?? []
+        let podcasts = nodes.flatMap { Podcast(node: $0) }
+        return podcasts
+    }
+
     static func dbPodcast(forId podcastId: Int) throws -> Podcast? {
         let database = try db()
         let node = try database.execute("SELECT * FROM podcasts WHERE id = $1", [podcastId])[0]

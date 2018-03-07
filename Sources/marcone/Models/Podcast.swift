@@ -58,6 +58,28 @@ extension Podcast: CustomStringConvertible {
 }
 
 extension Podcast {
+    init?(node: Node) {
+        let _title: String? = try? node.get("title")
+        let _url: String? = try? node.get("url")
+        guard let title = _title, let url = _url else { return nil }
+        self.title = title
+        self.url = url
+        self.id = try? node.get("id")
+        self.allURLs = (try? node.get("all_urls")) ?? []
+        self.subtitle = try? node.get("subtitle")
+        self.podcastDescription = try? node.get("description")
+        self.summary = try? node.get("summary")
+        self.authorName = try? node.get("author_name")
+        self.copyright = try? node.get("copyright")
+        self.imageURLStr = try? node.get("image_url")
+
+        let categoriesStr: String? = try? node.get("categories")
+        let categories: [String] = categoriesStr?.components(separatedBy: ", ") ?? []
+        self.categories = categories
+        self.episodes = []
+    }
+
+    /// When we have fetched everything from the DB, probably for a single Podcast
     init?(node: Node, categoryNodes: [Node], episodeNodes: [Node]) {
         let _title: String? = try? node.get("title")
         let _url: String? = try? node.get("url")
@@ -88,7 +110,10 @@ extension Podcast {
         let _urlNewFeed: String? = value("itunes:new-feed-url", in: xmlChildren)
         guard let title = _title else { return nil }
         let url = feedFetchURL
-        let allURLs = [_urlAtom , _urlAtom10 , _urlNewFeed , feedFetchURL].flatMap { $0 }
+        var allURLs = [_urlAtom , _urlAtom10 , _urlNewFeed].flatMap { $0 }
+        if !allURLs.contains(feedFetchURL) {
+            allURLs.append(feedFetchURL)
+        }
 
         self.id = nil
         self.title = title

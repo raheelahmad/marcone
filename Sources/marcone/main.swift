@@ -6,8 +6,11 @@ import SWXMLHash
 
 let drop = try? Droplet()
 
-drop?.get("/") { req in
-    return ""
+drop?.get("/podcasts") { req in
+    let episodesJSON = try PodcastDBController.allPodcasts().map { $0.dictWithoutEpisodes() }
+    var resp = JSON()
+    try resp.set("podcasts", episodesJSON)
+    return resp
 }
 
 drop?.get("/feed") { req in
