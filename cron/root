@@ -1,1 +1,1 @@
-1/1 * * * * /app/.build/debug/marcone refresh >> /var/log/marcone-refresh/refresh.log 2>&1
+* * * * * /app/.build/debug/marcone refresh >> /var/log/marcone-refresh/refresh.log 2>&1
