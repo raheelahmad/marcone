@@ -11,8 +11,23 @@ services:
   db:
     build: database
     image: postgres
+    ports:
+      - "5432:5432"
     networks:
       db_nw:
+  refresh:
+    build:
+      context: .
+      dockerfile: Dockerfile-refresh
+    depends_on:
+      - db
+    networks:
+      db_nw:
+    volumes:
+      - cron:/etc/crontabs/root
 
 networks:
   db_nw:
+
+volumes:
+  cron:
