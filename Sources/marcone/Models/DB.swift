@@ -83,7 +83,7 @@ func insertWith(request: InsertRequest) throws -> [String: Node] {
             return "ON CONFLICT (\(conflict)) DO UPDATE SET (\(columns)) = (\(values))"
         }
     }
-    let statement = [prequel, "(\(columns))", "VALUES", "(\(values))", returning, onConflictString].joined(separator: " ")
+    let statement = [prequel, "(\(columns))", "VALUES", "(\(values))", onConflictString, returning].joined(separator: " ")
 //    print("INSERTING: \(statement)")
     let m = try request.db.execute(statement)
     return m.array?.first?.object ?? [:]

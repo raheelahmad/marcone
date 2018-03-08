@@ -15,6 +15,12 @@ final class PodcastDBController {
         return podcasts
     }
 
+    static func allURLs() throws -> [String] {
+        let database = try db()
+        let nodes = try database.execute("SELECT url FROM podcasts").array ?? []
+        return nodes.flatMap { $0["url"]?.string }
+    }
+
     static func dbPodcast(forId podcastId: Int) throws -> Podcast? {
         let database = try db()
         let node = try database.execute("SELECT * FROM podcasts WHERE id = $1", [podcastId])[0]
@@ -39,11 +45,14 @@ final class PodcastDBController {
         return podcast
     }
 
+    @discardableResult
     static func addOrUpdate(podcast: Podcast) throws -> Podcast {
         do {
             let database = try db()
             let podcastValues = podcast.dictWithoutEpisodes()
-            let podcastInsert = InsertRequest(db: database, table: "podcasts", valueDict: podcastValues, returning: ["id"])
+            let onConfliceUpdateKeys = Array(podcastValues.keys.filter { $0 != "url" })
+            let onConflict = InsertRequest.OnConflict.update(conflicting: ["url"], updateKeys: onConfliceUpdateKeys)
+            let podcastInsert = InsertRequest(db: database, table: "podcasts", valueDict: podcastValues, onConflict: onConflict, returning: ["id"])
             guard let podcastId = try insertWith(request: podcastInsert)["id"]?.int else {
                 throw DatabaseError.podcastInsertion
             }

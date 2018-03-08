@@ -1,10 +1,9 @@
 import Foundation
 import Vapor
 
-import PostgreSQL
-import SWXMLHash
-
-let drop = try? Droplet()
+let config = try Config()
+config.addConfigurable(command: FeedRefreshCommand.init, name: "refresh")
+let drop = try? Droplet(config)
 
 drop?.get("/podcasts") { req in
     let episodesJSON = try PodcastDBController.allPodcasts().map { $0.dictWithoutEpisodes() }
