@@ -13,5 +13,8 @@ let package = Package(
         .target(
             name: "marcone",
             dependencies: ["Vapor", "SWXMLHash", "PostgreSQL"]),
+        Target.testTarget(name: "marconeTests",
+                          dependencies: ["marcone", "SWXMLHash", "PostgreSQL"])
+
     ]
 )
