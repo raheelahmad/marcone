@@ -8,6 +8,7 @@
 import Foundation
 import Vapor
 import Console
+import marconeLib
 
 final class FeedRefreshCommand: Command, ConfigInitializable {
     let id = "refresh"
@@ -22,11 +23,10 @@ final class FeedRefreshCommand: Command, ConfigInitializable {
 
     func run(arguments: [String]) throws {
         log.info("Doing an hourly task")
-        let urls = try PodcastDBController.allURLs()
+        let urls = try PodcastsController.allURLs()
         for url in urls {
             drop?.log.info("Will fetch from \(url)")
-            let podcast = try PodcastFetchController.podcast(fromURL: url)
-            try PodcastDBController.addOrUpdate(podcast: podcast)
+            try PodcastsController.addOrUpdate(fromURL: url)
         }
         log.info("Done refreshing")
     }

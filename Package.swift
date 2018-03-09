@@ -11,10 +11,11 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "marcone",
+            name: "marconeLib",
             dependencies: ["Vapor", "SWXMLHash", "PostgreSQL"]),
+        Target.target(name: "marcone", dependencies: ["marconeLib"]),
         Target.testTarget(name: "marconeTests",
-                          dependencies: ["marcone", "SWXMLHash", "PostgreSQL"])
+                          dependencies: ["marconeLib", "SWXMLHash", "PostgreSQL"])
 
     ]
 )

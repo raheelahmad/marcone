@@ -1,5 +1,6 @@
 import Foundation
 import Vapor
+import marconeLib
 
 var config = try Config()
 try config.set("server.hostname", "0.0.0.0")
@@ -9,7 +10,7 @@ config.addConfigurable(command: FeedRefreshCommand.init, name: "refresh")
 let drop = try? Droplet(config)
 
 drop?.get("/podcasts") { req in
-    let episodesJSON = try PodcastDBController.allPodcasts().map { $0.dictWithoutEpisodes() }
+    let episodesJSON = try PodcastsController.allPodcastsJSON()
     var resp = JSON()
     try resp.set("podcasts", episodesJSON)
     return resp
@@ -20,8 +21,7 @@ drop?.get("/feed") { req in
     guard let podcastIds: [Int] = ids else {
         throw Abort(.badRequest, reason: "No podcast ids provided")
     }
-    let podcasts = try podcastIds
-        .flatMap { try PodcastDBController.dbPodcast(forId: $0) }.map { $0.dictWithEpisodes() }
+    let podcasts = try PodcastsController.podcastsJSON(forIds: podcastIds)
     var resp = JSON()
     try resp.set("feed", podcasts)
     return resp
@@ -36,21 +36,18 @@ drop?.post("/add") { req in
         // Reply with an id if podcast is in DB
         // We don't update (episodes etc.) in this case, since a background job
         // must be doing that.
-        if let podcast = try PodcastDBController.dbPodcast(forURL: podcastURL) {
-            print("Found existing id \(podcast.id ?? "--------") for \(podcastURL)")
+        if let podcastJSON = try PodcastsController.podcastJSON(forURL: podcastURL) {
+            print("Found existing podcast for \(podcastURL)")
             var resp = JSON()
-            try resp.set("podcast", podcast.dictWithEpisodes())
+            try resp.set("podcast", podcastJSON)
             return resp
         }
 
-        // Fetch feed
-        let cast = try PodcastFetchController.podcast(fromURL: podcastURL)
-        // Insert
-        let insertedPodcast = try PodcastDBController.addOrUpdate(podcast: cast)
         // Reply
+        let podcastJSON = try PodcastsController.podcastJSON(fromURL: podcastURL)
         var resp = JSON()
-        try resp.set("podcast", insertedPodcast.dictWithEpisodes())
-        print("Fetched and inserted id \(insertedPodcast.id ?? "--------") for \(podcastURL)")
+        try resp.set("podcast", podcastJSON)
+        print("Fetched and inserted podcast for \(podcastURL)")
         return resp
     } catch let error {
         throw error

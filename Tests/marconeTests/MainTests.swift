@@ -2,11 +2,13 @@ import PostgreSQL
 import SWXMLHash
 import XCTest
 
-@testable import marcone
+@testable import marconeLib
 
 final class SampleTests: XCTestCase {
     func testThings() {
-        XCTAssertEqual(1, 1, "should be equal!")
+        let urls = try? PodcastsController.allURLs()
+
+        XCTAssertEqual(urls?.count, 3, "should have 0 count")
     }
 }
 
