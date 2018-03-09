@@ -108,12 +108,11 @@ extension Podcast {
     init?(xml: XMLIndexer, feedFetchURL: String) {
         let xmlChildren = xml.children
         let _title: String? = value("title", in: xmlChildren)
-        let _urlAtom: String? = attr("atom:link", attr: "href", in: xmlChildren)
-        let _urlAtom10: String? = attr("atom10:link", attr: "href", in: xmlChildren)
-        let _urlNewFeed: String? = value("itunes:new-feed-url", in: xmlChildren)
+        let _urlAtom: String? = attr("link", attr: "href", in: xmlChildren)
+        let _urlNewFeed: String? = value("new-feed-url", in: xmlChildren)
         guard let title = _title else { return nil }
         let url = feedFetchURL
-        var allURLs = [_urlAtom , _urlAtom10 , _urlNewFeed].flatMap { $0 }
+        var allURLs = [_urlAtom , _urlNewFeed].flatMap { $0 }
         if !allURLs.contains(feedFetchURL) {
             allURLs.append(feedFetchURL)
         }
@@ -123,12 +122,12 @@ extension Podcast {
         self.url = url
         self.allURLs = allURLs
         self.podcastDescription = value("description", in: xmlChildren)
-        self.summary = value("itunes:summary", in: xmlChildren)
-        self.imageURLStr = attr("itunes:image", attr: "href", in: xmlChildren)
-        self.authorName = value("itunes:author", in: xmlChildren)
-        self.subtitle = value("itunes:subtitle", in: xmlChildren)
+        self.summary = value("summary", in: xmlChildren)
+        self.imageURLStr = attr("image", attr: "href", in: xmlChildren)
+        self.authorName = value("author", in: xmlChildren)
+        self.subtitle = value("subtitle", in: xmlChildren)
         self.copyright = value("copyright", in: xmlChildren)
-        self.categories = attrs("itunes:category", attr: "text", in: xmlChildren)
+        self.categories = attrs("category", attr: "text", in: xmlChildren)
 
         self.episodes = elements("item", in: xmlChildren).flatMap(Episode.init)
     }

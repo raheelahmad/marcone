@@ -14,7 +14,9 @@ final class PodcastFetchController {
             throw ParsingError.podcast
         }
         let contents = try String(contentsOf: podcastURL, encoding: .utf8)
-        let xml = SWXMLHash.parse(contents)
+        let xml = SWXMLHash.config {
+            $0.shouldProcessNamespaces = true
+            }.parse(contents)
         let podcastXML = xml.children.first!.children.first!
         guard let podcast = Podcast(xml: podcastXML, feedFetchURL: podcastURLString) else {
             throw ParsingError.podcast
