@@ -41,7 +41,8 @@ extension Podcast {
             "author_name": authorName,
             "copyright": copyright,
             "image_url": imageURLStr,
-            "id": id
+            "id": id,
+            "categories": categories.joined(separator: ", ")
             ]
         return allDict.filter { $0.value != nil }.mapValues { $0! }
     }

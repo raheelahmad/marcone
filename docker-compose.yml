@@ -3,7 +3,7 @@ services:
   web:
     build: .
     ports:
-      - "8080:8080"
+      - "9000:9000"
     depends_on:
       - db
     networks:
@@ -23,11 +23,6 @@ services:
       - db
     networks:
       db_nw:
-    volumes:
-      - cron:/etc/crontabs/root
 
 networks:
   db_nw:
-
-volumes:
-  cron:

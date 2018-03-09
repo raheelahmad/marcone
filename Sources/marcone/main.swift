@@ -1,7 +1,10 @@
 import Foundation
 import Vapor
 
-let config = try Config()
+var config = try Config()
+try config.set("server.hostname", "0.0.0.0")
+try config.set("server.port", "9000")
+try config.set("server.securityLayer", "none")
 config.addConfigurable(command: FeedRefreshCommand.init, name: "refresh")
 let drop = try? Droplet(config)
 
