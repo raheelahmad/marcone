@@ -81,7 +81,7 @@ extension Podcast {
     }
 
     /// When we have fetched everything from the DB, probably for a single Podcast
-    init?(node: Node, categoryNodes: [Node], episodeNodes: [Node]) {
+    init?(node: Node, episodeNodes: [Node]) {
         let _title: String? = try? node.get("title")
         let _url: String? = try? node.get("url")
         guard let title = _title, let url = _url else { return nil }
@@ -96,7 +96,9 @@ extension Podcast {
         self.copyright = try? node.get("copyright")
         self.imageURLStr = try? node.get("image_url")
 
-        self.categories = categoryNodes.flatMap { try? $0.get("category_name") }
+        let categories: String? = try? node.get("categories")
+        self.categories = categories?.components(separatedBy: ", ") ?? []
+
         let episodes = episodeNodes.flatMap { Episode.init(node: $0) }
         self.episodes = episodes
     }

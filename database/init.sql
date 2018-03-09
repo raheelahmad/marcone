@@ -31,10 +31,3 @@ CREATE TABLE episodes (
   podcast_id SERIAL REFERENCES podcasts (id),
   unique (podcast_id, guid)
 );
-
-CREATE TABLE podcast_categories (
-  category_name text,
-  podcast_id SERIAL REFERENCES podcasts (id),
-
-  CONSTRAINT category_podcast_pkey PRIMARY KEY (category_name, podcast_id)
-);

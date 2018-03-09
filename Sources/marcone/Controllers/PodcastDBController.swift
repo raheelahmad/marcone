@@ -10,7 +10,7 @@ import Foundation
 final class PodcastDBController {
     static func allPodcasts() throws -> [Podcast] {
         let database = try db()
-        let nodes = try database.execute("SELECT podcasts.*, string_agg(category_name, ', ') AS categories FROM podcasts, podcast_categories WHERE id = podcast_id GROUP BY 1" ).array ?? []
+        let nodes = try database.execute("SELECT * FROM podcasts" ).array ?? []
         let podcasts = nodes.flatMap { Podcast(node: $0) }
         return podcasts
     }
@@ -28,8 +28,7 @@ final class PodcastDBController {
             return nil
         }
         let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1", [podcastId]).array ?? []
-        let categoryNodes = try database.execute("SELECT category_name FROM podcast_categories WHERE podcast_id = $1", [podcastId]).array ?? []
-        let podcast = Podcast(node: podcastNode, categoryNodes: categoryNodes, episodeNodes: episodeNodes)
+        let podcast = Podcast(node: podcastNode, episodeNodes: episodeNodes)
         return podcast
     }
 
@@ -40,8 +39,7 @@ final class PodcastDBController {
             return nil
         }
         let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1", [podcastId]).array ?? []
-        let categoryNodes = try database.execute("SELECT category_name FROM podcast_categories WHERE podcast_id = $1", [podcastId]).array ?? []
-        let podcast = Podcast(node: podcastNode, categoryNodes: categoryNodes, episodeNodes: episodeNodes)
+        let podcast = Podcast(node: podcastNode, episodeNodes: episodeNodes)
         return podcast
     }
 
@@ -56,11 +54,7 @@ final class PodcastDBController {
             guard let podcastId = try insertWith(request: podcastInsert)["id"]?.int else {
                 throw DatabaseError.podcastInsertion
             }
-            for category in podcast.categories {
-                let joinInsert = InsertRequest(db: database, table: "podcast_categories", valueDict: ["podcast_id": podcastId, "category_name": category], onConflict: .doNothing)
-                try insertWith(request: joinInsert)
-            }
-            
+
             for episode in podcast.episodes {
                 let episodeValues = episode.jsonDict(podcastId: podcastId)
                 let onConflictUpdateKeys: [String] = Array(episodeValues.keys.filter { $0 != "guid" })
