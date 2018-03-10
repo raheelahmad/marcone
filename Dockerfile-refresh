@@ -11,6 +11,7 @@ RUN swift package fetch
 
 COPY Sources ./Sources
 COPY Config ./Config
+COPY Tests ./Tests
 
 RUN swift build
 RUN which cron

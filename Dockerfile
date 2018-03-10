@@ -8,6 +8,7 @@ COPY Package.swift ./
 RUN swift package fetch
 
 COPY Sources ./Sources
+COPY Tests ./Tests
 
 RUN swift build
 CMD ./.build/debug/marcone

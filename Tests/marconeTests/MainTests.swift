@@ -4,7 +4,7 @@ import XCTest
 
 @testable import marconeLib
 
-final class SampleTests: XCTestCase {
+final class MainTests: XCTestCase {
     func testThings() {
         let urls = try? PodcastsController.allURLs()
 
