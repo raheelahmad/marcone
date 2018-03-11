@@ -28,7 +28,28 @@ struct Episode {
     let enclosureURL: String?
     let podcastId: Int?
 
-    func jsonDict(podcastId providedPodcastId: Int? = nil) -> [String: Any] {
+    var json: JSON {
+        var allDict: [String: Any?] = [
+            "title": title,
+            "description": episodeDescription,
+            "guid": guid,
+            "image_url": imageURL,
+            "pub_date": publicationDate,
+            "duration": duration,
+            "podcast_id": podcastId,
+        ]
+
+        let enclosure: JSON = [
+            "type": enclosureType,
+            "length": enclosureLength ?? "0",
+            "url": enclosureURL
+        ].filter { $0.value != nil }.mapValues { $0! }
+        allDict["enclosure"] = enclosure
+
+        return allDict.filter { $0.value != nil }.mapValues { $0! }
+    }
+
+    func dbDict(podcastId providedPodcastId: Int? = nil) -> DBDict {
         let pubDateInterval = publicationDate.flatMap(df.date)
         let podcastId = providedPodcastId ?? self.podcastId
         let allDict: [String: Any?] = [

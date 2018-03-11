@@ -13,21 +13,21 @@ public final class PodcastsController {
     }
 
     public static func allPodcastsJSON() throws -> [[String: Any]] {
-        return try PodcastDBController.allPodcasts().map { $0.dictWithoutEpisodes() }
+        return try PodcastDBController.allPodcasts().map { $0.jsonWithoutEpisodes() }
     }
 
     public static func podcastsJSON(forIds podcastIds: [Int]) throws -> [[String: Any]] {
         return try podcastIds
-            .flatMap { try PodcastDBController.dbPodcast(forId: $0) }.map { $0.dictWithEpisodes() }
+            .flatMap { try PodcastDBController.dbPodcast(forId: $0) }.map { $0.jsonWithEpisodes() }
     }
 
     public static func podcastJSON(forURL url: String) throws -> [String: Any]? {
-        return try PodcastDBController.dbPodcast(forURL: url)?.dictWithEpisodes()
+        return try PodcastDBController.dbPodcast(forURL: url)?.jsonWithEpisodes()
     }
 
     public static func podcastJSON(fromURL podcastURLString: String) throws -> [String: Any] {
         let insertedPodcast = try _addOrUpdate(fromURL: podcastURLString)
-        return insertedPodcast.dictWithEpisodes()
+        return insertedPodcast.jsonWithEpisodes()
     }
 
     @discardableResult

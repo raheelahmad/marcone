@@ -30,7 +30,17 @@ struct Podcast {
 }
 
 extension Podcast {
-    func dictWithoutEpisodes() -> [String: Any] {
+    func jsonWithoutEpisodes() -> JSON {
+        return dbDict
+    }
+
+    func jsonWithEpisodes() -> [String: Any] {
+        var allDict = jsonWithoutEpisodes()
+        allDict["episodes"] = episodes.map { $0.json }
+        return allDict
+    }
+
+    var dbDict: DBDict {
         let allDict: [String: Any?] = [
             "url": url,
             "all_urls": allURLs,
@@ -43,14 +53,8 @@ extension Podcast {
             "image_url": imageURLStr,
             "id": id,
             "categories": categories.joined(separator: ", ")
-            ]
+        ]
         return allDict.filter { $0.value != nil }.mapValues { $0! }
-    }
-
-    func dictWithEpisodes() -> [String: Any] {
-        var allDict = dictWithoutEpisodes()
-        allDict["episodes"] = episodes.map { $0.jsonDict() }
-        return allDict
     }
 }
 
@@ -123,7 +127,19 @@ extension Podcast {
         self.allURLs = allURLs
         self.podcastDescription = value("description", in: xmlChildren)
         self.summary = value("summary", in: xmlChildren)
-        self.imageURLStr = attr("image", attr: "href", in: xmlChildren)
+
+        let imageFromAttrs = attr("image", attr: "href", in: xmlChildren)
+        if let imageFromAttrs = imageFromAttrs {
+            self.imageURLStr = imageFromAttrs
+        } else if
+            let imageElement = elements("image", in: xmlChildren).first,
+            let imageURLElement = value("url", in: imageElement.children)
+        {
+            self.imageURLStr = imageURLElement
+        } else {
+            self.imageURLStr = nil
+        }
+
         self.authorName = value("author", in: xmlChildren)
         self.subtitle = value("subtitle", in: xmlChildren)
         self.copyright = value("copyright", in: xmlChildren)

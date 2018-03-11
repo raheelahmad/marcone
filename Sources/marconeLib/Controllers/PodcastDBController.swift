@@ -47,7 +47,7 @@ final class PodcastDBController {
     static func addOrUpdate(podcast: Podcast) throws -> Podcast {
         do {
             let database = try db()
-            let podcastValues = podcast.dictWithoutEpisodes()
+            let podcastValues = podcast.dbDict
             let onConfliceUpdateKeys = Array(podcastValues.keys.filter { $0 != "url" })
             let onConflict = InsertRequest.OnConflict.update(conflicting: ["url"], updateKeys: onConfliceUpdateKeys)
             let podcastInsert = InsertRequest(db: database, table: "podcasts", valueDict: podcastValues, onConflict: onConflict, returning: ["id"])
@@ -56,7 +56,7 @@ final class PodcastDBController {
             }
 
             for episode in podcast.episodes {
-                let episodeValues = episode.jsonDict(podcastId: podcastId)
+                let episodeValues = episode.dbDict(podcastId: podcastId)
                 let onConflictUpdateKeys: [String] = Array(episodeValues.keys.filter { $0 != "guid" })
                 let onConflict = InsertRequest.OnConflict.update(conflicting: ["guid"], updateKeys: onConflictUpdateKeys)
                 let episodeInsert = InsertRequest(db: database, table: "episodes", valueDict: episodeValues, onConflict: onConflict)

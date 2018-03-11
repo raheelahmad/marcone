@@ -8,7 +8,9 @@
 import Foundation
 import SWXMLHash
 
-import Vapor
+typealias DBDict = [String: Any]
+typealias JSON = [String: Any]
+
 
 // MARK: Fetching & Parsing
 
