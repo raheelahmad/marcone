@@ -17,7 +17,10 @@ drop?.get("/podcasts") { req in
 }
 
 drop?.get("/feed") { req in
-    let ids: [Int]? = req.query?["ids"]?.array?.flatMap { $0.int }
+    var ids: [Int]? = req.query?["ids"]?.array?.flatMap { $0.int }
+    if ids == nil, let singleId = req.query?["ids"]?.int {
+        ids = [singleId]
+    }
     guard let podcastIds: [Int] = ids else {
         throw Abort(.badRequest, reason: "No podcast ids provided")
     }
