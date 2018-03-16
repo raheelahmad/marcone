@@ -13,7 +13,7 @@ struct Podcast {
     // Optional so it can represent a non-DB cast.
     // Could make this a DB-only model in which case fetches will go directly to
     // DB, and there won't be an init?(xml:). Faster, but losing some type safety.
-    let id: String?
+    let id: Int?
 
     let url: String
     let allURLs: [String]
