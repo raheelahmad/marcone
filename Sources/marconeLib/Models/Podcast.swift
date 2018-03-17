@@ -143,7 +143,9 @@ extension Podcast {
         self.authorName = value("author", in: xmlChildren)
         self.subtitle = value("subtitle", in: xmlChildren)
         self.copyright = value("copyright", in: xmlChildren)
-        self.categories = attrs("category", attr: "text", in: xmlChildren)
+        let categoryValues: [String] = nestedValues("category", nestedName: "category", nestedAttribute: "text", in: xmlChildren)
+        let categoryAttrs: [String] = attrs("category", attr: "text", in: xmlChildren)
+        self.categories = categoryValues + categoryAttrs
 
         self.episodes = elements("item", in: xmlChildren).flatMap(Episode.init)
     }
