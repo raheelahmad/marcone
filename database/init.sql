@@ -20,6 +20,7 @@ CREATE TABLE podcasts (
 CREATE TABLE episodes (
   title text,
   description text,
+  link text,
   pub_date timestamp,
   guid text UNIQUE,
   image_url text,

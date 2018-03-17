@@ -18,6 +18,7 @@ var episodeDateFormatter: DateFormatter = {
 struct Episode {
     let title: String
     let summary: String?
+    let link: String?
     let episodeDescription: String?
     let publicationDate: String?
     let guid: String?
@@ -31,6 +32,7 @@ struct Episode {
     var json: JSON {
         var allDict: [String: Any?] = [
             "title": title,
+            "link": link,
             "description": episodeDescription,
             "guid": guid,
             "image_url": imageURL,
@@ -55,6 +57,7 @@ struct Episode {
         let allDict: [String: Any?] = [
             "title": title,
             "description": episodeDescription,
+            "link": link,
             "guid": guid,
             "image_url": imageURL,
             "pub_date": pubDateInterval,
@@ -82,6 +85,7 @@ extension Episode {
         self.enclosureLength = try? node.get("enclosure_length")
         self.enclosureURL = try? node.get("enclosure_url")
         self.podcastId = try? node.get("podcast_id")
+        self.link = try? node.get("link")
     }
 }
 
@@ -94,6 +98,7 @@ extension Episode {
         self.episodeDescription = value("description", in: xmlChildren)
         self.summary = value("itunes:summary", in: xmlChildren)
         self.publicationDate = value("pubDate", in: xmlChildren)
+        self.link = value("link", in: xmlChildren)
         self.guid = value("guid", in: xmlChildren)
 
         let image = attr("itunes:image", attr: "href", in: xmlChildren)
