@@ -9,7 +9,7 @@ import Foundation
 import SWXMLHash
 import PostgreSQL
 
-private var df: DateFormatter = {
+var episodeDateFormatter: DateFormatter = {
     let df = DateFormatter()
     df.dateFormat = "eee, dd MMM yyyy HH:mm:ss zzz"
     return df
@@ -50,7 +50,7 @@ struct Episode {
     }
 
     func dbDict(podcastId providedPodcastId: Int? = nil) -> DBDict {
-        let pubDateInterval = publicationDate.flatMap(df.date)
+        let pubDateInterval = publicationDate.flatMap(episodeDateFormatter.date)
         let podcastId = providedPodcastId ?? self.podcastId
         let allDict: [String: Any?] = [
             "title": title,
