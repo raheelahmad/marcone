@@ -1,1 +1,1 @@
-*/5  *  *  *  *  root /app/.build/debug/marcone --configDir=/app refresh >> /var/log/cron.log 2>&1
+*/20  *  *  *  *  root /app/.build/debug/marcone --configDir=/app refresh >> /var/log/cron.log 2>&1

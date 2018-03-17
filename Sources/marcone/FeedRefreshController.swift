@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Dispatch
 import Vapor
 import Console
 import marconeLib
@@ -35,16 +36,21 @@ final class FeedRefreshCommand: Command, ConfigInitializable {
         log = try config.resolveLog()
     }
 
-    func run(arguments: [String]) throws {
-        log.info("Doing an hourly task")
-        let urls = try PodcastsController.allURLs()
-
-        let missingURLs = Set(urls).union(seedURLs)
-
-        for url in missingURLs {
-            drop?.log.info("Will fetch from \(url)")
-            try PodcastsController.addOrUpdate(fromURL: url)
+    func run(arguments: [String]) {
+        log.info("Doing an hourly task in 10 secs")
+        sleep(10)
+        do {
+            let urls = try PodcastsController.allURLs()
+            
+            let missingURLs = Set(urls).union(seedURLs)
+            
+            for url in missingURLs {
+                drop?.log.info("Will fetch from \(url)")
+                try PodcastsController.addOrUpdate(fromURL: url)
+            }
+            self.log.info("Done refreshing")
+        } catch let error {
+            drop?.log.error("Could not refresh: \(error)")
         }
-        log.info("Done refreshing")
     }
 }
