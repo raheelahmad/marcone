@@ -43,20 +43,5 @@ final class EpisodeJSONTests: XCTestCase {
     func testKeywords() {
         XCTAssertEqual(episodeJSON["keywords"] as? String, episode.keywords.joined(separator: ", "))
     }
-//    func testDescription() {
-//        XCTAssertEqual(episodeJSON["description"] as? String, podcast.podcastDescription)
-//    }
-//    func testSummary() {
-//        XCTAssertEqual(episodeJSON["summary"] as? String, podcast.summary)
-//    }
-//    func testAuthorName() {
-//        XCTAssertEqual(episodeJSON["author_name"] as? String, podcast.authorName)
-//    }
-//    func testImageURLString() {
-//        XCTAssertEqual(episodeJSON["image_url"] as? String, podcast.imageURLStr)
-//    }
-//    func testCategories() {
-//        XCTAssertEqual(episodeJSON["categories"] as? String, podcast.categories.joined(separator: ", "))
-//    }
 }
 

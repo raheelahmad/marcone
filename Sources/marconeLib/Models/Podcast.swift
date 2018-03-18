@@ -27,11 +27,15 @@ struct Podcast {
     let categories: [String]
 
     let episodes: [Episode]
+
+    var averageDuration: Int = 0
 }
 
 extension Podcast {
     func jsonWithoutEpisodes() -> JSON {
-        return dbDict
+        var json = dbDict
+        json["average_duration"] = averageDuration
+        return json
     }
 
     func jsonWithEpisodes() -> [String: Any] {

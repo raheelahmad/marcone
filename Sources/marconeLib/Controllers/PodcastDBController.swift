@@ -28,7 +28,9 @@ final class PodcastDBController {
             return nil
         }
         let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1", [podcastId]).array ?? []
-        let podcast = Podcast(node: podcastNode, episodeNodes: episodeNodes)
+        let episodesDuration = try database.execute("SELECT SUM(duration)/COUNT(duration) FROM episodes WHERE podcast_id = $1", [podcastId]).array?.first?.object?.first?.value.int ?? 0
+        var podcast = Podcast(node: podcastNode, episodeNodes: episodeNodes)
+        podcast?.averageDuration = episodesDuration
         return podcast
     }
 
@@ -39,7 +41,9 @@ final class PodcastDBController {
             return nil
         }
         let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1", [podcastId]).array ?? []
-        let podcast = Podcast(node: podcastNode, episodeNodes: episodeNodes)
+        let episodesDuration = try database.execute("SELECT SUM(duration)/COUNT(duration) FROM episodes WHERE podcast_id = $1", [podcastId]).int ?? 0
+        var podcast = Podcast(node: podcastNode, episodeNodes: episodeNodes)
+        podcast?.averageDuration = episodesDuration
         return podcast
     }
 

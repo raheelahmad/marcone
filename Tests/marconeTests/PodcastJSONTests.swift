@@ -16,9 +16,9 @@ final class PodcastJSONTests: XCTestCase {
     private let podcastURLString = "http://feeds.5by5.tv/asymcar"
 
     override func setUp() {
-        let p = Podcast(id: 212, url: podcastURLString, allURLs: [], title: "A title", subtitle: "A subtitle", podcastDescription: "a description",
+        var p = Podcast(id: 212, url: podcastURLString, allURLs: [], title: "A title", subtitle: "A subtitle", podcastDescription: "a description",
                         summary: "a summary", authorName: "an author", copyright: "a copyright",
-                        imageURLStr: "some url string", categories: ["one", "two"], episodes: [])
+                        imageURLStr: "some url string", categories: ["one", "two"], episodes: [], averageDuration: 2122)
         podcastJSON = p.jsonWithoutEpisodes()
         podcast = p
     }
@@ -49,6 +49,9 @@ final class PodcastJSONTests: XCTestCase {
     }
     func testCategories() {
         XCTAssertEqual(podcastJSON["categories"] as? String, podcast.categories.joined(separator: ", "))
+    }
+    func testAverageDuration() {
+        XCTAssertEqual(podcastJSON["average_duration"] as? Int, podcast.averageDuration)
     }
 }
 
