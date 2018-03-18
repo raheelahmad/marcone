@@ -18,7 +18,8 @@ final class PodcastJSONTests: XCTestCase {
     override func setUp() {
         let p = Podcast(id: 212, url: podcastURLString, allURLs: [], title: "A title", subtitle: "A subtitle", podcastDescription: "a description",
                         summary: "a summary", authorName: "an author", copyright: "a copyright",
-                        imageURLStr: "some url string", categories: ["one", "two"], episodes: [], averageDuration: 2122, episodesCount: 21)
+                        imageURLStr: "some url string", categories: ["one", "two"], episodes: [],
+                        averageDuration: 2122, episodesCount: 21, earliestPublishedDate: "some date", latestPublishedDate: "another date")
         podcastJSON = p.jsonWithoutEpisodes()
         podcast = p
     }
@@ -55,6 +56,12 @@ final class PodcastJSONTests: XCTestCase {
     }
     func testEpisodesCount() {
         XCTAssertEqual(podcastJSON["episodes_count"] as? Int, podcast.episodesCount)
+    }
+    func testEarliestPublishedDate() {
+        XCTAssertEqual(podcastJSON["earliest_published_date"] as? String, podcast.earliestPublishedDate)
+    }
+    func testLatestPublishedDate() {
+        XCTAssertEqual(podcastJSON["latest_published_date"] as? String, podcast.latestPublishedDate)
     }
 }
 

@@ -28,8 +28,10 @@ struct Podcast {
 
     let episodes: [Episode]
 
-    var averageDuration: Int = 0
-    var episodesCount: Int = 0
+    let averageDuration: Int
+    let episodesCount: Int
+    let earliestPublishedDate: String?
+    let latestPublishedDate: String?
 }
 
 extension Podcast {
@@ -37,6 +39,8 @@ extension Podcast {
         var json = dbDict
         json["average_duration"] = averageDuration
         json["episodes_count"] = episodesCount
+        json["earliest_published_date"] = earliestPublishedDate
+        json["latest_published_date"] = latestPublishedDate
         return json
     }
 
@@ -89,6 +93,8 @@ extension Podcast {
         self.categories = categories
         self.averageDuration = (try? node.get("average_duration")) ?? 0
         self.episodesCount = (try? node.get("episodes_count")) ?? 0
+        self.earliestPublishedDate = try? node.get("earliest_published_date")
+        self.latestPublishedDate = try? node.get("latest_published_date")
         self.episodes = []
     }
 
@@ -119,10 +125,14 @@ extension Podcast {
         } else {
             self.episodesCount = episodes.count
         }
+
+        self.earliestPublishedDate = try? node.get("earliest_published_date")
+        self.latestPublishedDate = try? node.get("latest_published_date")
     }
 }
 
 extension Podcast {
+    /// Used only in the interim for building a parsed model to be then inserted into DB.
     init?(xml: XMLIndexer, feedFetchURL: String) {
         let xmlChildren = xml.children
         let _title: String? = value("title", in: xmlChildren)
@@ -162,5 +172,13 @@ extension Podcast {
         self.categories = categoryValues + categoryAttrs
 
         self.episodes = elements("item", in: xmlChildren).flatMap(Episode.init)
+
+        // we could set the correct values, but since this is an interim model to be inserted,
+        // and that the final values are provided by the SELECT from DB on access later,
+        // we just set 0 values
+        self.averageDuration = 0
+        self.episodesCount = episodes.count
+        self.earliestPublishedDate = nil
+        self.latestPublishedDate = nil
     }
 }

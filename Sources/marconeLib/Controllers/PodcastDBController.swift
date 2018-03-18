@@ -9,12 +9,14 @@ import Foundation
 import PostgreSQL
 
 final class PodcastDBController {
-    static let podcastSelectStr = "SUM(episodes.duration)/COUNT(episodes.duration) AS average_duration, COUNT(episodes) AS episodes_count, podcasts.*"
+    static let podcastSelectStr = "MIN(episodes.pub_date) as earliest_published_date, MAX(episodes.pub_date) as latest_published_date, SUM(episodes.duration)/COUNT(episodes.duration) AS average_duration, COUNT(episodes) AS episodes_count, podcasts.*"
     static let podcastFromStr = "FROM podcasts INNER JOIN episodes ON podcasts.id = episodes.podcast_id"
+    static let andStr = "AND earliest = (SELECT min("
 
     static func allPodcasts() throws -> [Podcast] {
         let database = try db()
-        let nodes = try database.execute("SELECT \(podcastSelectStr) \(podcastFromStr) GROUP BY podcasts.id" ).array ?? []
+        let queryStr = "SELECT \(podcastSelectStr) \(podcastFromStr) GROUP BY podcasts.id"
+        let nodes = try database.execute(queryStr).array ?? []
         let podcasts = nodes.flatMap { Podcast(node: $0) }
         return podcasts
     }
