@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import PostgreSQL
 
 final class PodcastDBController {
+    static func addEpisodeDuration(for _podcast: inout Podcast?, database: PostgreSQL.Connection) throws {
+        guard let podcastId = _podcast?.id else { return }
+        let duration = try database.execute("SELECT SUM(duration)/COUNT(duration) FROM episodes WHERE podcast_id = $1", [podcastId]).array?.first?.object?.first?.value.int ?? 0
+        _podcast?.averageDuration = duration
+    }
+
     static func allPodcasts() throws -> [Podcast] {
         let database = try db()
-        let nodes = try database.execute("SELECT * FROM podcasts" ).array ?? []
+        let nodes = try database.execute("SELECT SUM(episodes.duration)/COUNT(episodes.duration) AS average_duration, COUNT(episodes) AS episodes_count, podcasts.* FROM podcasts INNER JOIN episodes ON podcasts .id = episodes.podcast_id GROUP BY podcasts.id" ).array ?? []
         let podcasts = nodes.flatMap { Podcast(node: $0) }
         return podcasts
     }
@@ -21,6 +28,7 @@ final class PodcastDBController {
         return nodes.flatMap { $0["url"]?.string }
     }
 
+    // NEXT EDIT HERE SHOULD REFACTOR the 2 dbPodcast()
     static func dbPodcast(forId podcastId: Int) throws -> Podcast? {
         let database = try db()
         let node = try database.execute("SELECT * FROM podcasts WHERE id = $1", [podcastId])[0]
@@ -28,9 +36,8 @@ final class PodcastDBController {
             return nil
         }
         let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1", [podcastId]).array ?? []
-        let episodesDuration = try database.execute("SELECT SUM(duration)/COUNT(duration) FROM episodes WHERE podcast_id = $1", [podcastId]).array?.first?.object?.first?.value.int ?? 0
         var podcast = Podcast(node: podcastNode, episodeNodes: episodeNodes)
-        podcast?.averageDuration = episodesDuration
+        try addEpisodeDuration(for: &podcast, database: database)
         return podcast
     }
 
@@ -41,9 +48,8 @@ final class PodcastDBController {
             return nil
         }
         let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1", [podcastId]).array ?? []
-        let episodesDuration = try database.execute("SELECT SUM(duration)/COUNT(duration) FROM episodes WHERE podcast_id = $1", [podcastId]).int ?? 0
         var podcast = Podcast(node: podcastNode, episodeNodes: episodeNodes)
-        podcast?.averageDuration = episodesDuration
+        try addEpisodeDuration(for: &podcast, database: database)
         return podcast
     }
 

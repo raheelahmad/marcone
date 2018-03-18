@@ -29,12 +29,14 @@ struct Podcast {
     let episodes: [Episode]
 
     var averageDuration: Int = 0
+    var episodesCount: Int = 0
 }
 
 extension Podcast {
     func jsonWithoutEpisodes() -> JSON {
         var json = dbDict
         json["average_duration"] = averageDuration
+        json["episodes_count"] = episodesCount
         return json
     }
 
@@ -85,6 +87,8 @@ extension Podcast {
         let categoriesStr: String? = try? node.get("categories")
         let categories: [String] = categoriesStr?.components(separatedBy: ", ") ?? []
         self.categories = categories
+        self.averageDuration = (try? node.get("average_duration")) ?? 0
+        self.episodesCount = (try? node.get("episodes_count")) ?? 0
         self.episodes = []
     }
 
@@ -103,12 +107,18 @@ extension Podcast {
         self.authorName = try? node.get("author_name")
         self.copyright = try? node.get("copyright")
         self.imageURLStr = try? node.get("image_url")
+        self.averageDuration = (try? node.get("average_duration")) ?? 0
 
         let categories: String? = try? node.get("categories")
         self.categories = categories?.components(separatedBy: ", ") ?? []
 
         let episodes = episodeNodes.flatMap { Episode.init(node: $0) }
         self.episodes = episodes
+        if episodes.isEmpty {
+            self.episodesCount = (try? node.get("episodes_count")) ?? 0
+        } else {
+            self.episodesCount = episodes.count
+        }
     }
 }
 
