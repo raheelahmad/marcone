@@ -9,7 +9,7 @@ import Foundation
 import SWXMLHash
 import PostgreSQL
 
-var episodeDateFormatter: DateFormatter = {
+let episodeDateFormatter: DateFormatter = {
     let df = DateFormatter()
     df.dateFormat = "eee, dd MMM yyyy HH:mm:ss zzz"
     return df
@@ -19,6 +19,7 @@ struct Episode {
     let title: String
     let summary: String?
     let link: String?
+    let author: String?
     let episodeDescription: String?
     let publicationDate: String?
     let guid: String?
@@ -27,6 +28,7 @@ struct Episode {
     let enclosureType: String?
     let enclosureLength: String?
     let enclosureURL: String?
+    let keywords: [String]
     let podcastId: Int?
 
     var json: JSON {
@@ -34,6 +36,8 @@ struct Episode {
             "title": title,
             "link": link,
             "description": episodeDescription,
+            "author": author,
+            "keywords": keywords.joined(separator: ", "),
             "guid": guid,
             "image_url": imageURL,
             "pub_date": publicationDate,
@@ -58,6 +62,8 @@ struct Episode {
             "title": title,
             "description": episodeDescription,
             "link": link,
+            "author": author,
+            "keywords": keywords.joined(separator: ", "),
             "guid": guid,
             "image_url": imageURL,
             "pub_date": pubDateInterval,
@@ -86,6 +92,9 @@ extension Episode {
         self.enclosureURL = try? node.get("enclosure_url")
         self.podcastId = try? node.get("podcast_id")
         self.link = try? node.get("link")
+        self.author = try? node.get("author")
+        let keywords: String? = try? node.get("keywords")
+        self.keywords = keywords?.components(separatedBy: ", ") ?? []
     }
 }
 
@@ -96,20 +105,23 @@ extension Episode {
         guard let title = _title else { return nil }
         self.title = title
         self.episodeDescription = value("description", in: xmlChildren)
-        self.summary = value("itunes:summary", in: xmlChildren)
+        self.summary = value("summary", in: xmlChildren)
         self.publicationDate = value("pubDate", in: xmlChildren)
         self.link = value("link", in: xmlChildren)
         self.guid = value("guid", in: xmlChildren)
 
-        let image = attr("itunes:image", attr: "href", in: xmlChildren)
-        let thumbnail = attr("media:thumbnail", attr: "url", in: xmlChildren)
+        let image = attr("image", attr: "href", in: xmlChildren)
+        let thumbnail = attr("thumbnail", attr: "url", in: xmlChildren)
         self.imageURL = image ?? thumbnail
 
-        self.duration = value("itunes:duration", in: xmlChildren)
+        self.duration = value("duration", in: xmlChildren)
         self.enclosureType = attr("enclosure", attr: "type", in: xmlChildren)
         self.enclosureLength = attr("enclosure", attr: "length", in: xmlChildren)
         self.enclosureURL = attr("enclosure", attr: "url", in: xmlChildren)
+        self.author = value("author", in: xmlChildren)
         self.podcastId = nil
+        let keywordsStr: String? = value("keywords", in: xmlChildren)
+        self.keywords = keywordsStr.map { $0.components(separatedBy: ", ") } ?? []
     }
 }
 

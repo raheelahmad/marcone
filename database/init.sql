@@ -21,6 +21,8 @@ CREATE TABLE episodes (
   title text,
   description text,
   link text,
+  keywords text,
+  author text,
   pub_date timestamp,
   guid text UNIQUE,
   image_url text,
