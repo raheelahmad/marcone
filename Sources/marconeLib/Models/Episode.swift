@@ -9,6 +9,19 @@ import Foundation
 import SWXMLHash
 import PostgreSQL
 
+extension String {
+    var asDurationInt: Int? {
+        let comps = components(separatedBy: ":").trimmed([" "])
+        var nums = comps.flatMap { Int($0) }
+        let allNums = comps.count == nums.count
+        guard allNums, nums.count > 0 else { return nil }
+        let secs = nums.popLast()
+        let minuteSecs = nums.popLast().map { $0 * 60 }
+        let hourSecs = nums.popLast().map { $0 * 3600 }
+        return (secs ?? 0) + (minuteSecs ?? 0) + (hourSecs ?? 0)
+    }
+}
+
 let episodeDateFormatter: DateFormatter = {
     let df = DateFormatter()
     df.dateFormat = "eee, dd MMM yyyy HH:mm:ss zzz"
@@ -17,14 +30,13 @@ let episodeDateFormatter: DateFormatter = {
 
 struct Episode {
     let title: String
-    let summary: String?
     let link: String?
     let author: String?
     let episodeDescription: String?
     let publicationDate: String?
     let guid: String?
     let imageURL: String?
-    let duration: String?
+    let duration: Int?
     let enclosureType: String?
     let enclosureLength: String?
     let enclosureURL: String?
@@ -81,7 +93,6 @@ extension Episode {
     init?(node: Node) {
         guard let title: String = try? node.get("title") else { return nil }
         self.title = title
-        self.summary = try? node.get("summary")
         self.episodeDescription = try? node.get("description")
         self.publicationDate = try? node.get("pub_date")
         self.guid = try? node.get("guid")
@@ -105,7 +116,6 @@ extension Episode {
         guard let title = _title else { return nil }
         self.title = title
         self.episodeDescription = value("description", in: xmlChildren)
-        self.summary = value("summary", in: xmlChildren)
         self.publicationDate = value("pubDate", in: xmlChildren)
         self.link = value("link", in: xmlChildren)
         self.guid = value("guid", in: xmlChildren)
@@ -114,7 +124,7 @@ extension Episode {
         let thumbnail = attr("thumbnail", attr: "url", in: xmlChildren)
         self.imageURL = image ?? thumbnail
 
-        self.duration = value("duration", in: xmlChildren)
+        self.duration = value("duration", in: xmlChildren)?.asDurationInt
         self.enclosureType = attr("enclosure", attr: "type", in: xmlChildren)
         self.enclosureLength = attr("enclosure", attr: "length", in: xmlChildren)
         self.enclosureURL = attr("enclosure", attr: "url", in: xmlChildren)

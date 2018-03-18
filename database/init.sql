@@ -26,7 +26,7 @@ CREATE TABLE episodes (
   pub_date timestamp,
   guid text UNIQUE,
   image_url text,
-  duration text,
+  duration int,
   enclosure_type text,
   enclosure_length text,
   enclosure_url text,
