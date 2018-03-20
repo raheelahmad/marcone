@@ -30,6 +30,14 @@ drop?.get("/feed") { req in
     return resp
 }
 
+drop?.get("/podcasts/", Int.parameter) { req in
+    let id = try req.parameters.next(Int.self)
+    let podcast = try PodcastsController.podcastJSON(forId: id)
+    var resp = JSON()
+    try resp.set("podcast", podcast)
+    return resp
+}
+
 drop?.post("/add") { req in
     do {
         guard let podcastURL = req.data["podcast_url"]?.string else {

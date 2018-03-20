@@ -21,6 +21,10 @@ public final class PodcastsController {
             .flatMap { try PodcastDBController.dbPodcast(forId: $0) }.map { $0.jsonWithEpisodes() }
     }
 
+    public static func podcastJSON(forId id: Int) throws -> [String: Any]? {
+        return try PodcastDBController.dbPodcast(forId: id)?.jsonWithEpisodes()
+    }
+
     public static func podcastJSON(forURL url: String) throws -> [String: Any]? {
         return try PodcastDBController.dbPodcast(forURL: url)?.jsonWithEpisodes()
     }
