@@ -21,12 +21,14 @@ drop?.get("/feed") { req in
     if ids == nil, let singleId = req.query?["ids"]?.int {
         ids = [singleId]
     }
-    guard let podcastIds: [Int] = ids else {
-        throw Abort(.badRequest, reason: "No podcast ids provided")
-    }
-    let podcasts = try PodcastsController.podcastsJSON(forIds: podcastIds)
+
     var resp = JSON()
-    try resp.set("feed", podcasts)
+    if let podcastIds: [Int] = ids {
+        let podcasts = try PodcastsController.podcastsJSON(forIds: podcastIds)
+        try resp.set("feed", podcasts)
+    } else {
+        try resp.set("feed", [])
+    }
     return resp
 }
 
