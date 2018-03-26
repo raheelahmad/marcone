@@ -5,8 +5,8 @@ import PackageDescription
 let package = Package(
     name: "marcone",
     dependencies: [
-        .package(url: "https://github.com/vapor-community/postgresql.git", Package.Dependency.Requirement.exact(Version(2, 1, 1))),
-        .package(url: "https://github.com/vapor/vapor", from: "2.4.4"),
+        .package(url: "https://github.com/vapor/postgresql.git", from: "1.0.0-rc.2.0.2"),
+        .package(url: "https://github.com/vapor/vapor", from: "3.0.0-rc"),
         .package(url: "https://github.com/drmohundro/SWXMLHash.git", from: "4.0.0"),
     ],
     targets: [

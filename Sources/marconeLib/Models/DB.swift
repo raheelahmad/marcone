@@ -12,14 +12,15 @@ enum DatabaseError: Error {
     case podcastInsertion
 }
 
-func db() throws -> PostgreSQL.Connection {
+func db() throws -> PostgreSQLConnection {
     let dbName = "marcone"
     #if os(Linux)
-        let db = try PostgreSQL.Database(hostname: "db", database: dbName, user: "postgres", password: "")
+        let db = try PostgreSQLDatabase(hostname: "db", database: dbName, user: "postgres", password: "")
     #else
-        let db = try PostgreSQL.Database(hostname: "localhost", database: dbName, user: "postgres", password: "")
+    let config = PostgreSQLDatabaseConfig(hostname: "localhost", port: 5432, username: "postgres", database: dbName, password: "")
+    let db = try PostgreSQLDatabase(config: config)
     #endif
-    let postgres = try db.makeConnection()
+    let postgres = try db.makeConnection(on: <#T##Worker#>)
     return postgres
 }
 
@@ -30,12 +31,12 @@ struct InsertRequest {
         case update(conflicting: [String], updateKeys: [String])
     }
 
-    let db: PostgreSQL.Connection
+    let db: PostgreSQLConnection
     let table: String
     let valueDict: [String: Any]
     let returning: [String]
     let onConflict: OnConflict
-    init(db: PostgreSQL.Connection, table: String, valueDict: [String: Any],
+    init(db: PostgreSQLConnection, table: String, valueDict: [String: Any],
          onConflict: OnConflict = .none,
          returning: [String] = []
         ) {
