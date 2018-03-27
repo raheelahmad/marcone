@@ -35,6 +35,7 @@ final class EpisodeFetchTests: XCTestCase {
     func testDuration() {
         XCTAssertEqual(firstEpisode?.duration, 4650, "has correct duration")
     }
+    func testContent() { XCTAssertEqual(firstEpisode?.content?.trimmed, "<p>We consider the news that BMW\'s i3 will revert to metal in its next iteration.  A question of business models engages much of our conversation, from optimized cars designed for transportation as a service to dynamic routes, pricing and arrival options.   Dyson\'s rumored auto ambitions divert our attention.  We close by musing on the utility of big data and the evolution of transportation.</p>\n", "has correct description") }
     func testAuthor() { XCTAssertEqual(firstEpisode?.author, "Horace Dediu & Jim Zellmer", "has correct author") }
     func testImageURL() { XCTAssertEqual(firstEpisode?.imageURL, "http://icebox.5by5.tv/images/broadcasts/92/cover.jpg") }
     func testKeywords() { XCTAssertEqual(firstEpisode!.keywords, "cars, automobile, automotive, driving, electric".components(separatedBy: ", ")) }

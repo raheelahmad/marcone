@@ -20,6 +20,7 @@ CREATE TABLE podcasts (
 CREATE TABLE episodes (
   title text,
   description text,
+  content text,
   link text,
   keywords text,
   author text,

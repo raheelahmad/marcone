@@ -33,6 +33,7 @@ struct Episode {
     let link: String?
     let author: String?
     let episodeDescription: String?
+    let content: String?
     let publicationDate: String?
     let guid: String?
     let imageURL: String?
@@ -47,6 +48,7 @@ struct Episode {
         var allDict: [String: Any?] = [
             "title": title,
             "link": link,
+            "content": content,
             "description": episodeDescription,
             "author": author,
             "keywords": keywords.joined(separator: ", "),
@@ -78,6 +80,7 @@ struct Episode {
             "keywords": keywords.joined(separator: ", "),
             "guid": guid,
             "image_url": imageURL,
+            "content": content,
             "pub_date": pubDateInterval,
             "duration": duration,
             "enclosure_type": enclosureType,
@@ -106,6 +109,7 @@ extension Episode {
         self.author = try? node.get("author")
         let keywords: String? = try? node.get("keywords")
         self.keywords = keywords?.components(separatedBy: ", ") ?? []
+        self.content = try? node.get("content")
     }
 }
 
@@ -128,6 +132,7 @@ extension Episode {
         self.enclosureType = attr("enclosure", attr: "type", in: xmlChildren)
         self.enclosureLength = attr("enclosure", attr: "length", in: xmlChildren)
         self.enclosureURL = attr("enclosure", attr: "url", in: xmlChildren)
+        self.content = value("encoded", in: xmlChildren)
         self.author = value("author", in: xmlChildren)
         self.podcastId = nil
         let keywordsStr: String? = value("keywords", in: xmlChildren)

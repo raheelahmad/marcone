@@ -14,7 +14,7 @@ final class EpisodeJSONTests: XCTestCase {
     private var episodeJSON: [String: Any]!
 
     override func setUp() {
-        let s = Episode(title: "a title", link: "a link", author: "an author", episodeDescription: "a description",
+        let s = Episode(title: "a title", link: "a link", author: "an author", episodeDescription: "a description", content: "some content",
                         publicationDate: "Fri, 02 Mar 2018 00:00:00 GMT", guid: NSUUID().uuidString, imageURL: "some img url",
                         duration: 2122, enclosureType: "mpeg", enclosureLength: "21220", enclosureURL: "some url",
                         keywords: ["one", "two"], podcastId: 221)
@@ -30,6 +30,9 @@ final class EpisodeJSONTests: XCTestCase {
     }
     func testURL() {
         XCTAssertEqual(episodeJSON["image_url"] as? String, episode.imageURL)
+    }
+    func testContent() {
+        XCTAssertEqual(episodeJSON["content"] as? String, episode.content)
     }
     func testAuthor() {
         XCTAssertEqual(episodeJSON["author"] as? String, episode.author)
