@@ -1,6 +1,12 @@
 CREATE DATABASE marcone;
 \c marcone;
 
+CREATE TABLE categories (
+  id text PRIMARY KEY,
+  name text,
+  parent_name text
+);
+
 CREATE TABLE podcasts (
   id SERIAL PRIMARY KEY,
   url text UNIQUE,

@@ -9,6 +9,11 @@ try config.set("server.securityLayer", "none")
 config.addConfigurable(command: FeedRefreshCommand.init, name: "refresh")
 let drop = try? Droplet(config)
 
+drop?.get("/test") { req in
+    try TunesFetchController.fetch()
+    return ""
+}
+
 drop?.get("/podcasts") { req in
     let episodesJSON = try PodcastsController.allPodcastsJSON()
     var resp = JSON()

@@ -80,7 +80,11 @@ func insertWith(request: InsertRequest) throws -> [String: Node] {
             let updateSet = existingValues.filter { updating.contains($0.0) }
             let columns = updateSet.map { $0.0 }.joined(separator: ", ")
             let values = updateSet.map { $0.1 }.joined(separator: ", ")
-            return "ON CONFLICT (\(conflict)) DO UPDATE SET (\(columns)) = (\(values))"
+            if updateSet.count > 1 {
+                return "ON CONFLICT (\(conflict)) DO UPDATE SET (\(columns)) = (\(values))"
+            } else {
+                return "ON CONFLICT (\(conflict)) DO UPDATE SET \(columns) = \(values)"
+            }
         }
     }
     let statement = [prequel, "(\(columns))", "VALUES", "(\(values))", onConflictString, returning].joined(separator: " ")

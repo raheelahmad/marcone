@@ -21,8 +21,10 @@ final class PodcastFetchController {
         let xml = SWXMLHash.config {
             $0.shouldProcessNamespaces = true
             }.parse(podcastString)
-        let podcastXML = xml.children.first!.children.first!
-        guard let podcast = Podcast(xml: podcastXML, feedFetchURL: podcastURLString) else {
+
+        guard
+            let podcastXML = xml.children.first?.children.first,
+            let podcast = Podcast(xml: podcastXML, feedFetchURL: podcastURLString) else {
             throw ParsingError.podcast
         }
         return podcast

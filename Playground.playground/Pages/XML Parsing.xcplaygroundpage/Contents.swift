@@ -1,7 +1,6 @@
 import Foundation
 import SWXMLHash
 
-
 let dateStrs = [
  "Fri, 02 Mar 2018 00:00:00 GMT",
  "Fri, 02 Feb 2018 07:00:00 -0600",
