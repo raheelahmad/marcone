@@ -7,6 +7,7 @@
 
 import Foundation
 import PostgreSQL
+import Vapor
 
 extension Dictionary where Key == String {
     func nestedJSON(key: String)  -> JSON? {
@@ -31,44 +32,85 @@ private let genresURLString = "http://itunes.apple.com/WebObjects/MZStoreService
 public final class TunesFetchController {
     typealias CategoryID = String
     typealias PodcastURL = String
-    private static var podcasts: [PodcastURL: TunesPodcast] = [:]
+    private static var podcastsByURL: [PodcastURL: TunesPodcast] = [:]
     private static var categoryPodcasts: [CategoryID: [PodcastURL]] = [:]
     private static var categories: [TunesCategory] = []
+    private static var allPodcasts: [TunesPodcast] {
+        return Array(podcastsByURL.values)
+    }
 
-    struct TunesPodcast {
+    struct TunesPodcast: Equatable {
+        static func ==(lhs: TunesFetchController.TunesPodcast, rhs: TunesFetchController.TunesPodcast) -> Bool {
+            return lhs.feedURL == rhs.feedURL
+        }
+
         let title: String
         let feedURL: PodcastURL
         let imageURL: String?
+
+        var json: JSON {
+            var dict = ["title": title, "feed_url": feedURL]
+            dict["image_url"] = imageURL
+            return dict
+        }
     }
 
-    struct TunesCategory {
+    struct TunesCategory: Equatable {
+        static func ==(lhs: TunesFetchController.TunesCategory, rhs: TunesFetchController.TunesCategory) -> Bool {
+            return lhs.id == rhs.id
+        }
+
         let name: String
         let id: CategoryID
         let sub: [TunesCategory]
+
+        var json: JSON { return ["name": name, "id": id, "sub_categories": sub.map { $0.json } ]}
     }
 
-    public static func fetch() throws {
+    public static func fetch() throws -> [String: Any] {
         let categories = try fetchCategories()
         let allCategories: [TunesCategory] = categories.reduce([]) { $0 + [$1] + $1.sub }
-        var allPodcasts: [PodcastURL: TunesPodcast] = [:]
+        var allPodcastsByURL: [PodcastURL: TunesPodcast] = [:]
         for category in allCategories {
-            let podcasts = try fetchPodcasts(for: category)
-            let podcastsByURL: [PodcastURL: TunesPodcast] = podcasts.reduce([PodcastURL:TunesPodcast]()) {
-                (dict: [PodcastURL: TunesPodcast], podcast: TunesPodcast) in
-                var mutableDict = dict
-                mutableDict[podcast.feedURL] = podcast
-                return mutableDict
+            do {
+                sleep(1)
+                let podcasts = try fetchPodcasts(for: category)
+                print("Fetched \(podcasts.count) podcasts for category \(allCategories.index(of: category)!) of \(allCategories.count)")
+
+                let podcastsByURL: [PodcastURL: TunesPodcast] = podcasts.reduce([PodcastURL:TunesPodcast]()) {
+                    (dict: [PodcastURL: TunesPodcast], podcast: TunesPodcast) in
+                    var mutableDict = dict
+                    mutableDict[podcast.feedURL] = podcast
+                    return mutableDict
+                }
+                self.categoryPodcasts[category.id] = Array(podcastsByURL.keys)
+                allPodcastsByURL.merge(podcastsByURL, uniquingKeysWith: { (a, b) in a })
+            } catch let error {
+                print("Error fetching \(category.name) \(category.sub.count) subs: \(error)")
+                continue
             }
-            self.categoryPodcasts[category.id] = Array(podcastsByURL.keys)
-            allPodcasts.merge(podcastsByURL, uniquingKeysWith: { (a, b) in a })
         }
         self.categories = allCategories
-        self.podcasts = allPodcasts
+        self.podcastsByURL = allPodcastsByURL
+
+        func catPodIndices(cat: TunesCategory) -> JSON {
+            let catPodURLs = categoryPodcasts[cat.id] ?? []
+            let podcastIndices = (0..<allPodcasts.count).filter { catPodURLs.contains(allPodcasts[$0].feedURL) }
+            return ["podcast_indices": podcastIndices]
+        }
+
+        let json: [JSON] = allCategories.reduce([]) { (res, cat) in
+            var podIndices = catPodIndices(cat: cat)
+            podIndices.merge(cat.json,
+                           uniquingKeysWith: { (a, b) in a })
+            return res + [podIndices]
+        }
+        return ["categories": json, "podcasts": allPodcasts.map { $0.json }]
     }
 
     private static func fetchPodcasts(for category: TunesCategory) throws -> [TunesPodcast] {
         let id = category.id
-        let categoryURL = URL(string: "https://itunes.apple.com/search?term=podcast&genreId=\(id)&limit=5")!
+        let categoryURL = URL(string: "http://itunes.apple.com/search?term=podcast&genreId=\(id)&limit=5")!
         let categoriesData = try Data(contentsOf: categoryURL)
         let json = try JSONSerialization.jsonObject(with: categoriesData, options: []) as? [String: Any]
         let podcasts: [TunesPodcast] = json!.nestedArray(key: "results").flatMap {
