@@ -40,17 +40,23 @@ final class PodcastDBController {
     }
 
     /// Implementation: finds the id, then calls dbPodcast(forId:)
-    static func dbPodcast(forURL url: String) throws -> Podcast? {
+    static func dbPodcastId(forURL url: String) throws -> Int? {
         let database = try db()
         let node = try database.execute("SELECT id FROM podcasts WHERE url = $1 OR $1 = ANY (all_urls)", [url])[0]
         guard let podcastNode = node, let podcastId: Int = try podcastNode.get("id") else {
+            return nil
+        }
+        return podcastId
+    }
+    static func dbPodcast(forURL url: String) throws -> Podcast? {
+        guard let podcastId = try dbPodcastId(forURL: url) else {
             return nil
         }
         return try dbPodcast(forId: podcastId)
     }
 
     @discardableResult
-    static func addOrUpdate(podcast: Podcast) throws -> Podcast {
+    static func addOrUpdate(podcast: Podcast) throws -> Int {
         do {
             let database = try db()
             let podcastValues = podcast.dbDict
@@ -69,10 +75,7 @@ final class PodcastDBController {
                 try insertWith(request: episodeInsert)
             }
 
-            guard let podcast = try dbPodcast(forURL: podcast.url) else {
-                throw DatabaseError.podcastInsertion
-            }
-            return podcast
+            return podcastId
         } catch let error {
             throw error
         }

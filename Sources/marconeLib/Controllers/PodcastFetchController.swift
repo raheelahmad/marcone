@@ -9,12 +9,20 @@ import Foundation
 import SWXMLHash
 
 final class PodcastFetchController {
+    private static var unpersistedPodcasts: [URL: Podcast] = [:]
+
     static func podcast(fromURL podcastURLString: String) throws -> Podcast {
         guard let podcastURL = URL(string: podcastURLString) else {
             throw ParsingError.podcast
         }
+        if let pod = unpersistedPodcasts[podcastURL] {
+            return pod
+        }
+
         let contents = try String(contentsOf: podcastURL, encoding: .utf8)
-        return try podcast(fromString: contents, podcastURLString: podcastURLString)
+        let pod = try podcast(fromString: contents, podcastURLString: podcastURLString)
+        unpersistedPodcasts[podcastURL] = pod
+        return pod
     }
 
     static func podcast(fromString podcastString: String, podcastURLString: String) throws -> Podcast {

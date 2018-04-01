@@ -21,14 +21,20 @@ drop?.get("/directory") { req in
 }
 
 drop?.get("/podcasts") { req in
-    let episodesJSON = try PodcastsController.allPodcastsJSON()
-    var resp = JSON()
-    try resp.set("podcasts", episodesJSON)
-    return resp
+    if let podcastJSON = try req.query?["url"]
+        .flatMap({ $0.string })
+        .flatMap({ try PodcastsController.podcastJSON(onlyFromURL: $0) })
+    {
+        var resp = JSON()
+        try resp.set("podcast", podcastJSON)
+        return resp
+    } else {
+        throw Abort(.badRequest, metadata: "No URL provided")
+    }
 }
 
 drop?.get("/feed") { req in
-    var ids: [Int]? = req.query?["ids"]?.array?.flatMap { $0.int }
+    var ids: [Int]? = req.query?["ids"]?.array?.compactMap { $0.int }
     if ids == nil, let singleId = req.query?["ids"]?.int {
         ids = [singleId]
     }
@@ -43,34 +49,26 @@ drop?.get("/feed") { req in
     return resp
 }
 
-drop?.get("/podcasts/", Int.parameter) { req in
-    let id = try req.parameters.next(Int.self)
-    let podcast = try PodcastsController.podcastJSON(forId: id)
-    var resp = JSON()
-    try resp.set("podcast", podcast)
-    return resp
-}
-
-drop?.post("/add") { req in
+drop?.post("/feed") { req in
     do {
-        guard let podcastURL = req.data["podcast_url"]?.string else {
+        guard let podcastURL = req.json?["podcast_url"]?.string else {
             throw Abort(.badRequest, reason: "Bad Podcast URL")
         }
 
         // Reply with an id if podcast is in DB
         // We don't update (episodes etc.) in this case, since a background job
         // must be doing that.
-        if let podcastJSON = try PodcastsController.podcastJSON(forURL: podcastURL) {
+        if let podcastId = try PodcastsController.dbPodcastId(fromURL: podcastURL) {
             print("Found existing podcast for \(podcastURL)")
             var resp = JSON()
-            try resp.set("podcast", podcastJSON)
+            try resp.set("podcast_id", podcastId)
             return resp
         }
 
         // Reply
-        let podcastJSON = try PodcastsController.podcastJSON(fromURL: podcastURL)
+        let podcastId = try PodcastsController.podcastJSON(fromURL: podcastURL)
         var resp = JSON()
-        try resp.set("podcast", podcastJSON)
+        try resp.set("podcast_id", podcastId)
         print("Fetched and inserted podcast for \(podcastURL)")
         return resp
     } catch let error {

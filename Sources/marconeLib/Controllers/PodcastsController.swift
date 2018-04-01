@@ -12,35 +12,35 @@ public final class PodcastsController {
         return try PodcastDBController.allURLs()
     }
 
-    public static func allPodcastsJSON() throws -> [[String: Any]] {
-        return try PodcastDBController.allPodcasts().map { $0.jsonWithoutEpisodes() }
+    public static func podcastJSON(onlyFromURL url: String) throws -> [String: Any]? {
+        return try PodcastFetchController.podcast(fromURL: url).jsonWithEpisodes()
     }
 
     public static func podcastsJSON(forIds podcastIds: [Int]) throws -> [[String: Any]] {
-        return try podcastIds
-            .flatMap { try PodcastDBController.dbPodcast(forId: $0) }.map { $0.jsonWithEpisodes() }
+        return try podcastIds.compactMap { try PodcastDBController.dbPodcast(forId: $0) }.map { $0.jsonWithEpisodes() }
     }
-
     public static func podcastJSON(forId id: Int) throws -> [String: Any]? {
         return try PodcastDBController.dbPodcast(forId: id)?.jsonWithEpisodes()
     }
-
-    public static func podcastJSON(forURL url: String) throws -> [String: Any]? {
+    public static func dbPodcastJSON(fromURL url: String) throws -> [String: Any]? {
         return try PodcastDBController.dbPodcast(forURL: url)?.jsonWithEpisodes()
     }
+    public static func dbPodcastId(fromURL url: String) throws -> Int? {
+        return try PodcastDBController.dbPodcastId(forURL: url)
+    }
 
-    public static func podcastJSON(fromURL podcastURLString: String) throws -> [String: Any] {
-        let insertedPodcast = try _addOrUpdate(fromURL: podcastURLString)
-        return insertedPodcast.jsonWithEpisodes()
+    public static func podcastJSON(fromURL podcastURLString: String) throws -> Int {
+        let podcastId = try _addOrUpdate(fromURL: podcastURLString)
+        return podcastId
     }
 
     @discardableResult
-    static func _addOrUpdate(fromURL podcastURLString: String) throws -> Podcast {
+    static func _addOrUpdate(fromURL podcastURLString: String) throws -> Int {
         // Fetch feed
         let podcast = try PodcastFetchController.podcast(fromURL: podcastURLString)
         // Insert
-        let insertedPodcast = try PodcastDBController.addOrUpdate(podcast: podcast)
-        return insertedPodcast
+        let insertedPodcastId = try PodcastDBController.addOrUpdate(podcast: podcast)
+        return insertedPodcastId
     }
 
     public static func addOrUpdate(fromURL podcastURLString: String) throws {
