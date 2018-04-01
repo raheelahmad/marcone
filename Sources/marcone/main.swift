@@ -6,12 +6,18 @@ var config = try Config()
 try config.set("server.hostname", "0.0.0.0")
 try config.set("server.port", "9000")
 try config.set("server.securityLayer", "none")
-config.addConfigurable(command: FeedRefreshCommand.init, name: "refresh")
+config.addConfigurable(command: FeedRefreshCommand.init, name: "refresh-feed")
+config.addConfigurable(command: DirectoryRefreshCommand.init, name: "refresh-directory")
 let drop = try? Droplet(config)
 
-drop?.get("/test") { req in
-    try TunesFetchController.fetch()
-    return ""
+drop?.get("/directory") { req in
+    guard let workDir = drop?.config.workDir else {
+        return "Failed"
+    }
+    let json = try DirectoryFetchController.fetch(workDir: workDir)
+    var resp = JSON()
+    try resp.set("result", json)
+    return resp
 }
 
 drop?.get("/podcasts") { req in

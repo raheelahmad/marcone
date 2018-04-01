@@ -26,7 +26,7 @@ let seedURLs = [
 ]
 
 final class FeedRefreshCommand: Command, ConfigInitializable {
-    let id = "refresh"
+    let id = "refresh-feed"
 
     var console: ConsoleProtocol
     let log: LogProtocol
@@ -37,8 +37,8 @@ final class FeedRefreshCommand: Command, ConfigInitializable {
     }
 
     func run(arguments: [String]) {
-        log.info("Doing an hourly task in 10 secs")
-        sleep(10)
+        log.info("Will start refreshing podcasts in 6 seconds")
+        sleep(6)
         do {
             let urls = try PodcastsController.allURLs()
             
@@ -46,6 +46,7 @@ final class FeedRefreshCommand: Command, ConfigInitializable {
             
             for url in missingURLs {
                 drop?.log.info("Will fetch from \(url)")
+                // TODO: this needs to fetch for all podcasts in DB, not just the ones listed above.
                 try PodcastsController.addOrUpdate(fromURL: url)
             }
             self.log.info("Done refreshing")

@@ -7,7 +7,6 @@
 
 import Foundation
 import PostgreSQL
-import Vapor
 
 extension Dictionary where Key == String {
     func nestedJSON(key: String)  -> JSON? {
@@ -29,7 +28,7 @@ private let genresURLString = "http://itunes.apple.com/WebObjects/MZStoreService
  2. For each category fetches the podcasts
  3. Stores
  */
-public final class TunesFetchController {
+public final class DirectoryFetchController {
     typealias CategoryID = String
     typealias PodcastURL = String
     private static var podcastsByURL: [PodcastURL: TunesPodcast] = [:]
@@ -39,8 +38,10 @@ public final class TunesFetchController {
         return Array(podcastsByURL.values)
     }
 
+    private static var cachedJSON: JSON?
+
     struct TunesPodcast: Equatable {
-        static func ==(lhs: TunesFetchController.TunesPodcast, rhs: TunesFetchController.TunesPodcast) -> Bool {
+        static func ==(lhs: TunesPodcast, rhs: TunesPodcast) -> Bool {
             return lhs.feedURL == rhs.feedURL
         }
 
@@ -56,7 +57,7 @@ public final class TunesFetchController {
     }
 
     struct TunesCategory: Equatable {
-        static func ==(lhs: TunesFetchController.TunesCategory, rhs: TunesFetchController.TunesCategory) -> Bool {
+        static func ==(lhs: TunesCategory, rhs: TunesCategory) -> Bool {
             return lhs.id == rhs.id
         }
 
@@ -67,13 +68,28 @@ public final class TunesFetchController {
         var json: JSON { return ["name": name, "id": id, "sub_categories": sub.map { $0.json } ]}
     }
 
-    public static func fetch() throws -> [String: Any] {
+    public static func fetch(workDir: String) throws -> [String: Any] {
+        // TODO: Having trouble using this commented-out, file-read JSON for Vapor's response.
+        // In the meantime returning in-memory cached JSON
+        if let cachedJSON = cachedJSON {
+            return cachedJSON
+        }
+        let fileURL = URL(fileURLWithPath: workDir + "/file.json", isDirectory: false)
+//        do {
+//            let jsonString = try String(contentsOf: fileURL, encoding: .utf8)
+//            if let jsonData = jsonString.data(using: .utf8), let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? JSON {
+//                return json
+//            }
+//        } catch {
+//
+//        }
+
         let categories = try fetchCategories()
         let allCategories: [TunesCategory] = categories.reduce([]) { $0 + [$1] + $1.sub }
         var allPodcastsByURL: [PodcastURL: TunesPodcast] = [:]
         for category in allCategories {
             do {
-                sleep(1)
+                sleep(1) // otherwise Apple seems to fail some requests
                 let podcasts = try fetchPodcasts(for: category)
                 print("Fetched \(podcasts.count) podcasts for category \(allCategories.index(of: category)!) of \(allCategories.count)")
 
@@ -99,13 +115,20 @@ public final class TunesFetchController {
             return ["podcast_indices": podcastIndices]
         }
 
-        let json: [JSON] = allCategories.reduce([]) { (res, cat) in
+        let categoriesJSON: [JSON] = allCategories.reduce([]) { (res, cat) in
             var podIndices = catPodIndices(cat: cat)
             podIndices.merge(cat.json,
                            uniquingKeysWith: { (a, b) in a })
             return res + [podIndices]
         }
-        return ["categories": json, "podcasts": allPodcasts.map { $0.json }]
+        let json = ["categories": categoriesJSON, "podcasts": allPodcasts.map { $0.json }]
+        self.cachedJSON = json
+
+        print("Working dir: \(workDir), saving at: \(fileURL)")
+        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+        try jsonData.write(to: fileURL)
+
+        return json
     }
 
     private static func fetchPodcasts(for category: TunesCategory) throws -> [TunesPodcast] {
