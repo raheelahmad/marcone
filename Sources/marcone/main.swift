@@ -16,14 +16,15 @@ drop?.get("/directory") { req in
     }
     let json = try DirectoryFetchController.fetch(workDir: workDir)
     var resp = JSON()
-    try resp.set("result", json)
+    try resp.set("podcasts", json.podcasts)
+    try resp.set("categories", json.categories)
     return resp
 }
 
 drop?.get("/podcasts") { req in
     if let podcastJSON = try req.query?["url"]
         .flatMap({ $0.string })
-        .flatMap({ try PodcastsController.podcastJSON(onlyFromURL: $0) })
+        .flatMap({ try PodcastsController.podcastJSON(fromURL: $0) })
     {
         var resp = JSON()
         try resp.set("podcast", podcastJSON)
@@ -47,33 +48,6 @@ drop?.get("/feed") { req in
         try resp.set("feed", [])
     }
     return resp
-}
-
-drop?.post("/feed") { req in
-    do {
-        guard let podcastURL = req.json?["podcast_url"]?.string else {
-            throw Abort(.badRequest, reason: "Bad Podcast URL")
-        }
-
-        // Reply with an id if podcast is in DB
-        // We don't update (episodes etc.) in this case, since a background job
-        // must be doing that.
-        if let podcastId = try PodcastsController.dbPodcastId(fromURL: podcastURL) {
-            print("Found existing podcast for \(podcastURL)")
-            var resp = JSON()
-            try resp.set("podcast_id", podcastId)
-            return resp
-        }
-
-        // Reply
-        let podcastId = try PodcastsController.podcastJSON(fromURL: podcastURL)
-        var resp = JSON()
-        try resp.set("podcast_id", podcastId)
-        print("Fetched and inserted podcast for \(podcastURL)")
-        return resp
-    } catch let error {
-        throw error
-    }
 }
 
 _ = try? drop?.run()

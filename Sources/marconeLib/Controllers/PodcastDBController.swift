@@ -56,7 +56,7 @@ final class PodcastDBController {
     }
 
     @discardableResult
-    static func addOrUpdate(podcast: Podcast) throws -> Int {
+    static func addOrUpdate(podcast: Podcast) throws -> [String: Any]? {
         do {
             let database = try db()
             let podcastValues = podcast.dbDict
@@ -75,7 +75,7 @@ final class PodcastDBController {
                 try insertWith(request: episodeInsert)
             }
 
-            return podcastId
+            return try dbPodcast(forId: podcastId)?.jsonWithEpisodes()
         } catch let error {
             throw error
         }

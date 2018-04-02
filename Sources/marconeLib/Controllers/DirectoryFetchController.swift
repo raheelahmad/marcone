@@ -38,7 +38,7 @@ public final class DirectoryFetchController {
         return Array(podcastsByURL.values)
     }
 
-    private static var cachedJSON: JSON?
+    private static var cachedJSON: (podcasts: [JSON], categories: [JSON])?
 
     struct TunesPodcast: Equatable {
         static func ==(lhs: TunesPodcast, rhs: TunesPodcast) -> Bool {
@@ -68,7 +68,7 @@ public final class DirectoryFetchController {
         var json: JSON { return ["name": name, "id": id, "sub_categories": sub.map { $0.json } ]}
     }
 
-    public static func fetch(workDir: String) throws -> [String: Any] {
+    public static func fetch(workDir: String) throws -> (categories: [[String: Any]], podcasts: [[String: Any]]) {
         // TODO: Having trouble using this commented-out, file-read JSON for Vapor's response.
         // In the meantime returning in-memory cached JSON
         if let cachedJSON = cachedJSON {
@@ -121,13 +121,13 @@ public final class DirectoryFetchController {
                            uniquingKeysWith: { (a, b) in a })
             return res + [podIndices]
         }
-        let json = ["categories": categoriesJSON, "podcasts": allPodcasts.map { $0.json }]
+        let json = (categories: categoriesJSON, podcasts: allPodcasts.map { $0.json })
         self.cachedJSON = json
 
-        print("Working dir: \(workDir), saving at: \(fileURL)")
-        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
-        try jsonData.write(to: fileURL)
-
+//        print("Working dir: \(workDir), saving at: \(fileURL)")
+//        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+//        try jsonData.write(to: fileURL)
+//
         return json
     }
 

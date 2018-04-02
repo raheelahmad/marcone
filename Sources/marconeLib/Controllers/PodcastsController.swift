@@ -12,10 +12,6 @@ public final class PodcastsController {
         return try PodcastDBController.allURLs()
     }
 
-    public static func podcastJSON(onlyFromURL url: String) throws -> [String: Any]? {
-        return try PodcastFetchController.podcast(fromURL: url).jsonWithEpisodes()
-    }
-
     public static func podcastsJSON(forIds podcastIds: [Int]) throws -> [[String: Any]] {
         return try podcastIds.compactMap { try PodcastDBController.dbPodcast(forId: $0) }.map { $0.jsonWithEpisodes() }
     }
@@ -29,18 +25,20 @@ public final class PodcastsController {
         return try PodcastDBController.dbPodcastId(forURL: url)
     }
 
-    public static func podcastJSON(fromURL podcastURLString: String) throws -> Int {
-        let podcastId = try _addOrUpdate(fromURL: podcastURLString)
-        return podcastId
+    public static func podcastJSON(fromURL podcastURLString: String) throws -> [String: Any]? {
+        if let podcast = try PodcastDBController.dbPodcast(forURL: podcastURLString) {
+            return podcast.jsonWithEpisodes()
+        } else {
+            return try _addOrUpdate(fromURL: podcastURLString)
+        }
     }
 
     @discardableResult
-    static func _addOrUpdate(fromURL podcastURLString: String) throws -> Int {
+    static func _addOrUpdate(fromURL podcastURLString: String) throws -> [String: Any]? {
         // Fetch feed
         let podcast = try PodcastFetchController.podcast(fromURL: podcastURLString)
         // Insert
-        let insertedPodcastId = try PodcastDBController.addOrUpdate(podcast: podcast)
-        return insertedPodcastId
+        return try PodcastDBController.addOrUpdate(podcast: podcast)
     }
 
     public static func addOrUpdate(fromURL podcastURLString: String) throws {
