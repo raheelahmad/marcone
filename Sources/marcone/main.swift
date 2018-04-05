@@ -21,6 +21,16 @@ drop?.get("/directory") { req in
     return resp
 }
 
+drop?.get("/search") { req in
+    guard let query = req.query?["term"]?.string else {
+        throw Abort(.badRequest, metadata: "No Term provided")
+    }
+    let json = try SearchController.search(query: query)
+    var resp = JSON()
+    try resp.set("result", json)
+    return resp
+}
+
 drop?.get("/podcasts") { req in
     if let podcastJSON = try req.query?["url"]
         .flatMap({ $0.string })

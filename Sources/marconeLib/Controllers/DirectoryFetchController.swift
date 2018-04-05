@@ -21,8 +21,6 @@ enum TunesFetchError: Error {
     case badGenreURL
 }
 
-private let genresURLString = "http://itunes.apple.com/WebObjects/MZStoreServices.woa/ws/genres"
-
 /*
  1. Fetches all categories (aka genres) on iTunes
  2. For each category fetches the podcasts
@@ -30,7 +28,6 @@ private let genresURLString = "http://itunes.apple.com/WebObjects/MZStoreService
  */
 public final class DirectoryFetchController {
     typealias CategoryID = String
-    typealias PodcastURL = String
     private static var podcastsByURL: [PodcastURL: TunesPodcast] = [:]
     private static var categoryPodcasts: [CategoryID: [PodcastURL]] = [:]
     private static var categories: [TunesCategory] = []
@@ -39,22 +36,6 @@ public final class DirectoryFetchController {
     }
 
     private static var cachedJSON: (podcasts: [JSON], categories: [JSON])?
-
-    struct TunesPodcast: Equatable {
-        static func ==(lhs: TunesPodcast, rhs: TunesPodcast) -> Bool {
-            return lhs.feedURL == rhs.feedURL
-        }
-
-        let title: String
-        let feedURL: PodcastURL
-        let imageURL: String?
-
-        var json: JSON {
-            var dict = ["title": title, "feed_url": feedURL]
-            dict["image_url"] = imageURL
-            return dict
-        }
-    }
 
     struct TunesCategory: Equatable {
         static func ==(lhs: TunesCategory, rhs: TunesCategory) -> Bool {
@@ -90,7 +71,9 @@ public final class DirectoryFetchController {
         for category in allCategories {
             do {
                 sleep(1) // otherwise Apple seems to fail some requests
-                let podcasts = try fetchPodcasts(for: category)
+                let id = category.id
+                let searchURL = URL(string: "https://itunes.apple.com/search?term=podcast&genreId=\(id)&limit=5")!
+                let podcasts = try SearchController.tunesPodcasts(from: searchURL)
                 print("Fetched \(podcasts.count) podcasts for category \(allCategories.index(of: category)!) of \(allCategories.count)")
 
                 let podcastsByURL: [PodcastURL: TunesPodcast] = podcasts.reduce([PodcastURL:TunesPodcast]()) {
@@ -131,23 +114,8 @@ public final class DirectoryFetchController {
         return json
     }
 
-    private static func fetchPodcasts(for category: TunesCategory) throws -> [TunesPodcast] {
-        let id = category.id
-        let categoryURL = URL(string: "http://itunes.apple.com/search?term=podcast&genreId=\(id)&limit=5")!
-        let categoriesData = try Data(contentsOf: categoryURL)
-        let json = try JSONSerialization.jsonObject(with: categoriesData, options: []) as? [String: Any]
-        let podcasts: [TunesPodcast] = json!.nestedArray(key: "results").flatMap {
-            if let title = $0["trackName"] as? String, let feedURL = $0["feedUrl"] as? String {
-                let imageURL = ($0["artworkUrl600"] ?? $0["artworkUrl100"] ?? $0["artworkUrl60"] ?? $0["artworkUrl30"]) as? String
-                return TunesPodcast(title: title, feedURL: feedURL, imageURL: imageURL)
-            } else {
-                return nil
-            }
-        }
-        return podcasts
-    }
-
     private static func fetchCategories() throws -> [TunesCategory] {
+        let genresURLString = "http://itunes.apple.com/WebObjects/MZStoreServices.woa/ws/genres"
         let contentData = try Data(contentsOf: URL(string: genresURLString)!)
 
         let json = try JSONSerialization.jsonObject(with: contentData, options: []) as! [String: Any]
@@ -157,7 +125,7 @@ public final class DirectoryFetchController {
     }
 
     private static func categoriesFrom(json categoriesJSON: [String: Any]) -> [TunesCategory] {
-        let result: [TunesCategory] = categoriesJSON.flatMap {
+        let result: [TunesCategory] = categoriesJSON.compactMap {
             if let name = ($0.value as? [String: Any])?["name"] as? String {
                 if let subJSON = ($0.value as? [String: Any])?["subgenres"] as? [String: Any] {
                     let sub = categoriesFrom(json: subJSON)
