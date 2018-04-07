@@ -27,7 +27,7 @@ final class PodcastDBController {
         guard let podcastNode = node, let podcastId: Int = try podcastNode.get("id") else {
             return nil
         }
-        let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1", [podcastId]).array ?? []
+        let episodeNodes = try database.execute("SELECT * FROM episodes WHERE podcast_id = $1 ORDER BY pub_date DESC", [podcastId]).array ?? []
         return Podcast(node: podcastNode, episodeNodes: episodeNodes)
     }
 

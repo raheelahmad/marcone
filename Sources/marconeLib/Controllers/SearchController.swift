@@ -26,7 +26,6 @@ struct TunesPodcast: Equatable {
     }
 }
 
-
 public final class SearchController {
     private static var results: [String: [[String: Any]]] = [:]
     public static func search(query: String) throws -> [[String: Any]] {
