@@ -11,7 +11,7 @@ import PostgreSQL
 
 extension String {
     var asDurationInt: Int? {
-        let comps = components(separatedBy: ":").trimmed([" "])
+        let comps = components(separatedBy: ":")
         var nums = comps.flatMap { Int($0) }
         let allNums = comps.count == nums.count
         guard allNums, nums.count > 0 else { return nil }

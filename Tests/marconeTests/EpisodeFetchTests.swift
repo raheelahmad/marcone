@@ -11,12 +11,6 @@ import XCTest
 
 @testable import marconeLib
 
-extension String {
-    var trimmed: String {
-        return trimmingCharacters(in: CharacterSet(charactersIn: " "))
-    }
-}
-
 final class EpisodeFetchTests: XCTestCase {
     private var parsedPodcast: Podcast?
     private var firstEpisode: Episode?

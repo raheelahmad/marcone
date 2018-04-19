@@ -6,21 +6,11 @@
 //
 
 import Foundation
+import Vapor
 import PostgreSQL
 
 enum DatabaseError: Error {
     case podcastInsertion
-}
-
-func db() throws -> PostgreSQL.Connection {
-    let dbName = "marcone"
-    #if os(Linux)
-        let db = try PostgreSQL.Database(hostname: "db", database: dbName, user: "postgres", password: "")
-    #else
-        let db = try PostgreSQL.Database(hostname: "localhost", database: dbName, user: "postgres", password: "")
-    #endif
-    let postgres = try db.makeConnection()
-    return postgres
 }
 
 struct InsertRequest {
@@ -48,10 +38,10 @@ struct InsertRequest {
 }
 
 @discardableResult
-func insertWith(request: InsertRequest) throws -> [String: Node] {
-    let returns = request.returning.count > 0
-    let prequel = "INSERT INTO \(request.table)"
-    let existingValues: [(String, String)] = request.valueDict.flatMap {
+func insertWith(request: Request, insertRequest: InsertRequest) throws -> [String: Node] {
+    let returns = insertRequest.returning.count > 0
+    let prequel = "INSERT INTO \(insertRequest.table)"
+    let existingValues: [(String, String)] = insertRequest.valueDict.flatMap {
         let _value = $0.value
         let value: String
         if let string = _value as? String {
@@ -69,10 +59,10 @@ func insertWith(request: InsertRequest) throws -> [String: Node] {
     let columns = existingValues.map { $0.0 }.joined(separator: ", ")
     let values = existingValues.map { $0.1 }.joined(separator: ", ")
 
-    let returning = returns ? "RETURNING " + request.returning.joined(separator: ", ") : ""
+    let returning = returns ? "RETURNING " + insertRequest.returning.joined(separator: ", ") : ""
 
     var onConflictString: String {
-        switch request.onConflict {
+        switch insertRequest.onConflict {
         case .none: return ""
         case .doNothing: return "ON CONFLICT DO NOTHING"
         case let .update(conflicting, updating):
@@ -87,10 +77,15 @@ func insertWith(request: InsertRequest) throws -> [String: Node] {
             }
         }
     }
+
     let statement = [prequel, "(\(columns))", "VALUES", "(\(values))", onConflictString, returning].joined(separator: " ")
+    let res: Future<String> = request.withConnection(to: .psql) { connection in
+        return "MEOW"
+    }
+
 //    print("INSERTING: \(statement)")
-    let m = try request.db.execute(statement)
-    return m.array?.first?.object ?? [:]
+//    let m = try insertRequest.db.execute(statement)
+//    return m.array?.first?.object ?? [:]
 }
 
 

@@ -5,14 +5,14 @@ import PackageDescription
 let package = Package(
     name: "marcone",
     dependencies: [
-        .package(url: "https://github.com/vapor-community/postgresql.git", Package.Dependency.Requirement.exact(Version(2, 1, 1))),
-        .package(url: "https://github.com/vapor/vapor", from: "2.4.4"),
-        .package(url: "https://github.com/drmohundro/SWXMLHash.git", from: "4.0.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-rc.2"),
+        .package(url: "https://github.com/vapor/postgresql", from: "1.0.0-rc.2.0.2"),
+        .package(url: "https://github.com/drmohundro/SWXMLHash.git", from: "4.6.0"),
     ],
     targets: [
         .target(
             name: "marconeLib",
-            dependencies: ["Vapor", "SWXMLHash", "PostgreSQL"]),
+            dependencies: ["Vapor",  "PostgreSQL", "SWXMLHash",]),
         Target.target(name: "marcone", dependencies: ["marconeLib"]),
         Target.testTarget(name: "marconeTests",
                           dependencies: ["marconeLib", "SWXMLHash", "PostgreSQL"])
