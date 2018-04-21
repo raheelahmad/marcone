@@ -1,4 +1,4 @@
-FROM swift:4.0.3
+FROM swift:4.1
 
 RUN apt-get -qq update && apt-get -q -y install \ 
   postgresql postgresql-client postgresql-contrib libpq-dev cron
