@@ -43,11 +43,12 @@ final class FeedRefreshCommand: Command, ConfigInitializable {
             let urls = try PodcastsController.allURLs()
             
             let missingURLs = Set(urls).union(seedURLs)
+            let client = drop!.client
             
             for url in missingURLs {
                 drop?.log.info("Will fetch from \(url)")
                 // TODO: this needs to fetch for all podcasts in DB, not just the ones listed above.
-                try PodcastsController.addOrUpdate(fromURL: url)
+                try PodcastsController.addOrUpdate(fromURL: url, client: client)
             }
             self.log.info("Done refreshing")
         } catch let error {

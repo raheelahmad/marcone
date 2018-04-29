@@ -7,6 +7,7 @@
 
 import Foundation
 import SWXMLHash
+import Debugging
 
 typealias DBDict = [String: Any]
 typealias JSON = [String: Any]
@@ -14,8 +15,21 @@ typealias JSON = [String: Any]
 
 // MARK: Fetching & Parsing
 
-enum ParsingError: Error {
-    case podcast
+enum ParsingError: Error, Debuggable {
+    var reason: String {
+        switch self { case .podcast(let reason, causes: _): return reason }
+    }
+    var identifier: String {
+        return "failed parsing"
+    }
+    var possibleCauses: [String] {
+        switch self { case .podcast(reason: _, let causes): return causes }
+    }
+    var suggestedFixes: [String] {
+        return []
+    }
+
+    case podcast(reason: String, causes: [String])
 }
 
 // MARK: Parsing helper funcs

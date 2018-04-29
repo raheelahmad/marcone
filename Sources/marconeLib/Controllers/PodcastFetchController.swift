@@ -7,21 +7,24 @@
 
 import Foundation
 import SWXMLHash
+import Vapor
 
 final class PodcastFetchController {
-    private static var unpersistedPodcasts: [URL: Podcast] = [:]
+    private static var unpersistedPodcasts: [String: Podcast] = [:]
 
-    static func podcast(fromURL podcastURLString: String) throws -> Podcast {
-        guard let podcastURL = URL(string: podcastURLString) else {
-            throw ParsingError.podcast
-        }
-        if let pod = unpersistedPodcasts[podcastURL] {
+    static func podcast(fromURL podcastURLString: String, client: ClientFactoryProtocol) throws -> Podcast {
+        if let pod = unpersistedPodcasts[podcastURLString] {
             return pod
         }
 
-        let contents = try String(contentsOf: podcastURL, encoding: .utf8)
+        let response = try client.get(podcastURLString)
+
+        guard let contents = response.body.bytes?.makeString() else {
+            throw ParsingError.podcast(reason: "could not fetch proper XML from \(podcastURLString)", causes: [])
+        }
+        print("Trying to make a Podcast now")
         let pod = try podcast(fromString: contents, podcastURLString: podcastURLString)
-        unpersistedPodcasts[podcastURL] = pod
+        unpersistedPodcasts[podcastURLString] = pod
         return pod
     }
 
@@ -30,10 +33,12 @@ final class PodcastFetchController {
             $0.shouldProcessNamespaces = true
             }.parse(podcastString)
 
-        guard
-            let podcastXML = xml.children.first?.children.first,
-            let podcast = Podcast(xml: podcastXML, feedFetchURL: podcastURLString) else {
-            throw ParsingError.podcast
+        guard let podcastXML = xml.children.first?.children.first else {
+            throw ParsingError.podcast(reason: "Could not find correct XML in \n \(xml.description)", causes: ["Bad XML"])
+        }
+        print("Ready to parse XML from the child")
+        guard let podcast = Podcast(xml: podcastXML, feedFetchURL: podcastURLString) else {
+            throw ParsingError.podcast(reason: "Could not construct Podcast struct from URL \(podcastURLString), and XML: \(podcastXML)", causes: ["Bad XML"])
         }
         return podcast
     }

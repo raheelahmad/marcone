@@ -8,6 +8,7 @@ try config.set("server.port", "9000")
 try config.set("server.securityLayer", "none")
 config.addConfigurable(command: FeedRefreshCommand.init, name: "refresh-feed")
 config.addConfigurable(command: DirectoryRefreshCommand.init, name: "refresh-directory")
+config.addConfigurable(client: FoundationClient.self, name: "client")
 let drop = try? Droplet(config)
 
 drop?.get("/directory") { req in
@@ -32,9 +33,11 @@ drop?.get("/search") { req in
 }
 
 drop?.get("/podcasts") { req in
-    if let podcastJSON = try req.query?["url"]
+//    drop?.client.make
+    if let client = drop?.client,
+        let podcastJSON = try req.query?["url"]
         .flatMap({ $0.string })
-        .flatMap({ try PodcastsController.podcastJSON(fromURL: $0) })
+        .flatMap({ try PodcastsController.podcastJSON(fromURL: $0, client: client) })
     {
         var resp = JSON()
         try resp.set("podcast", podcastJSON)

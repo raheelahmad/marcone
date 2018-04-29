@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Vapor
 
 public final class PodcastsController {
     public static func allURLs() throws -> [String] {
@@ -25,23 +26,23 @@ public final class PodcastsController {
         return try PodcastDBController.dbPodcastId(forURL: url)
     }
 
-    public static func podcastJSON(fromURL podcastURLString: String) throws -> [String: Any]? {
+    public static func podcastJSON(fromURL podcastURLString: String, client: ClientFactoryProtocol) throws -> [String: Any]? {
         if let podcast = try PodcastDBController.dbPodcast(forURL: podcastURLString) {
             return podcast.jsonWithEpisodes()
         } else {
-            return try _addOrUpdate(fromURL: podcastURLString)
+            return try _addOrUpdate(fromURL: podcastURLString, client: client)
         }
     }
 
     @discardableResult
-    static func _addOrUpdate(fromURL podcastURLString: String) throws -> [String: Any]? {
+    static func _addOrUpdate(fromURL podcastURLString: String, client: ClientFactoryProtocol) throws -> [String: Any]? {
         // Fetch feed
-        let podcast = try PodcastFetchController.podcast(fromURL: podcastURLString)
+        let podcast = try PodcastFetchController.podcast(fromURL: podcastURLString, client: client)
         // Insert
         return try PodcastDBController.addOrUpdate(podcast: podcast)
     }
 
-    public static func addOrUpdate(fromURL podcastURLString: String) throws {
-        try _addOrUpdate(fromURL: podcastURLString)
+    public static func addOrUpdate(fromURL podcastURLString: String, client: ClientFactoryProtocol) throws {
+        try _addOrUpdate(fromURL: podcastURLString, client: client)
     }
 }

@@ -134,11 +134,15 @@ extension Podcast {
 extension Podcast {
     /// Used only in the interim for building a parsed model to be then inserted into DB.
     init?(xml: XMLIndexer, feedFetchURL: String) {
+        print("Will parse XML in Podcast()")
         let xmlChildren = xml.children
         let _title: String? = value("title", in: xmlChildren)
         let _urlAtom: String? = attr("link", attr: "href", in: xmlChildren)
         let _urlNewFeed: String? = value("new-feed-url", in: xmlChildren)
-        guard let title = _title else { return nil }
+        guard let title = _title else {
+            print("No title in xml: \(xml.description)")
+            return nil
+        }
         let url = feedFetchURL
         var allURLs = [_urlAtom , _urlNewFeed].flatMap { $0 }
         if !allURLs.contains(feedFetchURL) {
