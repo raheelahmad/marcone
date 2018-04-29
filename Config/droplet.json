@@ -1,4 +1,0 @@
-{
-    "commands": ["refresh-feed", "refresh-directory"],
-    "client": "foundation"
-}

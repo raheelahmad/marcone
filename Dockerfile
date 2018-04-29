@@ -5,10 +5,10 @@ RUN apt-get -qq update && apt-get -q -y install \
 WORKDIR /app
 
 COPY Package.swift ./
+COPY Package.resolved ./
 RUN swift package fetch
 
 COPY Sources ./Sources
 COPY Tests ./Tests
 
-RUN swift build
-CMD ./.build/debug/marcone
+CMD swift run

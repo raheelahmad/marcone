@@ -3,11 +3,21 @@ services:
   web:
     build: .
     ports:
-      - "9000:9000"
+      - "8121:8121"
     depends_on:
       - db
     networks:
       db_nw:
+  test:
+    build: .
+    command: ["swift", "test"]
+    ports:
+      - "8121:8121"
+    depends_on:
+      - db
+    networks:
+      db_nw:
+
   db:
     build: database
     image: postgres
@@ -15,14 +25,7 @@ services:
       - "5432:5432"
     networks:
       db_nw:
-  refresh:
-    build:
-      context: .
-      dockerfile: Dockerfile-refresh
-    depends_on:
-      - db
-    networks:
-      db_nw:
 
 networks:
   db_nw:
+
