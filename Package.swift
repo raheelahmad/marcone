@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift4.1docker",
+    name: "marcone",
     dependencies: [
 	.package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-rc.2.8.1"),
     .package(url: "https://github.com/vapor/postgresql", from: "1.0.0-rc.2.1"),

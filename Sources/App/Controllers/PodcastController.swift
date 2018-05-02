@@ -31,7 +31,10 @@ final class PodcastController {
                 .map { try PodcastDBController.podcast(forId: $0, connection: connection) }
                 .flatten(on: request)
                 .map { FeedResponse(podcasts: $0) }
-        }
+                .always {
+                    connection.close()
+                }
+            }
     }
 
     static func fetchPodcast(request: Request) throws -> Future<PodcastResponse> {
@@ -58,7 +61,10 @@ final class PodcastController {
                         }
                     }
                     return inserted
-            }
+                }
+                .always {
+                    connection.close()
+                }
             }
             .map { PodcastResponse.podcast($0) }
     }
