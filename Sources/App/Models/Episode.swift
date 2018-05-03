@@ -135,7 +135,7 @@ extension Episode {
         let _title: String? = value("title", in: xmlChildren)
         guard let title = _title else { return nil }
         self.title = title
-        self.episodeDescription = value("description", in: xmlChildren)
+        self.episodeDescription = value("description", in: xmlChildren) ?? value("summary", in: xmlChildren)
         self.publicationDate = value("pubDate", in: xmlChildren).flatMap { episodeDateFormatter.date(from: $0) }
         self.link = value("link", in: xmlChildren)
         self.guid = value("guid", in: xmlChildren)
