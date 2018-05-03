@@ -19,9 +19,9 @@ final class PodcastFetchController {
         }
         let promise = loop.newPromise(Podcast.self)
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data, let strResponse = String(data: data, encoding: .utf8) {
+            if let data = data {
                 do {
-                    let podcast = try parse(podcastStr: strResponse, feedURLStr: feedURLStr)
+                    let podcast = try parse(podcastData: data, feedURLStr: feedURLStr)
                     promise.succeed(result: podcast)
                 } catch {
                     promise.fail(error: error)
@@ -33,10 +33,10 @@ final class PodcastFetchController {
         return promise.futureResult
     }
 
-    static func parse(podcastStr: String, feedURLStr: String) throws -> Podcast {
+    static func parse(podcastData: Data, feedURLStr: String) throws -> Podcast {
         let xml = SWXMLHash.config {
             $0.shouldProcessNamespaces = true
-            }.parse(podcastStr)
+            }.parse(podcastData)
 
         guard
             let podcastXML = xml.children.first?.children.first,
