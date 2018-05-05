@@ -35,8 +35,11 @@ public func configure(
     databases.add(database: PostgreSQLDatabase.self, as: .psql)
     services.register(databases)
 
+    services.register(RequestLogger())
+
     var middleware = MiddlewareConfig()
     middleware.use(DateMiddleware.self)
     middleware.use(ErrorMiddleware.self)
+    middleware.use(RequestLogger.self)
     services.register(middleware)
 }
